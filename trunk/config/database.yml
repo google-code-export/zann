@@ -14,8 +14,8 @@
 development:
   adapter: mysql
   database: zann_development
-  username: root
-  password:
+  username: zann
+  password: Iloveemc1314
   host: localhost
 
 # Warning: The database defined as 'test' will be erased and
@@ -24,13 +24,13 @@ development:
 test:
   adapter: mysql
   database: zann_test
-  username: root
-  password:
+  username: zann
+  password: Iloveemc1314
   host: localhost
 
 production:
   adapter: mysql
   database: zann_production
-  username: root
-  password: 
+  username: zann
+  password: Iloveemc1314
   host: localhost
