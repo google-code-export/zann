@@ -1,3 +1,4 @@
+require 'action_mailer'
 # Settings specified here will take precedence over those in config/environment.rb
 
 # In the development environment your application's code is reloaded on
@@ -19,3 +20,14 @@ config.action_view.debug_rjs                         = true
 
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.perform_deliveries = :true
+ActionMailer::Base.default_charset = "utf-8"
+ActionMailer::Base.server_settings = {
+  :address => "smtp.163.com",
+  :port => "25",
+  :domain => "163.com",
+  :authentication => :plain,
+  :user_name => "zann.emc",
+  :password => "d0cum3ntum"
+}
