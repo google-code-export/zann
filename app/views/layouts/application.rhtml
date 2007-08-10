@@ -1,0 +1,40 @@
+<html>
+    <head>
+	<title><%= controller.action_name %></title>
+	<%= javascript_include_tag "prototype" %>
+	<%= stylesheet_link_tag "default", :media => "all" %>
+	<%= stylesheet_link_tag "misc", :media => "all" %>
+    </head>
+    <body>
+	<div id="header">
+	    <p>
+		<h1><a href="http://localhost:3000/">zann</a>(beta)</h1>	
+	    </p>
+	</div>
+	<ul class="navigation">
+	    <li><%= link_to "about", "about.html"  %></li>
+	    <li><a href="http://www.emc.com">EMC</a></li>
+	</ul>
+	<% if flash[:notice] -%>
+    <div class="notice" id="notice"><%= flash[:notice] %>
+    </div>
+    <% end -%>
+    <% if flash[:warning] -%>
+        <div class="warning"><%= flash[:warning] %>
+        </div>
+    <% end -%>
+	<%= @content_for_layout %>
+	<div id="footer">
+	    <p>
+		Presented by <a href="http://www.niyue.com">niyue</a>. 
+		Template designed by <a href="http://mentalized.net">mentalized.net</a>
+	    </p>
+	    <p>
+		<a rel="license" href="http://creativecommons.org/licenses/by/2.5/">
+		<!-- <img alt="Creative Commons License" src="http://creativecommons.org/images/public/somerights20.png" border="0"/> -->
+		</a>
+		This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 License</a>.
+	    </p>
+	</div>
+    </body>
+</html>
