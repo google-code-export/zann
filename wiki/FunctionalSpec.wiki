@@ -1,0 +1,8 @@
+#labels Phase-Requirements
+= Overview =
+This tool is designed to be a general voting application. User can use it to vote for various things, such as photo, people.
+
+= Photo Mgmt =
+Photo upload
+Album mgmt
+Comment
