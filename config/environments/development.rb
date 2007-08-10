@@ -24,10 +24,7 @@ ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.perform_deliveries = :true
 ActionMailer::Base.default_charset = "utf-8"
 ActionMailer::Base.smtp_settings = {
-  :address => "smtp.163.com",
+  :address => "localhost",
   :port => "25",
-  :domain => "163.com",
-  :authentication => :plain,
-  :user_name => "zann.emc",
-  :password => "d0cum3ntum"
+  :domain => "emccrdc.com"
 }

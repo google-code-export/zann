@@ -28,7 +28,7 @@ class AccountController < ApplicationController
     #disable auto-login on registration to enable activation
     #self.current_user = @user
     # comment out redirect_back_to_failed and instead add render :action => 'welcome'
-    # Add a welcome.rhtml file to your views directory (don¡¯t need to add anything to the controller) and you¡¯re done.
+    # Add a welcome.rhtml file to your views directory (donï¿½ï¿½t need to add anything to the controller) and youï¿½ï¿½re done.
     # redirect_back_or_default(:controller => '/account', :action => 'index')
     render :action => 'welcome'
     flash[:notice] = "Thanks for signing up!"
@@ -45,14 +45,14 @@ class AccountController < ApplicationController
   end
   
   def activate
-    if params[:activation_code]
-      @user = User.find_by_activation_code(params[:activation_code]) if params[:activation_code]
+    if params[:id]
+      @user = User.find_by_activation_code(params[:id]) if params[:id]
       if @user and @user.activate
         self.current_user = @user
         redirect_back_or_default(:controller => '/account', :action => 'index')
         flash[:notice] = "Your account has been activated." 
       else
-        flash[:error] = "Unable to activate the account.  Did you provide the correct information or has your account already been activated?" 
+        flash[:warning] = "Unable to activate the account.  Did you provide the correct information or has your account already been activated?" 
       end
     else
       flash.clear
