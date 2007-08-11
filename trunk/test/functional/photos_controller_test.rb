@@ -5,14 +5,16 @@ require 'photos_controller'
 class PhotosController; def rescue_action(e) raise e end; end
 
 class PhotosControllerTest < Test::Unit::TestCase
-  fixtures :photos
+  fixtures :photos, :users
 
   def setup
     @controller = PhotosController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
 
-    @first_id = photos(:first).id
+    @shanghai_1_id = photos(:shanghai_1).id
+    @request.session[:user] = users(:samuel)
+    setup_fixture_files
   end
 
   def test_index
@@ -31,7 +33,7 @@ class PhotosControllerTest < Test::Unit::TestCase
   end
 
   def test_show
-    get :show, :id => @first_id
+    get :show, :id => @shanghai_1_id
 
     assert_response :success
     assert_template 'show'
@@ -52,7 +54,7 @@ class PhotosControllerTest < Test::Unit::TestCase
   def test_create
     num_photos = Photo.count
 
-    post :create, :photo => {}
+    post :create, :photo => {:name => 'new shanghai city', :description => 'better city, better life', :album_id => 1, :image => upload("#{RAILS_ROOT}/test/fixtures/file_column/test/shanghai_map.jpg")}
 
     assert_response :redirect
     assert_redirected_to :action => 'list'
@@ -61,7 +63,7 @@ class PhotosControllerTest < Test::Unit::TestCase
   end
 
   def test_edit
-    get :edit, :id => @first_id
+    get :edit, :id => @shanghai_1_id
 
     assert_response :success
     assert_template 'edit'
@@ -71,22 +73,26 @@ class PhotosControllerTest < Test::Unit::TestCase
   end
 
   def test_update
-    post :update, :id => @first_id
+    post :update, :id => @shanghai_1_id
     assert_response :redirect
-    assert_redirected_to :action => 'show', :id => @first_id
+    assert_redirected_to :action => 'show', :id => @shanghai_1_id
   end
 
   def test_destroy
     assert_nothing_raised {
-      Photo.find(@first_id)
+      Photo.find(@shanghai_1_id)
     }
 
-    post :destroy, :id => @first_id
+    post :destroy, :id => @shanghai_1_id
     assert_response :redirect
     assert_redirected_to :action => 'list'
 
     assert_raise(ActiveRecord::RecordNotFound) {
-      Photo.find(@first_id)
+      Photo.find(@shanghai_1_id)
     }
+  end
+  
+  def teardown
+    teardown_fixture_files
   end
 end

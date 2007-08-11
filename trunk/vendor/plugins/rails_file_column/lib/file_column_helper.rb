@@ -78,7 +78,7 @@ module FileColumnHelper
     url = ""
     url << request.relative_url_root.to_s if absolute
     # change base directory
-    url << "/files/"
+    url << "/"
     url << object.send("#{method}_options")[:base_url] << "/"
     url << relative_path
   end
