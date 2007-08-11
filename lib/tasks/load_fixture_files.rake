@@ -1,0 +1,8 @@
+task :load_fixture_files do
+  puts 'load fixture files'
+  tmp_path = File.join(RAILS_ROOT, "public")
+  file_fixtures = Dir.glob File.join(RAILS_ROOT, "test", "fixtures", "file_column", "photo", "*")
+  
+  FileUtils.mkdir_p tmp_path unless File.exists?(tmp_path)
+  FileUtils.cp_r file_fixtures, tmp_path
+end
