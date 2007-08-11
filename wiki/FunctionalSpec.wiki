@@ -9,4 +9,6 @@ Photo upload
 
 
 = Album mgmt =
+  # View Full Album Gallary
+  # View as Slideshow
 Comment
