@@ -17,6 +17,7 @@ development:
   username: zann
   password: Iloveemc1314
   host: localhost
+  encoding: utf8
 
 # Warning: The database defined as 'test' will be erased and
 # re-generated from your development database when you run 'rake'.
@@ -27,10 +28,12 @@ test:
   username: zann
   password: Iloveemc1314
   host: localhost
-
+  encoding: utf8
+  
 production:
   adapter: mysql
   database: zann_production
   username: zann
   password: Iloveemc1314
   host: localhost
+  encoding: utf8
