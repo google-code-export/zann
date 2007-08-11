@@ -1,0 +1,23 @@
+	<%= javascript_include_tag "mootools" %>
+	<%= javascript_include_tag "showcase_slideshow" %>
+<!--	<%= javascript_include_tag "timed.slideshow" %> -->
+	<%= stylesheet_link_tag "slideshow", :media => "screen" %>
+<script type="text/javascript">
+countArticle = 0;
+var mySlideData = new Array();
+<% for photo in @photos %>
+mySlideData[countArticle++] = new Array(
+	'../../..<%= url_for_file_column(photo, "image")%>',
+	'../../..<%= url_for_file_column(photo, "image")%>',
+	'<%= photo.name %>',
+	'<%= photo.album.name %>'
+);
+<% end %>
+</script>
+<script type="text/javascript">
+function startSlideshow() {
+	var slideshow = new showcaseSlideShow($('mySlideshow'), mySlideData);
+}
+addLoadEvent(startSlideshow);
+</script>
+<div class="jdSlideshow" id="mySlideshow"></div>

@@ -4,4 +4,6 @@
 class ApplicationController < ActionController::Base
   # Pick a unique cookie name to distinguish our session data from others'
   session :session_key => '_zann_session_id'
+  include AuthenticatedSystem
+  before_filter :login_from_cookie, :except => [ :login, :signup]
 end

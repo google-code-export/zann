@@ -1,0 +1,29 @@
+<h1>Listing albums</h1>
+
+<table>
+  <tr>
+    <th>Album Name</th>
+	<th>Description</th>
+	<th>Creator</th>
+  </tr>
+  
+<% for album in @albums %>
+  <tr>
+	<td><%= album.name %></td>
+	<td><%= album.description %></td>
+	<td><%= album.creator.login %></td>
+    <td><%= link_to 'Show', :action => 'show', :id => album %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => album %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => album }, :confirm => 'Are you sure?', :method => :post %></td>
+	<td><%= link_to 'View as slideshow', { :action => 'slideshow', :id => album } %></td>
+	<td><%= link_to 'View as gallery', { :action => 'gallery', :id => album } %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @album_pages.current.previous } if @album_pages.current.previous %>
+<%= link_to 'Next page', { :page => @album_pages.current.next } if @album_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New album', :action => 'new' %>
