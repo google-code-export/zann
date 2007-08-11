@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+shanghai_1:
+  id: 1
+  name: Shanghai1
+  description: 上海风景1
+  creator_id: 2
+  created_at: 2007-08-11 11:04:20
+  album_id: 1
+  image: shanghai_1.jpg
+shanghai_2:
+  id: 2
+  name: Shanghai2
+  description: 上海风景2
+  creator_id: 2
+  created_at: 2007-08-11 12:24:59
+  album_id: 1
+  image: shanghai_2.jpg
+cat_1:
+  id: 3
+  name: 小猫1
+  description: 小猫喵喵1
+  creator_id: 2
+  created_at: 2007-08-12 12:24:59
+  album_id: 2
+  image: cat_1.jpg
+cat_2:
+  id: 4
+  name: 小猫2
+  description: 小猫喵喵2
+  creator_id: 2
+  created_at: 2007-08-10 12:24:59
+  album_id: 2
+  image: cat_2.jpg

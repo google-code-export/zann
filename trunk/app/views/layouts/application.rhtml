@@ -2,17 +2,27 @@
     <head>
 	<title><%= controller.action_name %></title>
 	<%= javascript_include_tag "prototype" %>
+	<%= javascript_include_tag "jquery" %>
+
+
 	<%= stylesheet_link_tag "default", :media => "all" %>
 	<%= stylesheet_link_tag "misc", :media => "all" %>
     </head>
     <body>
 	<div id="header">
 	    <p>
-		<h1><a href="http://localhost:3000/">zann</a>(beta)</h1>	
+		<h1><a href="http://localhost:3000/">zann</a><sup>(beta)</sup></h1>	
 	    </p>
 	</div>
 	<ul class="navigation">
-	    <li><%= link_to "about", "about.html"  %></li>
+		<li><%= link_to "signup", :controller => "account", :action => "signup"%></li>
+		<% if(logged_in?)%>
+			<li><%= link_to "logout", :controller => "account", :action => "logout"%></li>
+		<% else %>
+			<li><%= link_to "login", :controller => "account", :action => "login"%></li>
+		<% end %>
+		<li><%= link_to "photos", :controller => "photos", :action => "list"%></li>
+		<li><%= link_to "albums", :controller => "albums", :action => "list"%></li>
 	    <li><a href="http://www.emc.com">EMC</a></li>
 	</ul>
 	<% if flash[:notice] -%>
@@ -26,7 +36,7 @@
 	<%= @content_for_layout %>
 	<div id="footer">
 	    <p>
-		Presented by <a href="http://www.niyue.com">niyue</a>. 
+		Presented by niyue. 
 		Template designed by <a href="http://mentalized.net">mentalized.net</a>
 	    </p>
 	    <p>

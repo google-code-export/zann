@@ -1,7 +1,7 @@
 body {
 background-color:	#FFFFFF;
-background-image:	url(gradient.jpg);
-background-repeat:  no-repeat;		    
+/*background-image:	url(gradient.jpg);
+background-repeat:  no-repeat;		    */
 color:				#666666;
 font-family:		    arial, sans;
 font-size:		    100%;
@@ -19,9 +19,11 @@ letter-spacing:	    -0.02em;
 }
 a:link {
 color:			    #669966;
+text-decoration:	    none;
 }
 a:visited {
 color:			    #336633;
+text-decoration:	    none;
 }
 a:hover {
 text-decoration:	    none;
@@ -85,3 +87,11 @@ ul.weighted li.level9 { font-size:	2.36em;	}
 ul.weighted li {
 line-height:		1em;		
 }	
+img {
+	border: 0px;
+}
+#mySlideShow
+{
+width: 600px !important;
+height: 400px !important;
+}
