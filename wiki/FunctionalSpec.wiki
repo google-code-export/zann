@@ -4,8 +4,8 @@ This tool is designed to be a general voting application. User can use it to vot
 
 = Photo Mgmt =
 Photo upload
-#Currently, image type is restricted to jpg, png and gif.
-#Currently, image file size is restricted to smaller than 50M.
+  # Currently, image type is restricted to jpg, png and gif.
+  # Currently, image file size is restricted to smaller than 50M.
 
 
 = Album mgmt =
