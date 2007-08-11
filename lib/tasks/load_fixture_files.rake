@@ -1,3 +1,4 @@
+desc "copy file fixtures from testing fixtures directory to public directory"
 task :load_fixture_files do
   puts 'load fixture files'
   tmp_path = File.join(RAILS_ROOT, "public")
