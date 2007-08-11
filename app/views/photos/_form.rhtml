@@ -8,7 +8,7 @@
 <%= text_field 'photo', 'description'  %></p>
 
 <p><label for="photo_album">Album</label><br/>
-<%= collection_select("photo", "album_id" , Album.find_all, "id", "name") %></p>
+<%= collection_select("photo", "album_id" , Album.find(:all), "id", "name") %></p>
 
 <p><label for="photo_image">Image</label><br/>
 <%= file_column_field "photo", "image" %></p>
