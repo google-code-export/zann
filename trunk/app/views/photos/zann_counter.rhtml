@@ -1,0 +1,3 @@
+	<div class="zann-count"><%= @photo.zann_count %></div>
+	<div><%= link_to_remote 'zann it', :update => "zann-counter-#{@photo.id}", :url => {:controller => 'zann', :action => 'new', :zannee_type => 'photo', :zannee_id => @photo.id}, :loading => "Element.show('loading-icon-#{@photo.id}');", :complete => "Element.hide('loading-icon-#{@photo.id}')" %></div>
+	<div><%= image_tag("loading.gif", :id => "loading-icon-#{@photo.id}", :style=>"display: none; border: 0;" ) %></div>

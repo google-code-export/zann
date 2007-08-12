@@ -1,20 +1,22 @@
-<html>
-    <head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 	<title><%= controller.action_name %></title>
-	<%= javascript_include_tag "prototype" %>
+	
 	<%= javascript_include_tag "jquery" %>
-
-
-	<%= stylesheet_link_tag "default", :media => "all" %>
+	<%= javascript_include_tag "prototype" %>
+	<%= javascript_include_tag "glossy" %>
 	<%= stylesheet_link_tag "misc", :media => "all" %>
-    </head>
-    <body>
-	<div id="header">
-	    <p>
-		<h1><a href="http://localhost:3000/">zann</a><sup>(beta)</sup></h1>	
-	    </p>
-	</div>
-	<ul class="navigation">
+	<%= stylesheet_link_tag "melmac", :media => "all" %>
+	<%= stylesheet_link_tag "photo", :media => "all" %>
+	<link rel="shortcut icon" href="favicon.png" >
+</head>
+
+<body>
+<div id="header">
+	<h1><a href="index.html"><span class="orange">.:</span> zan<span class="green">n</span><sup>BETA</sup></a></h1>
+	<ul id="nav">
 		<li><%= link_to "signup", :controller => "account", :action => "signup"%></li>
 		<% if(logged_in?)%>
 			<li><%= link_to "logout", :controller => "account", :action => "logout"%></li>
@@ -23,28 +25,42 @@
 		<% end %>
 		<li><%= link_to "photos", :controller => "photos", :action => "list"%></li>
 		<li><%= link_to "albums", :controller => "albums", :action => "list"%></li>
-	    <li><a href="http://www.emc.com">EMC</a></li>
 	</ul>
-	<% if flash[:notice] -%>
-    <div class="notice" id="notice"><%= flash[:notice] %>
-    </div>
-    <% end -%>
-    <% if flash[:warning] -%>
-        <div class="warning"><%= flash[:warning] %>
-        </div>
-    <% end -%>
-	<%= @content_for_layout %>
-	<div id="footer">
-	    <p>
-		Presented by niyue. 
-		Template designed by <a href="http://mentalized.net">mentalized.net</a>
-	    </p>
-	    <p>
-		<a rel="license" href="http://creativecommons.org/licenses/by/2.5/">
-		<!-- <img alt="Creative Commons License" src="http://creativecommons.org/images/public/somerights20.png" border="0"/> -->
-		</a>
-		This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.5/">Creative Commons Attribution 2.5 License</a>.
-	    </p>
+</div>
+
+<div id="container">
+	<div id="left">
+		<% if flash[:notice] -%>
+	    <div class="notice" id="notice"><%= flash[:notice] %>
+	    </div>
+	    <% end -%>
+	    <% if flash[:warning] -%>
+	        <div class="warning"><%= flash[:warning] %>
+	        </div>
+	    <% end -%>
+		<%= @content_for_layout %>
 	</div>
-    </body>
+	
+	<div id="right">
+		<h1>About This Site:</h1>
+		<p><%= image_tag("zann.png") %></p>
+		<div class="hr"></div>
+	
+		<h1>Links:</h1>
+		<ul class="links">
+			<li><a href="http://www.emc.com">EMC</a></li>
+			<li><a href="http://www.emccrdc.com">EMC CRDC</a></li>
+		</ul>
+		<div class="hr"></div>
+	
+		<h1>Article Header</h1>
+		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris vel dolor. Fusce dictum, odio et eleifend ultrices, odio odio faucibus odio, quis consequat tortor nisi vitae sapien. Etiam vulputate mi vel enim. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Aenean rutrum.</p> <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin venenatis egestas orci. Pellentesque vehicula consequat metus. Sed a lectus vel augue semper molestie. Vivamus sed est. Proin et ipsum.
+		</p>
+	</div>
+	
+	<div id="clear"></div>
+</div>
+<div id="copyright">&copy;2007 Your Name Here. &nbsp; <a href="http://free-css-templates.gorotron.com">CSS template</a> by <a href="http://free-css-templates.gorotron.com">gorotron</a>.</div>
+</body>
 </html>
+

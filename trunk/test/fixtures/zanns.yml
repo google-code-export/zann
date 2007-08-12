@@ -1,5 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-one:
+zann_photo_1:
   id: 1
-two:
+  zanned_at: 2007-08-11 11:11:11
+  zannee_type: photo
+  zannee_id: 1
+  zanner_id: 3
+zann_photo_2:
   id: 2
+  zanned_at: 2007-08-11 12:11:11
+  zannee_type: photo
+  zannee_id: 1
+  zanner_id: 1
