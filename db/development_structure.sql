@@ -39,7 +39,7 @@ CREATE TABLE `users` (
 
 CREATE TABLE `zanns` (
   `id` int(11) NOT NULL auto_increment,
-  `zanner` int(11) default NULL,
+  `zanner_id` int(11) default NULL,
   `zanned_at` datetime default NULL,
   `zannee_type` varchar(20) default NULL,
   `zannee_id` int(11) default NULL,

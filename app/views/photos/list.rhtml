@@ -22,6 +22,7 @@
     <td><%= link_to 'Show', :action => 'show', :id => photo %></td>
     <td><%= link_to 'Edit', :action => 'edit', :id => photo %></td>
     <td><%= link_to 'Destroy', { :action => 'destroy', :id => photo }, :confirm => 'Are you sure?', :method => :post %></td>
+	<td><%= link_to 'Zann', :controller => 'zann', :action => 'new', :zannee_type => 'photo', :zannee_id => photo.id %></td>
   </tr>
 <% end %>
 </table>
