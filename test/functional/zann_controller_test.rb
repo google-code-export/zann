@@ -5,7 +5,7 @@ require 'zann_controller'
 class ZannController; def rescue_action(e) raise e end; end
 
 class ZannControllerTest < Test::Unit::TestCase
-  fixtures :zanns, :users
+  fixtures :zanns, :users, :photos
   def setup
     @controller = ZannController.new
     @request    = ActionController::TestRequest.new
@@ -17,6 +17,6 @@ class ZannControllerTest < Test::Unit::TestCase
     amount = Zann.count
     post :new, {:zannee_type => 'photo', :zannee_id => 1}
     assert_equal amount + 1, Zann.count
-    assert_not_nil flash[:notice]
+    assert_template "photos/zann_counter"
   end
 end

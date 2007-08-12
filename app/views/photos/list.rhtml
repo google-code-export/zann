@@ -1,31 +1,9 @@
 <%= javascript_include_tag "thickbox" %>
-	<%= stylesheet_link_tag "thickbox", :media => "screen" %>
-	<%= image_tag "loadingAnimation.gif", {:style => 'display:none;'}%>
-<h1>Listing photos</h1>
+<%= stylesheet_link_tag "thickbox", :media => "screen" %>
+<%= image_tag "loadingAnimation.gif", {:style => 'display:none;'}%>
 
-<table>
-  <tr>
-    <th>Name</th>
-	<th>Description</th>
-	<th>Photo</th>
-	<th>Author</th>
-	<th>Album</th>
-  </tr>
-  
-<% for photo in @photos %>
-  <tr>
-  	<td><%= photo.name %></td>
- 	<td><%= photo.description %></td>
-	<td><%= link_to(image_tag(url_for_file_column(photo,'image'), :size => '64x64'), url_for_file_column(photo,'image'), {:class => 'thickbox', :title => photo.name }) %></td>
- 	<td><%= photo.creator.login %></td>
-	<td><%= photo.album.name %></td>
-    <td><%= link_to 'Show', :action => 'show', :id => photo %></td>
-    <td><%= link_to 'Edit', :action => 'edit', :id => photo %></td>
-    <td><%= link_to 'Destroy', { :action => 'destroy', :id => photo }, :confirm => 'Are you sure?', :method => :post %></td>
-	<td><%= link_to 'Zann', :controller => 'zann', :action => 'new', :zannee_type => 'photo', :zannee_id => photo.id %></td>
-  </tr>
-<% end %>
-</table>
+<h1>Listing photos</h1>
+<%= render(:partial => 'photo', :collection => @photos ) %>
 
 <%= link_to 'Previous page', { :page => @photo_pages.current.previous } if @photo_pages.current.previous %>
 <%= link_to 'Next page', { :page => @photo_pages.current.next } if @photo_pages.current.next %> 

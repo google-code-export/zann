@@ -1,0 +1,26 @@
+<div class="photo-item">
+	<table>
+		<tr>
+			<td width="15%">
+				<%= render(:partial => 'zann_counter', :locals => {:photo => photo}) %>
+			</td>
+			<td>
+				<div class="photo-image">
+					<%= link_to(image_tag(url_for_file_column(photo,'image'), :size => '128x128', :class => 'glossy'), url_for_file_column(photo,'image'), {:class => 'thickbox', :title => photo.name }) %>
+				</div>
+			</td>
+			<td width="30%">
+				<div class="photo-name"><%= photo.name %></div>
+				<div class="photo-description"><%= photo.description %></div>
+			</td>
+			<td>
+				Submitter: <%= photo.creator.login %><br/>
+				Album: <%= link_to photo.album.name, {:controller => 'albums', :action => 'gallery', :id => photo.album.id } %> <br/>
+				Comments: <%= link_to "No available", {:action => 'show', :id => photo } %> <br/>
+			</td>
+		</tr>
+	</table>
+	
+	<div class="hr">
+	</div>
+</div>

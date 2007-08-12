@@ -1,10 +1,10 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class PhotoTest < Test::Unit::TestCase
-  fixtures :photos
+  fixtures :photos, :zanns
 
-  # Replace this with your real tests.
-  def test_truth
-    assert true
+  def test_zann_count
+    assert_equal 2, photos(:shanghai_1).zann_count
+    assert_equal 0, photos(:cat_9).zann_count
   end
 end

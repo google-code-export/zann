@@ -7,4 +7,7 @@ class Photo < ActiveRecord::Base
   belongs_to :album, :class_name => 'Album', :foreign_key => 'album_id'
   validates_presence_of :name,:created_at
   validates_length_of :name, :maximum => 100
+  def zann_count
+    Zann.count(:conditions => "zannee_type = 'photo' AND zannee_id = #{id}")
+  end
 end
