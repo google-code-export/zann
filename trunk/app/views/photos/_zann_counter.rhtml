@@ -1,8 +1,7 @@
 <div class="zann-counter" id="zann-counter-<%= photo.id %>">
-	<div class="zann-count"><%= photo.zann_count %></div>
+	<div class="zann-count"><span id="zann-count-<%= photo.id %>"><%= photo.zann_count %></span><div><%= image_tag("loading.gif", :id => "loading-icon-#{photo.id}", :style=>"display: none; border: 0;" ) %></div></div>
 	<div style="font-size:1em">zanns</div>
 	<% if(logged_in?)%>
-		<div><%= link_to_remote 'zann it', :update => "zann-counter-#{photo.id}", :url => {:controller => 'zann', :action => 'new', :zannee_type => 'photo', :zannee_id => photo.id}, :loading => "Element.show('loading-icon-#{photo.id}');", :complete => "Element.hide('loading-icon-#{photo.id}')" %></div>
-	<% end %>
-	<div><%= image_tag("loading.gif", :id => "loading-icon-#{photo.id}", :style=>"display: none; border: 0;" ) %></div>
+		<div><%= link_to_remote 'zann it', :update => "zann-counter-#{photo.id}", :url => {:controller => 'zann', :action => 'new', :zannee_type => 'photo', :zannee_id => photo.id}, :loading => "Element.hide('zann-count-#{photo.id}');Element.show('loading-icon-#{photo.id}');", :complete => "Element.hide('loading-icon-#{photo.id}');Element.show('zann-count-#{photo.id}');" %></div>
+	<% end %>	
 </div>
