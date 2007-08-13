@@ -1,7 +1,3 @@
-<%= javascript_include_tag "thickbox" %>
-<%= stylesheet_link_tag "thickbox", :media => "screen" %>
-<%= image_tag "loadingAnimation.gif", {:style => 'display:none;'}%>
-
 <h1>Listing photos</h1>
 <%= render(:partial => 'photo', :collection => @photos ) %>
 
