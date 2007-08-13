@@ -1,6 +1,5 @@
 class Photo < ActiveRecord::Base
-  file_column :image, {:root_path => File.join(RAILS_ROOT, "public", "files")} if RAILS_ENV != "test"
-  file_column :image, {:root_path => File.join(RAILS_ROOT, "test", "tmp", "file_column", "files")} if RAILS_ENV == "test"
+  file_column :image
   validates_file_format_of :image, :in => ["gif", "png", "jpg"]
   validates_filesize_of :image, :in => 0..50.megabytes
   belongs_to :creator, :class_name => 'User', :foreign_key => 'creator_id'
