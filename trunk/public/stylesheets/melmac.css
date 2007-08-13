@@ -48,8 +48,9 @@ blockquote {
 
 #header {
 	padding:10px 0;
-	width:100%;
+	width:900px;
 	height:3em;
+	margin: 0 auto;
 }
 
 #header h1 {
@@ -119,7 +120,7 @@ blockquote {
 }
 	
 #container {
-	margin:0 0 0 20px;
+	margin:0 auto;
 	position:relative;
 	padding-top:10px;
 	width:840px;
@@ -235,4 +236,7 @@ label {
 }
 img{
 	border: 0px;
+}
+sup {
+	font-size: 0.3em;
 }
