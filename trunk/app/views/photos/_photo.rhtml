@@ -11,7 +11,7 @@
 			</td>
 			<td width="30%">
 				<div class="photo-name"><%= photo.name %></div>
-				<div class="photo-description"><%= photo.description %></div>
+				<div class="photo-description"><%= photo.description[0..99] %><%= "..." if(photo.description.length > 100)%></div>
 			</td>
 			<td>
 				Submitter: <%= photo.creator.login %><br/>
