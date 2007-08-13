@@ -1,8 +1,12 @@
-<% for column in Photo.content_columns %>
-<p>
-  <b><%= column.human_name %>:</b> <%=h @photo.send(column.name) %>
-</p>
-<% end %>
-
+	<%= javascript_include_tag "jquery" %>
+	<%= javascript_include_tag "thickbox" %>
+	<%= javascript_include_tag "image_view" %>
+	<%= stylesheet_link_tag "thickbox", :media => "screen" %>
+	<%= image_tag "loadingAnimation.gif", {:style => 'display:none;'}%>
+<div id="imagebg" style="text-align:center;padding-top:10px;">
+<%= link_to(image_tag(url_for_file_column(@photo,'image'), :id => "viewedimage", :title => "Click to view in full screen."), url_for_file_column(@photo,'image'), {:class => 'thickbox', :title => "#{@photo.name}" }) %>
+<%= render(:partial => "scale_bar") %>
+</div>
+	
 <%= link_to 'Edit', :action => 'edit', :id => @photo %> |
 <%= link_to 'Back', :action => 'list' %>

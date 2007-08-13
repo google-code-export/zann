@@ -6,7 +6,7 @@
 			</td>
 			<td>
 				<div class="photo-image">
-					<%= link_to(image_tag(url_for_file_column(photo,'image'), :size => '128x128', :class => 'glossy'), url_for_file_column(photo,'image'), {:class => 'thickbox', :title => photo.name }) %>
+					<%= link_to(image_tag(url_for_file_column(photo,'image'), :size => '128x128', :class => 'glossy'), {:action => 'show', :id => photo }) %>
 				</div>
 			</td>
 			<td width="30%">
