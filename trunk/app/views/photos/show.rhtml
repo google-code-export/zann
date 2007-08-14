@@ -3,17 +3,34 @@
 	<%= javascript_include_tag "image_view" %>
 	<%= stylesheet_link_tag "thickbox", :media => "screen" %>
 	<%= image_tag "loadingAnimation.gif", {:style => 'display:none;'}%>
+<table style="border:1px solid;">
+	<tr>
+		<td width="15%"><%= render(:partial => 'zann_counter', :locals => {:photo => @photo}) %></td>
+		<td>
+			<table>
+				<tr>
+					<td>Title:</td><td><%= @photo.name %></td>
+				</tr>
+				<tr>
+					<td>Description:</td><td><%= @photo.description %></td>
+				</tr>
+				<tr>
+					<td>Created At:</td><td><%= @photo.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+				</tr>
+				<tr>
+					<td>Submitter:</td><td><%= @photo.creator.login %></td>
+				</tr>
+				<tr>
+					<td>Popularity(User views):</td><td><div class="graph"><span class="bar" style="width: <%= @photo.view_count + 1 %>%;"><%= @photo.view_count %></span></div></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
 <div id="imagebg" style="text-align:center;padding-top:10px;overflow:auto;">
 <%= link_to(image_tag(url_for_file_column(@photo,'image'), :id => "viewedimage", :title => "Click to view in full screen."), url_for_file_column(@photo,'image'), {:class => 'thickbox', :title => "#{@photo.name}" }) %>
 <%= render(:partial => "scale_bar") %>
 </div>
-<p>
-	<div><em>Title:</em> <%= @photo.name %></div>
-	<div><em>Description:</em> <%= @photo.description %> </div>
-	<div><em>Created At:</em> <%= @photo.created_at %> </div>
-	<div><em>Submitter:</em> <%= @photo.creator.login %> </div>
-	<div><em>Rating:</em> <%= @photo.zann_count %> zanns </div>
-</p>
 
 <ul id="comment-list">
 	<%= render(:partial => 'comments/comment', :collection => @comments ) %>

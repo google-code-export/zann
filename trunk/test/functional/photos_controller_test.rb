@@ -33,7 +33,10 @@ class PhotosControllerTest < Test::Unit::TestCase
   end
 
   def test_show
+    view_count = photos(:shanghai_1).view_count
     get :show, :id => @shanghai_1_id
+    #photo  creator is aaron, viewed by samuel, so view count increase
+    assert_equal view_count + 1, Photo.find(@shanghai_1_id).view_count
 
     assert_response :success
     assert_template 'show'

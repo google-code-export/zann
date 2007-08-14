@@ -1,7 +1,7 @@
 <div class="photo-item">
 	<table>
 		<tr>
-			<td width="15%">
+			<td width="12%">
 				<%= render(:partial => 'zann_counter', :locals => {:photo => photo}) %>
 			</td>
 			<td>
@@ -16,7 +16,8 @@
 			<td>
 				Submitter: <%= photo.creator.login %><br/>
 				Album: <%= link_to photo.album.name, {:controller => 'albums', :action => 'gallery', :id => photo.album.id } %> <br/>
-				Comments: <%= link_to "No available", {:action => 'show', :id => photo } %> <br/>
+				Comments: <%= link_to "(#{photo.comments_count})", {:action => 'show', :id => photo } %> comments <br/>
+				Popularity: 
 			</td>
 		</tr>
 	</table>
