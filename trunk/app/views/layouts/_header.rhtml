@@ -1,0 +1,13 @@
+<div id="header">
+	<h1><a href="index.html"><span class="orange">.:</span> zan<span class="green">n</span><sup>BETA</sup></a></h1>
+	<ul id="nav">
+		<li><%= link_to "signup", :controller => "account", :action => "signup"%></li>
+		<% if(logged_in?)%>
+			<li><%= link_to "logout", :controller => "account", :action => "logout"%></li>
+		<% else %>
+			<li><%= link_to "login", :controller => "account", :action => "login"%></li>
+		<% end %>
+		<li><%= link_to "photos", :controller => "photos", :action => "list"%></li>
+		<li><%= link_to "albums", :controller => "albums", :action => "list"%></li>
+	</ul>
+</div>
