@@ -16,6 +16,7 @@ class PhotosController < ApplicationController
 
   def show
     @photo = Photo.find(params[:id])
+    @photo.view_once if(logged_in? && current_user.id != @photo.creator_id)
     @comments = @photo.find_comments
     render(:layout => "single_column")
   end

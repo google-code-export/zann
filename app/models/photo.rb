@@ -12,4 +12,11 @@ class Photo < ActiveRecord::Base
   def find_comments
     Comment.find(:all, :conditions => "comment_object_type = 'photo' AND comment_object_id = #{id}")
   end
+  def view_once
+    self.view_count = self.view_count + 1
+    self.save
+  end
+  def comments_count
+    Comment.count(:all, :conditions => "comment_object_type = 'photo' AND comment_object_id = #{id}")
+  end
 end

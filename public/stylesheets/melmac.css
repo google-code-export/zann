@@ -123,7 +123,7 @@ blockquote {
 	margin:0 auto;
 	position:relative;
 	padding-top:10px;
-	width:840px;
+	width:860px;
 	background:#FFF url(/images/melmac/page.gif) repeat-x;
 	border:2px solid #FFF;
 	height:auto;
@@ -132,7 +132,7 @@ blockquote {
 
 #left {
 	padding:0 10px;
-	width:520px;
+	width:540px;
 	float:left;
 	background:url(/images/melmac/dotted.png) repeat-y 619px 0;
 	clear:right;
@@ -174,7 +174,7 @@ blockquote {
 }
 
 #right {
-	width:280px;
+	width:290px;
 	padding:0 0 0 10px;
 	margin-bottom:30px;
 	float:left;
@@ -240,3 +240,19 @@ img{
 sup {
 	font-size: 0.3em;
 }
+.graph { 
+    position: relative; /* IE is dumb */
+    width: 200px; 
+    border: 1px solid #B1D632; 
+    padding: 2px; 
+}
+.graph .bar { 
+    display: block;
+    position: relative;
+    background: #B1D632; 
+    text-align: center; 
+    color: #333; 
+    height: 1em; 
+    line-height: 1em;            
+}
+.graph .bar span { position: absolute; left: 1em; }
