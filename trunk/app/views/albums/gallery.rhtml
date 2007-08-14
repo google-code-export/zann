@@ -3,5 +3,8 @@
 	<%= stylesheet_link_tag "thickbox", :media => "screen" %>
 	<%= image_tag "loadingAnimation.gif", {:style => 'display:none;'}%>
 <% for photo in @photos %>
-	<%= link_to(image_tag(url_for_file_column(photo,'image'), :size => '128x128'), url_for_file_column(photo,'image'), {:class => 'thickbox', :rel => photo.album.name, :title => photo.name }) %>
+	<div width="130" style="float:left;margin-bottom: 20px;">
+		<%= link_to(image_tag(url_for_file_column(photo,'image'), :size => '128x128'), url_for_file_column(photo,'image'), {:class => 'thickbox', :rel => photo.album.name, :title => "#{photo.name} - #{link_to('detail of this photo', :controller => 'photos', :action => 'show', :id => photo)}" }) %></br>
+		<%= render(:partial => 'photos/zann_counter', :locals => {:photo => photo}) %>
+	</div>
 <% end %>

@@ -3,7 +3,7 @@
 	<%= javascript_include_tag "image_view" %>
 	<%= stylesheet_link_tag "thickbox", :media => "screen" %>
 	<%= image_tag "loadingAnimation.gif", {:style => 'display:none;'}%>
-<table style="border:1px solid;">
+<table style="border:1px solid;" width="100%">
 	<tr>
 		<td width="15%"><%= render(:partial => 'zann_counter', :locals => {:photo => @photo}) %></td>
 		<td>
@@ -31,7 +31,7 @@
 <%= link_to(image_tag(url_for_file_column(@photo,'image'), :id => "viewedimage", :title => "Click to view in full screen."), url_for_file_column(@photo,'image'), {:class => 'thickbox', :title => "#{@photo.name}" }) %>
 <%= render(:partial => "scale_bar") %>
 </div>
-
+<div class="hr"></div>
 <ul id="comment-list">
 	<%= render(:partial => 'comments/comment', :collection => @comments ) %>
 </ul>

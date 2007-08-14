@@ -17,7 +17,7 @@
 				Submitter: <%= photo.creator.login %><br/>
 				Album: <%= link_to photo.album.name, {:controller => 'albums', :action => 'gallery', :id => photo.album.id } %> <br/>
 				Comments: <%= link_to "(#{photo.comments_count})", {:action => 'show', :id => photo } %> comments <br/>
-				Popularity: 
+				Popularity: <%= photo.view_count %>
 			</td>
 		</tr>
 	</table>

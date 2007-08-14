@@ -1,9 +1,9 @@
-<li  id='<%= "comment_#{comment.id}" %>' class="comment-item">
+<li  id='<%= "comment_#{comment.id}" %>' class="comment-item" style="color: black;">
 	<div class="comment-content">
 		<%=h comment.content %>
 	</div>
 	<div class="comment-footer">
 		<%=h comment.author.login %> posted at <%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %>		
 	</div>
-	<div class="hr"></div>
+	<hr/>
 </li>
