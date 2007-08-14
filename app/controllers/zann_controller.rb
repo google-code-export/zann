@@ -12,6 +12,6 @@ class ZannController < ApplicationController
       flash[:info] = "Zann failed. You're allowed to vote for one photo only once."
     end
     @photo = Photo.find(params[:zannee_id]) if(params[:zannee_type] == 'photo')
-    render(:layout => false, :template => 'photos/zann_counter')
+    render(:partial => 'photos/zann_counter', :locals => {:photo => @photo})
   end
 end

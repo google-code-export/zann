@@ -16,6 +16,8 @@ class PhotosController < ApplicationController
 
   def show
     @photo = Photo.find(params[:id])
+    @comments = @photo.find_comments
+    render(:layout => "single_column")
   end
 
   def new

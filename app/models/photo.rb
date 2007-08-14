@@ -9,4 +9,7 @@ class Photo < ActiveRecord::Base
   def zann_count
     Zann.count(:conditions => "zannee_type = 'photo' AND zannee_id = #{id}")
   end
+  def find_comments
+    Comment.find(:all, :conditions => "comment_object_type = 'photo' AND comment_object_id = #{id}")
+  end
 end
