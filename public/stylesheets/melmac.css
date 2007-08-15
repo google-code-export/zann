@@ -256,3 +256,9 @@ sup {
     line-height: 1em;            
 }
 .graph .bar span { position: absolute; left: 1em; }
+
+#album-slideshow
+{
+width: 830px !important;
+height: 610px !important;
+}

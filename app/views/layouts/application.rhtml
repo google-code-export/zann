@@ -13,7 +13,7 @@
 	
 	<div id="right">
 		<h1>About This Site:</h1>
-		<p><%= image_tag("zann.png") %></p>
+		<p><%= image_tag("zann.png") %>Zann the photo you like !</p>
 		<div class="hr"></div>
 	
 		<h1>Links:</h1>
@@ -23,9 +23,12 @@
 		</ul>
 		<div class="hr"></div>
 	
-		<h1>Article Header</h1>
-		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris vel dolor. Fusce dictum, odio et eleifend ultrices, odio odio faucibus odio, quis consequat tortor nisi vitae sapien. Etiam vulputate mi vel enim. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Aenean rutrum.</p> <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin venenatis egestas orci. Pellentesque vehicula consequat metus. Sed a lectus vel augue semper molestie. Vivamus sed est. Proin et ipsum.
-		</p>
+		<h1>Featured Photos:</h1>
+		<ul>
+			<li><%= link_to("Eyeball attracters", :action => "most_viewed")%></li>
+			<li><%= link_to("Hottest Photos", :action => "most_commented")%></li>
+			<li><%= link_to("Random Photo", :action => "random")%></li>
+		</ul>
 	</div>
 	
 	<div id="clear"></div>

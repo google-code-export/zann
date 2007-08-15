@@ -55,4 +55,10 @@ class PhotosController < ApplicationController
     Photo.find(params[:id]).destroy
     redirect_to :action => 'list'
   end
+  
+  def most_viewed
+    @photos = Photo.find(:all,  :order => 'view_count DESC')
+    @photo_pages, @photos = paginate_collection @photos, :page => params[:page]
+    render(:template => "photos/list")
+  end
 end

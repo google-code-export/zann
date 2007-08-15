@@ -7,6 +7,16 @@ CREATE TABLE `albums` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL auto_increment,
+  `author_id` int(11) default NULL,
+  `content` varchar(1000) default NULL,
+  `created_at` datetime default NULL,
+  `comment_object_type` varchar(100) default NULL,
+  `comment_object_id` int(11) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `photos` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(100) default NULL,
@@ -15,6 +25,7 @@ CREATE TABLE `photos` (
   `created_at` datetime default NULL,
   `image` varchar(200) default NULL,
   `album_id` int(11) default NULL,
+  `view_count` int(11) default '0',
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -46,4 +57,4 @@ CREATE TABLE `zanns` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO schema_info (version) VALUES (4)
+INSERT INTO schema_info (version) VALUES (5)
