@@ -5,7 +5,7 @@
 	font-weight: bold;
 }
 .photo-image{
-	margin: 5px 5px 0 5px;
+	margin: 3px 5px 0 3px;
 }
 .zann-counter{
 	text-align: center;
@@ -17,4 +17,7 @@
 	color: #669966;
 	margin-bottom: 2px;
 	/*background: #000 url(/images/zann.png);*/
+}
+.photo-detail-link{
+	color: blue;
 }
