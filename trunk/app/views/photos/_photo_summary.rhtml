@@ -1,0 +1,24 @@
+<table style="border:1px solid;" width="100%">
+	<tr>
+		<td width="15%"><%= render(:partial => 'zann_counter', :locals => {:photo => @photo}) %></td>
+		<td>
+			<table>
+				<tr>
+					<td>Title:</td><td><%= @photo.name %></td>
+				</tr>
+				<tr>
+					<td>Description:</td><td><%= @photo.description %></td>
+				</tr>
+				<tr>
+					<td>Created At:</td><td><%= @photo.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+				</tr>
+				<tr>
+					<td>Submitter:</td><td><%= @photo.creator.login %></td>
+				</tr>
+				<tr>
+					<td>Popularity(User views):</td><td><div class="graph"><span class="bar" style="width: <%= @photo.view_count + 1 %>%;"><%= @photo.view_count %></span></div></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>

@@ -18,7 +18,7 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
     @photo.view_once if(logged_in? && current_user.id != @photo.creator_id)
     @comments = @photo.find_comments
-    render(:layout => "single_column")
+    #render(:layout => "single_column")
   end
 
   def new
@@ -60,5 +60,15 @@ class PhotosController < ApplicationController
     @photos = Photo.find(:all,  :order => 'view_count DESC')
     @photo_pages, @photos = paginate_collection @photos, :page => params[:page]
     render(:template => "photos/list")
+  end
+  def my
+    @photos = Photo.find(:all, :conditions => "creator_id = #{current_user.id}")
+    @photo_pages, @photos = paginate_collection @photos, :page => params[:page]
+    render(:template => "photos/list")
+  end
+  def user
+    @photos = Photo.find(:all, :conditions => "creator_id = #{params[:id]}")
+    @photo_pages, @photos = paginate_collection @photos, :page => params[:page]
+    render(:template => "photos/list")    
   end
 end
