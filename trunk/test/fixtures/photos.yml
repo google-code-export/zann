@@ -8,6 +8,8 @@ shanghai_1:
   album_id: 1
   image: shanghai_1.jpg
   view_count: 20
+  comments_count: 0
+  zanns_count: 2
 shanghai_2:
   id: 2
   name: 上海永安百货
@@ -17,6 +19,7 @@ shanghai_2:
   album_id: 1
   image: shanghai_2.jpg
   view_count: 10
+  comments_count: 2
 cat_1:
   id: 3
   name: 狸花猫
@@ -26,6 +29,7 @@ cat_1:
   album_id: 2
   image: cat_1.jpg
   view_count: 0  
+  comments_count: 0
 cat_2:
   id: 4
   name: 小猫2
@@ -35,6 +39,7 @@ cat_2:
   album_id: 2
   image: cat_2.jpg
   view_count: 0  
+  comments_count: 0
 shanghai_3:
   id: 5
   name: Shanghai3
@@ -44,6 +49,7 @@ shanghai_3:
   album_id: 1
   image: shanghai_3.jpg
   view_count: 0  
+  comments_count: 0
 shanghai_4:
   id: 6
   name: Shanghai4
@@ -53,6 +59,7 @@ shanghai_4:
   album_id: 1
   image: shanghai_4.jpg
   view_count: 0  
+  comments_count: 0
 shanghai_5:
   id: 7
   name: Shanghai5
