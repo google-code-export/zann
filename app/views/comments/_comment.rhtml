@@ -1,9 +1,9 @@
 <li  id='<%= "comment_#{comment.id}" %>' class="comment-item" style="color: black;">
 	<div class="comment-content">
-		<%=h comment.content %>
+		<%=sanitize comment.content %>
 	</div>
 	<div class="comment-footer">
-		<%=h comment.author.login %> posted at <%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %>		
+		<%= link_to(comment.author.login, :controller => "photos", :action => "user", :id => comment.author) %> posted at <%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %>		
 	</div>
 	<hr/>
 </li>

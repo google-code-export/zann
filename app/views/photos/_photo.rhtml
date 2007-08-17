@@ -1,27 +1,10 @@
-<div class="photo-item">
-	<table>
-		<tr>
-			<td width="12%">
-				<%= render(:partial => 'zann_counter', :locals => {:photo => photo}) %>
-			</td>
-			<td>
-				<div class="photo-image">
-					<%= link_to(image_tag(url_for_file_column(photo,'image'), :size => '128x128', :class => 'glossy'), {:action => 'show', :id => photo }) %>
-				</div>
-			</td>
-			<td width="30%">
-				<div class="photo-name"><%= photo.name %></div>
-				<div class="photo-description"><%= photo.description[0..99] %><%= "..." if(photo.description.length > 100)%></div>
-			</td>
-			<td>
-				Submitter: <%= photo.creator.login %><br/>
-				Album: <%= link_to photo.album.name, {:controller => 'albums', :action => 'gallery', :id => photo.album.id } %> <br/>
-				Comments: <%= link_to "(#{photo.comments_count})", {:action => 'show', :id => photo } %> comments <br/>
-				Popularity: <%= photo.view_count %>
-			</td>
-		</tr>
-	</table>
-	
-	<div class="hr">
+<div width="130" style="float:left;margin:0 10px 20px 10px; border: #F0F0F0 solid;">
+	<%= link_to(image_tag(url_for_file_column(photo,'image'), :size => '160x160', :class => 'glossy'), {:action => 'show', :id => photo }) %>
+	<div style="text-align:center">
+		<b><%= photo.name %></b> <br/>
+		Submitted: <%= photo.creator.login %> <br/>
+		<%= link_to "(#{photo.comments_count})", {:action => 'show', :id => photo } %> comments <br/>
+		<%= photo.view_count %> times viewed <br/>
 	</div>
+	<%= render(:partial => 'photos/zann_counter', :locals => {:photo => photo}) %>
 </div>

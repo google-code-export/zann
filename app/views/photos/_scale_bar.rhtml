@@ -22,15 +22,19 @@
   </table>
 
  </td>
- <td style="padding-right:8px;">
 	<script type="text/javascript">
-		var intPhotoW = document.images["viewedimage"].width;
+	var intPhotoW = document.images["viewedimage"].width;
+	if(intPhotoW > 820) document.images["viewedimage"].width = 820;
 	</script>
+ <!--
+ <td style="padding-right:8px;">
+
 	<div>
 		<a onclick="setPhotoScale(50);return false;" href="#">50%</a>
 		<a onclick="setPhotoScale(75);return false;" href="#">75%</a>
 		<a onclick="setPhotoScale(100);return false;" href="#">100%</a>
 	</div>
  </td>
+ -->
 </tr>
 </table>

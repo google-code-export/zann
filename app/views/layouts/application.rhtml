@@ -1,34 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-	<%= render(:partial => 'layouts/include') %>
+<%= render(:partial => 'layouts/include') %>
 
 <body>
-	<%= render(:partial => 'layouts/header') %>
+<%= render(:partial => 'layouts/header') %>
 
-<div id="container">
-	<div id="left">
-		<%= render(:partial => 'layouts/flash', :object => flash) %>
+<div id="container" style="width:860px;">
+	<div id="left"  style="width:840px;background:0;">
+	<%= render(:partial => 'layouts/flash', :object => flash) %>
 		<%= @content_for_layout %>
-	</div>
-	
-	<div id="right">
-		<h1>About This Site:</h1>
-		<p><%= image_tag("zann.png") %>Zann the photo you like !</p>
-		<div class="hr"></div>
-	
-		<h1>Links:</h1>
-		<ul class="links">
-			<li><a href="http://www.emc.com">EMC</a></li>
-			<li><a href="http://www.emccrdc.com">EMC CRDC</a></li>
-		</ul>
-		<div class="hr"></div>
-	
-		<h1>Featured Photos:</h1>
-		<ul>
-			<li><%= link_to("Eyeball attracters", :action => "most_viewed")%></li>
-			<li><%= link_to("Hottest Photos", :action => "most_commented")%></li>
-			<li><%= link_to("Random Photo", :action => "random")%></li>
-		</ul>
 	</div>
 	
 	<div id="clear"></div>

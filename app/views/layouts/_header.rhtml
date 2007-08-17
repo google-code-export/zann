@@ -1,13 +1,21 @@
 <div id="header">
-	<h1><a href="index.html"><span class="orange">.:</span> zan<span class="green">n</span><sup>BETA</sup></a></h1>
-	<ul id="nav">
-		<li><%= link_to "signup", :controller => "account", :action => "signup"%></li>
+	<div style="float:right;">
 		<% if(logged_in?)%>
-			<li><%= link_to "logout", :controller => "account", :action => "logout"%></li>
+			<%= link_to "my photos", :controller => "photos", :action => "my"%>
+			<span class="green">|</span>
+			<%= link_to "logout", :controller => "account", :action => "logout"%>
 		<% else %>
-			<li><%= link_to "login", :controller => "account", :action => "login"%></li>
+			<span class="green">|</span>
+			<%= link_to "login", :controller => "account", :action => "login"%>
+			<span class="green">|</span>
+			<%= link_to "signup", :controller => "account", :action => "signup"%>
+			<span class="green">|</span>
 		<% end %>
+	</div>
+	<h1><a href="index.html"><span class="orange">.:</span> zan<span class="green">n</span><sup>BETA</sup></a></h1>
+	<ul id="nav">		
 		<li><%= link_to "photos", :controller => "photos", :action => "list"%></li>
 		<li><%= link_to "albums", :controller => "albums", :action => "list"%></li>
+		<li><%= link_to "most viewed", :controller => "photos", :action => "most_viewed"%></li>
 	</ul>
 </div>
