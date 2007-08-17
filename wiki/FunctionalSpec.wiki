@@ -9,7 +9,8 @@ Photo upload
 Photo View
   # Most viewed photos
   # My photos
-
+Photo comment
+  # support basic html. for security reason, form and javascripts will be filtered.
 = Album mgmt =
   # View Full Album Gallary
   # View as Slideshow
