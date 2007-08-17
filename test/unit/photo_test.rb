@@ -6,10 +6,10 @@ class PhotoTest < Test::Unit::TestCase
   def setup
     setup_fixture_files
   end
-  def test_zann_count
+  def test_zanns_count
     photo_shanghai = photos(:shanghai_1)
-    assert_equal 2, photo_shanghai.zann_count
-    assert_equal 0, photos(:cat_9).zann_count
+    assert_equal 2, photo_shanghai.zanns_count
+    assert_equal 0, photos(:cat_9).zanns_count
   end
   def test_view_once
     photo_shanghai = photos(:shanghai_1)

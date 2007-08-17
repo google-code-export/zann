@@ -4,4 +4,11 @@ class Comment < ActiveRecord::Base
   validates_inclusion_of :comment_object_type, :in => %w{ photo }
   validates_numericality_of :comment_object_id, :only_integer => true
   validates_length_of :content, :maximum => 1000
+  def after_save
+    if(self.comment_object_type == 'photo')
+      photo = Photo.find(self.comment_object_id)
+      photo.comments_count = photo.comments_count + 1
+      photo.save
+    end
+  end
 end

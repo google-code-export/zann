@@ -8,6 +8,8 @@ class CreatePhotos < ActiveRecord::Migration
       t.column :image, :string, :limit => 200
       t.column :album_id, :integer
       t.column :view_count, :integer, :default => 0
+      t.column :comments_count, :integer, :default => 0
+      t.column :zanns_count, :integer, :default => 0
     end
   end
 
