@@ -11,7 +11,8 @@ class PhotosController < ApplicationController
          :redirect_to => { :action => :list }
 
   def list
-    @photo_pages, @photos = paginate :photos, :per_page => 10
+    @photos = Photo.find(:all,  :order => 'created_at DESC')
+    @photo_pages, @photos = paginate_collection @photos, :page => params[:page]
   end
 
   def show
@@ -56,7 +57,7 @@ class PhotosController < ApplicationController
     redirect_to :action => 'list'
   end
   
-  def most_viewed
+  def top_viewed
     @photos = Photo.find(:all,  :order => 'view_count DESC')
     @photo_pages, @photos = paginate_collection @photos, :page => params[:page]
     render(:template => "photos/list")
@@ -71,12 +72,12 @@ class PhotosController < ApplicationController
     @photo_pages, @photos = paginate_collection @photos, :page => params[:page]
     render(:template => "photos/list")    
   end
-  def most_zanned
+  def top_zanned
     @photos = Photo.find(:all,  :order => 'zanns_count DESC')
     @photo_pages, @photos = paginate_collection @photos, :page => params[:page]
     render(:template => "photos/list")
   end
-  def most_commented
+  def top_commented
     @photos = Photo.find(:all,  :order => 'comments_count DESC')
     @photo_pages, @photos = paginate_collection @photos, :page => params[:page]
     render(:template => "photos/list")

@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   include AuthenticatedSystem
   before_filter :login_from_cookie, :except => [ :login, :signup]
   def paginate_collection(collection, options = {})
-    default_options = {:per_page => 10, :page => 1}
+    default_options = {:per_page => 12, :page => 1}
     options = default_options.merge options
 
     pages = Paginator.new self, collection.size, options[:per_page], options[:page]
