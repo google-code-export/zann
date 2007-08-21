@@ -19,4 +19,8 @@ class Photo < ActiveRecord::Base
   #def comments_count
    # Comment.count(:all, :conditions => "comment_object_type = 'photo' AND comment_object_id = #{id}")
   #end
+  def zanned_by_user?(user_id)
+    zann_count = Zann.count(:conditions => "zannee_type = 'photo' AND zannee_id = #{id} AND zanner_id = #{user_id}")
+    return zann_count>0 ? true : false;
+  end
 end

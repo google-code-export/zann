@@ -225,7 +225,7 @@ blockquote {
 }
 
 input,textarea {
-	display:block;
+	/*display:block;*/
 	border:1px solid #CCC;
 	margin-bottom:4px;
 }
