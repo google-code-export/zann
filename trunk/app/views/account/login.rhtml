@@ -1,14 +1,26 @@
 <% form_tag do -%>
-<p><label for="login">Login</label><br/>
-<%= text_field_tag 'login' %></p>
-
-<p><label for="password">Password</label><br/>
-<%= password_field_tag 'password' %></p>
-
-<!-- Uncomment this if you want this functionality-->
-<p><label for="remember_me">Remember me:</label>
-<%= check_box_tag 'remember_me' %></p>
-
-
-<p><%= submit_tag 'Log in' %></p>
+<fieldset>
+	<legend>Login</legend>
+	<div class="required">
+		<label for="login">Username</label>
+		<%= text_field_tag 'login', "", :class => "inputText" %>
+	</div>
+	<div class="required">
+		<label for="password">Password</label>
+		<%= password_field_tag 'password', "", :class => "inputPassword" %>
+	</div>
+	<div class="optional">
+		<label for="remember_me" class="labelCheckbox">
+			<%= check_box_tag 'remember_me', 1, false, :class => "inputCheckbox" %>
+			Remember me
+		</label>
+	</div>
+</fieldset>
+<fieldset>
+	<div class="submit">
+		<div>
+			<%= submit_tag 'Log in', :class => "inputSubmit"%>
+		</div>
+	</div>
+</fieldset>
 <% end -%>

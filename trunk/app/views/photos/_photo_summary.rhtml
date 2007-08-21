@@ -4,10 +4,10 @@
 		<td>
 			<table>
 				<tr>
-					<td>Title:</td><td><%= @photo.name %></td>
+					<td>Title:</td><td><%=h @photo.name %></td>
 				</tr>
 				<tr>
-					<td>Description:</td><td><%= @photo.description %></td>
+					<td>Description:</td><td><%=sanitize @photo.description %></td>
 				</tr>
 				<tr>
 					<td>Created At:</td><td><%= @photo.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>

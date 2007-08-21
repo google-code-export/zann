@@ -1,8 +1,13 @@
 <h1>Editing photo</h1>
 
 <% form_tag({:action => 'update', :id => @photo}, {:multipart => true}) do %>
+<fieldset>
+	<legend>Editing photo</legend>
   <%= render :partial => 'form' %>
-  <%= submit_tag 'Edit' %>
+</fieldset>
+<fieldset>
+  <%= submit_tag 'Edit', :class => "inputSubmit" %>
+</fieldset>  
 <% end %>
 
 <%= link_to 'Show', :action => 'show', :id => @photo %> |
