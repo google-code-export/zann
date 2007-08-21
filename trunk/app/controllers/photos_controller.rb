@@ -71,4 +71,14 @@ class PhotosController < ApplicationController
     @photo_pages, @photos = paginate_collection @photos, :page => params[:page]
     render(:template => "photos/list")    
   end
+  def most_zanned
+    @photos = Photo.find(:all,  :order => 'zanns_count DESC')
+    @photo_pages, @photos = paginate_collection @photos, :page => params[:page]
+    render(:template => "photos/list")
+  end
+  def most_commented
+    @photos = Photo.find(:all,  :order => 'comments_count DESC')
+    @photo_pages, @photos = paginate_collection @photos, :page => params[:page]
+    render(:template => "photos/list")
+  end
 end
