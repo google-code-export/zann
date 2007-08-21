@@ -1,6 +1,8 @@
 <div id="header">
 	<div style="float:right;">
 		<% if(logged_in?)%>
+			<span class="green"><%= current_user.login %></span>
+			<span class="green">|</span>
 			<%= link_to "my photos", :controller => "photos", :action => "my"%>
 			<span class="green">|</span>
 			<%= link_to "logout", :controller => "account", :action => "logout"%>
