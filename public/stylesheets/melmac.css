@@ -39,12 +39,14 @@ color:			    #FFFFFF;
 background-color:	    #669966;
 }
 
+/*
 blockquote {
 	color:#669966;
 	padding-left:40px;
 	margin-left:0;
 	background:url(/images/melmac/quote.gif) no-repeat;
 }
+*/
 
 #header {
 	padding:10px 0;
@@ -257,8 +259,4 @@ sup {
 }
 .graph .bar span { position: absolute; left: 1em; }
 
-#album-slideshow
-{
-width: 830px !important;
-height: 610px !important;
-}
+

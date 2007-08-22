@@ -26,5 +26,5 @@ ActionMailer::Base.default_charset = "utf-8"
 ActionMailer::Base.smtp_settings = {
   :address => "localhost",
   :port => "25",
-  :domain => "emccrdc.com"
+  :domain => "emc.com"
 }
