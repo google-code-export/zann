@@ -16,6 +16,14 @@
 	<small>You are required to use your email account in company to register.</small>
 </div>
 <div class="required">
+	<label for="last_name">First Name</label>
+	<%= f.text_field :last_name, :class => "inputText" %>
+</div>
+<div class="required">
+	<label for="first_name">Last Name</label>
+	<%= f.text_field :first_name, :class => "inputText" %>
+</div>
+<div class="required">
 	<label for="password">Password</label>
 	<%= f.password_field :password, :class => "inputPassword" %>
 </div>
@@ -24,6 +32,10 @@
 	<%= f.password_field :password_confirmation, :class => "inputPassword" %>
 </div>
 </fieldset>
+<div class="optional">
+<label for="avatar">Avatar</label>
+<%= file_column_field "user", "avatar", :class => "inputFile" %>
+</div>
 <fieldset>
 	<div class="submit">
 		<div>
