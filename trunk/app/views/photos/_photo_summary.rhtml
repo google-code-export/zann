@@ -13,7 +13,7 @@
 					<td>Created At:</td><td><%= @photo.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
 				</tr>
 				<tr>
-					<td>Submitter:</td><td><%= @photo.creator.login %></td>
+					<td>Submitter:</td><td><%= @photo.creator.full_name %></td>
 				</tr>
 				<tr>
 					<td>Popularity(User views):</td><td><div class="graph"><span class="bar" style="width: <%= @photo.view_count + 1 %>%;"><%= @photo.view_count %></span></div></td>

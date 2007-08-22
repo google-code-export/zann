@@ -11,7 +11,7 @@
   <tr>
 	<td><%= album.name %></td>
 	<td><%= album.description %></td>
-	<td><%= album.creator.login %></td>
+	<td><%= album.creator.full_name %></td>
 	<td><%= link_to 'View as slideshow', { :action => 'slideshow', :id => album } %></td>
 	<td><%= link_to 'View as gallery', { :action => 'gallery', :id => album } %></td>
   </tr>
