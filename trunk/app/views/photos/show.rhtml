@@ -1,17 +1,18 @@
 	<%= javascript_include_tag "jquery" %>
 	<%= javascript_include_tag "thickbox" %>
 	<%= javascript_include_tag "image_view" %>
+
 	<%= stylesheet_link_tag "thickbox", :media => "screen" %>
 	<%= image_tag "loadingAnimation.gif", {:style => 'display:none;'}%>
-	
-<div id="imagebg" style="text-align:center;padding-top:10px;">
-<div>Click to view in full screen.</div>
+
+<div id="imagebg" style="text-align:center;padding-top:10px;background-color:black;">
+<div style="color:#EEE;">Click to view in full screen.</div>
 <%= link_to(image_tag(url_for_file_column(@photo,'image'), :id => "viewedimage", :title => "Click to view in full screen."), url_for_file_column(@photo,'image'), {:class => 'thickbox', :title => "#{@photo.name}" }) %>
-<%= render(:partial => "scale_bar") %>
+
 </div>
 <%= render(:partial => "photo_summary") %>
 <div class="hr"></div>
-<ul id="comment-list">
+<ol id="comment-list" style="list-style:none;color:black;">
 	<%= render(:partial => 'comments/comment', :collection => @comments ) %>
-</ul>
+</ol>
 <%= render(:partial => "comment_form") %>
