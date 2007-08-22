@@ -7,7 +7,7 @@
 		</div>
 			<cite>
 				<strong>
-					<%= link_to(comment.author.login, :controller => "photos", :action => "user", :id => comment.author) %>
+					<%= link_to(comment.author.full_name, :controller => "photos", :action => "user", :id => comment.author) %>
 				</strong> on <%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
 			</cite>
 	</div>

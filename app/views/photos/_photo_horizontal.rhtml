@@ -14,7 +14,7 @@
 				<div class="photo-description"><%= photo.description[0..99] %><%= "..." if(photo.description.length > 100)%></div>
 			</td>
 			<td>
-				Submitter: <%= photo.creator.login %><br/>
+				Submitter: <%= photo.creator.full_name %><br/>
 				Album: <%= link_to photo.album.name, {:controller => 'albums', :action => 'gallery', :id => photo.album.id } %> <br/>
 				Comments: <%= link_to "(#{photo.comments_count})", {:action => 'show', :id => photo } %> comments <br/>
 				Popularity: <%= photo.view_count %>

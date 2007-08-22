@@ -2,8 +2,8 @@ require 'digest/sha1'
 class User < ActiveRecord::Base
   # Virtual attribute for the unencrypted password
   attr_accessor :password
-  file_column :avatar
-  validates_presence_of     :login, :email
+#  file_column :avatar
+  validates_presence_of     :login, :email, :first_name, :last_name
   validates_presence_of     :password,                   :if => :password_required?
   validates_presence_of     :password_confirmation,      :if => :password_required?
   validates_length_of       :password, :within => 4..40, :if => :password_required?
@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   validates_length_of       :email,    :within => 3..100
   validates_length_of       :first_name,    :maximum => 100
   validates_length_of       :last_name,    :maximum => 100
-  validates_length_of       :avatar,    :maximum => 200
+#  validates_length_of       :avatar,    :maximum => 200
   validates_uniqueness_of   :login, :email, :case_sensitive => false
   validates_format_of :email, :with => /(^([^@\s]+)@((?:[-_a-z0-9]+\.)+[a-z]{2,})$)|(^$)/i
   before_save :encrypt_password
@@ -65,7 +65,9 @@ class User < ActiveRecord::Base
     self.remember_token            = nil
     save(false)
   end
-
+  def full_name
+    "#{first_name} #{last_name}"
+  end
   protected
     # before filter 
     def encrypt_password

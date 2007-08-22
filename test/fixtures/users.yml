@@ -7,6 +7,8 @@ quentin:
   #crypted_password: "ce2/iFrNtQ8=\n" # quentin, use only if you're using 2-way encryption
   created_at: <%= 5.days.ago.to_s :db %>
   activated_at: <%= 5.days.ago.to_s :db %> # only if you're activating new signups
+  first_name: quentin
+  last_name: wang
 aaron:
   id: 2
   login: aaron
@@ -15,6 +17,8 @@ aaron:
   crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
   activation_code: aaronscode # only if you're activating new signups
   created_at: <%= 1.days.ago.to_s :db %>
+  first_name: aaron
+  last_name: zhang
 samuel:
   id: 3
   login: samuel
@@ -24,6 +28,8 @@ samuel:
   #crypted_password: "ce2/iFrNtQ8=\n" # quentin, use only if you're using 2-way encryption
   created_at: <%= 5.days.ago.to_s :db %>
   activated_at: <%= 5.days.ago.to_s :db %> # only if you're activating new signups
+  first_name: samuel
+  last_name: ni
 yolanda:
   id: 4
   login: yolanda
@@ -33,6 +39,8 @@ yolanda:
   #crypted_password: "ce2/iFrNtQ8=\n" # quentin, use only if you're using 2-way encryption
   created_at: <%= 5.days.ago.to_s :db %>
   activated_at: <%= 5.days.ago.to_s :db %> # only if you're activating new signups
+  first_name: yolanda
+  last_name: hu
 charlie:
   id: 5
   login: charlie
@@ -42,3 +50,5 @@ charlie:
   #crypted_password: "ce2/iFrNtQ8=\n" # quentin, use only if you're using 2-way encryption
   created_at: <%= 5.days.ago.to_s :db %>
   activated_at: <%= 5.days.ago.to_s :db %> # only if you're activating new signups
+  first_name: charlie
+  last_name: chen
