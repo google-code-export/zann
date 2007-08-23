@@ -15,6 +15,11 @@ class CreateUsers < ActiveRecord::Migration
       t.column :last_name, :string, :limit => 100
       t.column :avatar, :string, :limit => 200
     end
+    fixture = Fixtures.new(User.connection, # a database connection
+                     "users" , # table name
+                     User, # model class
+                     File.join(File.dirname(__FILE__), "data/users" ))
+    fixture.insert_fixtures
   end
 
   def self.down
