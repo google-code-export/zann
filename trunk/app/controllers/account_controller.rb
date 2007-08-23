@@ -16,7 +16,7 @@ class AccountController < ApplicationController
         self.current_user.remember_me
         cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
       end
-      redirect_back_or_default(:controller => '/account', :action => 'index')
+      redirect_back_or_default(:controller => 'photos', :action => 'list')
       flash[:notice] = "Logged in successfully"
     else
       flash[:warning] = "Wrong username/password pair. Logging in failed."
@@ -32,7 +32,7 @@ class AccountController < ApplicationController
     # comment out redirect_back_to_failed and instead add render :action => 'welcome'
     # Add a welcome.rhtml file to your views directory (don��t need to add anything to the controller) and you��re done.
     # redirect_back_or_default(:controller => '/account', :action => 'index')
-    render :action => 'welcome'
+    redirect_to :controller => 'main', :action => 'welcome'
     flash[:notice] = "Thanks for signing up!"
     @user.accepts_role 'owner', @user
     @user.save
@@ -45,7 +45,7 @@ class AccountController < ApplicationController
     cookies.delete :auth_token
     reset_session
     flash[:notice] = "You have been logged out."
-    redirect_back_or_default(:controller => '/account', :action => 'index')
+    redirect_back_or_default(:controller => 'main', :action => 'index')
   end
   
   def activate
@@ -53,7 +53,7 @@ class AccountController < ApplicationController
       @user = User.find_by_activation_code(params[:id]) if params[:id]
       if @user and @user.activate
         self.current_user = @user
-        redirect_back_or_default(:controller => '/account', :action => 'index')
+        redirect_back_or_default(:controller => 'main', :action => 'index')
         flash[:notice] = "Your account has been activated." 
       else
         flash[:warning] = "Unable to activate the account.  Did you provide the correct information or has your account already been activated?" 
