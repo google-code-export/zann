@@ -52,3 +52,21 @@ creator_cat_9:
 creator_cat_10:
   user_id: 4
   role_id: 18
+owner_user_joetucci:
+  user_id: 1
+  role_id: 19
+owner_user_aaron:
+  user_id: 2
+  role_id: 20
+owner_user_samuel:
+  user_id: 3
+  role_id: 21
+owner_user_yolanda:
+  user_id: 4
+  role_id: 22
+owner_user_charlie:
+  user_id: 5
+  role_id: 23
+owner_user_quentin:
+  user_id: 6
+  role_id: 24 

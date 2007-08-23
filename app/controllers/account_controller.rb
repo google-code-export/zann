@@ -18,6 +18,8 @@ class AccountController < ApplicationController
       end
       redirect_back_or_default(:controller => '/account', :action => 'index')
       flash[:notice] = "Logged in successfully"
+    else
+      flash[:warning] = "Wrong username/password pair. Logging in failed."
     end
   end
 
@@ -58,6 +60,28 @@ class AccountController < ApplicationController
       end
     else
       flash.clear
+    end
+  end
+  
+  def show
+    @user = User.find(params[:id])
+  end
+  
+  def edit
+    @user = User.find(params[:id])
+    permit "owner of :user" do
+    end
+  end
+  
+  def update
+    @user = User.find(params[:id])
+    permit "owner of :user" do
+      if @user.update_attributes(params[:user])
+        flash[:notice] = 'Your account was successfully updated.'
+        redirect_to :action => 'show', :id => @user
+      else
+        render :action => 'edit'
+      end
     end
   end
 end

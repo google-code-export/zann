@@ -86,3 +86,33 @@ cat_10_creator:
   name: creator
   authorizable_type: Photo
   authorizable_id: 17
+user_joetucci_owner:
+  id: 19
+  name: owner
+  authorizable_type: User
+  authorizable_id: 1
+user_aaron_owner:
+  id: 20
+  name: owner
+  authorizable_type: User
+  authorizable_id: 2
+user_samuel_owner:
+  id: 21
+  name: owner
+  authorizable_type: User
+  authorizable_id: 3
+user_yolanda_owner:
+  id: 22
+  name: owner
+  authorizable_type: User
+  authorizable_id: 4
+user_charlie_owner:
+  id: 23
+  name: owner
+  authorizable_type: User
+  authorizable_id: 5
+user_quentin_owner:
+  id: 24
+  name: owner
+  authorizable_type: User
+  authorizable_id: 6

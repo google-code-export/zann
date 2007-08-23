@@ -1,4 +1,4 @@
-<h1>Editing photo</h1>
+<%= error_messages_for 'photo' %>
 
 <% form_tag({:action => 'update', :id => @photo}, {:multipart => true}) do %>
 <fieldset>
@@ -6,7 +6,7 @@
   <%= render :partial => 'form' %>
 </fieldset>
 <fieldset>
-  <%= submit_tag 'Edit', :class => "inputSubmit" %>
+  <%= submit_tag 'Save', :class => "inputSubmit" %>
 </fieldset>  
 <% end %>
 
