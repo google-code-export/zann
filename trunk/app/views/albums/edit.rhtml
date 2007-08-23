@@ -1,8 +1,13 @@
-<h1>Editing album</h1>
+<%= error_messages_for 'album' %>
 
 <% form_tag :action => 'update', :id => @album do %>
+<fieldset>
+	<legend>Editing album</legend>
   <%= render :partial => 'form' %>
-  <%= submit_tag 'Edit' %>
+</fieldset>
+<fieldset>
+  <%= submit_tag 'Save', :class => "inputSubmit" %>
+</fieldset>
 <% end %>
 
 <%= link_to 'Show', :action => 'show', :id => @album %> |

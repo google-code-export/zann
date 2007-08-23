@@ -1,36 +1,8 @@
 <%= error_messages_for :user %>
-<% form_for :user do |f| -%>
+<% form_tag :action => 'signup' do %>
 <fieldset>
 	<legend>Sign up</legend>
-	<div class="notes">
-		<h4>Notice</h4>
-		<p>For validity of photo voting, you are required to use company email account to signup. After signup, you will receive activation code in your email inbox.</p>
-	</div>
-<div class="required">
-	<label for="login">Username</label>
-	<%= f.text_field :login, :class => "inputText" %>
-</div>
-<div class="required">
-	<label for="email">Email</label>
-	<%= f.text_field :email, :class => "inputText" %>
-	<small>You are required to use your email account in company to register.</small>
-</div>
-<div class="required">
-	<label for="last_name">First Name</label>
-	<%= f.text_field :last_name, :class => "inputText" %>
-</div>
-<div class="required">
-	<label for="first_name">Last Name</label>
-	<%= f.text_field :first_name, :class => "inputText" %>
-</div>
-<div class="required">
-	<label for="password">Password</label>
-	<%= f.password_field :password, :class => "inputPassword" %>
-</div>
-<div class="required">
-	<label for="password_confirmation">Confirm Password</label>
-	<%= f.password_field :password_confirmation, :class => "inputPassword" %>
-</div>
+	<%= render :partial => 'form' %>
 </fieldset>
 <fieldset>
 	<div class="submit">
@@ -39,4 +11,4 @@
 		</div>
 	</div>
 </fieldset>
-<% end -%>
+<% end %>
