@@ -87,9 +87,9 @@ module Authorization
         # Store url in session for return if this is available from authentication
         send( STORE_LOCATION_METHOD ) if respond_to? STORE_LOCATION_METHOD
         if @current_user
-          flash[:notice] = "Permission denied. Your account cannot access the requested page."
+          flash[:warning] = "Permission denied. Your account cannot access the requested page."
         else
-          flash[:notice] = @options[:redirect_message] ? @options[:redirect_message] : "Login is required"
+          flash[:warning] = @options[:redirect_message] ? @options[:redirect_message] : "Login is required"
         end
         redirect_to redirection
         false  # Want to short-circuit the filters

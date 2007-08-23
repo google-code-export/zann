@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
     @comment.author_id = current_user.id
     if @comment.save
-      flash[:notice] = "Thank for your comments."
+#      flash[:notice] = "Thank for your comments."
     end    
     render(:partial => 'comments/comment', :locals => {:comment => @comment})
   end
