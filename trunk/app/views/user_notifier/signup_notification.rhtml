@@ -1,8 +1,12 @@
-Your account has been created.
+Hi <%= @user.full_name %>,
+Thanks for registering with us. We are looking foward to see your around Zann.
 
+Here's your account info:
   Username: <%= @user.login %>
   Password: <%= @user.password %>
 
-Visit this url to activate your account:
+To complete your registration, please click the following link to activate your account:
+<%= @url %>
 
-  <%= @url %>
+Sincerely,
+Photography Club
