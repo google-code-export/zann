@@ -71,3 +71,6 @@ ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
   end
   html_tag
 end
+
+AUTHORIZATION_MIXIN = 'object roles'
+DEFAULT_REDIRECTION_HASH = { :controller => 'account', :action => 'login' }
