@@ -32,6 +32,8 @@ class AccountController < ApplicationController
     # redirect_back_or_default(:controller => '/account', :action => 'index')
     render :action => 'welcome'
     flash[:notice] = "Thanks for signing up!"
+    @user.accepts_role 'owner', @user
+    @user.save
   rescue ActiveRecord::RecordInvalid
     render :action => 'signup'
   end

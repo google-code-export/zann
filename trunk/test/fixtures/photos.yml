@@ -3,7 +3,7 @@ shanghai_1:
   id: 1
   name: 上海地铁
   description: 上海地铁已经进入网络化运营时代，网络化的地铁线路、巨大的客流和市民对地铁期望的提升，都激励着上海地铁运营有限公司不断的提升自身素质，创建世界一流地铁运.
-  creator_id: 2
+  creator_id: 3
   created_at: 2007-08-11 11:04:20
   album_id: 1
   image: shanghai_1.jpg
@@ -14,7 +14,7 @@ shanghai_2:
   id: 2
   name: 上海永安百货
   description: 上海永安公司以经营“环球百货”为特色，是解放前上海高雅、时尚、尊贵的象征，是上海首屈一指的高档百货商店。1969年改名国营上海市第十百货商店,1988年改建更名为上海华联商厦，并成功以服饰商品为企业经营特色，“穿在华联”饮誉沪上，闻名全国。
-  creator_id: 2
+  creator_id: 4
   created_at: 2007-08-11 12:24:59
   album_id: 1
   image: shanghai_2.jpg
@@ -24,7 +24,7 @@ cat_1:
   id: 3
   name: 狸花猫
   description: 狸花猫产于中国，是经过千百年的自然淘汰而形成的自然猫种。众所周知，宋朝的“狸猫换太子”是我们可以查到的较早的关于狸花猫的典故，因此此猫会在给狸花猫起英文名字时用了Dragen-Li。
-  creator_id: 2
+  creator_id: 5
   created_at: 2007-08-12 12:24:59
   album_id: 2
   image: cat_1.jpg
@@ -34,7 +34,7 @@ cat_2:
   id: 4
   name: 小猫2
   description: 猫的趾底有脂肪质肉垫，因而行走无声。 捕鼠时不会惊跑鼠，趾端生有锐利的爪。爪能够缩进和伸出。
-  creator_id: 2
+  creator_id: 3
   created_at: 2007-08-10 12:24:59
   album_id: 2
   image: cat_2.jpg
@@ -44,7 +44,7 @@ shanghai_3:
   id: 5
   name: Shanghai3
   description: 上海风景3
-  creator_id: 2
+  creator_id: 4
   created_at: 2007-08-11 11:04:20
   album_id: 1
   image: shanghai_3.jpg
@@ -54,7 +54,7 @@ shanghai_4:
   id: 6
   name: Shanghai4
   description: 上海风景4
-  creator_id: 2
+  creator_id: 5
   created_at: 2007-08-11 12:24:59
   album_id: 1
   image: shanghai_4.jpg
@@ -64,7 +64,7 @@ shanghai_5:
   id: 7
   name: Shanghai5
   description: 上海风景5
-  creator_id: 2
+  creator_id: 3
   created_at: 2007-08-11 11:04:20
   album_id: 1
   image: shanghai_5.jpg
@@ -73,7 +73,7 @@ shanghai_6:
   id: 8
   name: Shanghai6
   description: 上海风景6
-  creator_id: 2
+  creator_id: 4
   created_at: 2007-08-11 12:24:59
   album_id: 1
   image: shanghai_6.jpg
@@ -82,7 +82,7 @@ shanghai_7:
   id: 9
   name: Shanghai7
   description: 上海风景7
-  creator_id: 2
+  creator_id: 5
   created_at: 2007-08-11 12:24:59
   album_id: 1
   image: shanghai_7.jpg
@@ -90,7 +90,7 @@ cat_3:
   id: 10
   name: 小猫3
   description: 猫扑- 中国第一娱乐互动门户
-  creator_id: 2
+  creator_id: 3
   created_at: 2007-08-12 12:24:59
   album_id: 2
   image: cat_3.jpg
@@ -98,7 +98,7 @@ cat_4:
   id: 11
   name: 小猫4
   description: 猫的身体分为头、颈、躯干、四肢和尾五部分，全身被毛。
-  creator_id: 2
+  creator_id: 4
   created_at: 2007-08-10 12:24:59
   album_id: 2
   image: cat_4.jpg
@@ -106,7 +106,7 @@ cat_5:
   id: 12
   name: 小猫5
   description: 小猫喵喵5
-  creator_id: 2
+  creator_id: 5
   created_at: 2007-08-12 12:24:59
   album_id: 2
   image: cat_5.jpg
@@ -114,7 +114,7 @@ cat_6:
   id: 13
   name: 小猫6
   description: 小猫喵喵6
-  creator_id: 2
+  creator_id: 3
   created_at: 2007-08-10 12:24:59
   album_id: 2
   image: cat_6.jpg
@@ -122,7 +122,7 @@ cat_7:
   id: 14
   name: 小猫7
   description: 小猫喵喵7
-  creator_id: 2
+  creator_id: 4
   created_at: 2007-08-12 12:24:59
   album_id: 2
   image: cat_7.jpg
@@ -130,7 +130,7 @@ cat_8:
   id: 15
   name: 小猫8
   description: 小猫喵喵8
-  creator_id: 2
+  creator_id: 5
   created_at: 2007-08-10 12:24:59
   album_id: 2
   image: cat_8.jpg
@@ -138,7 +138,7 @@ cat_9:
   id: 16
   name: 小猫9
   description: 小猫喵喵9
-  creator_id: 2
+  creator_id: 3
   created_at: 2007-08-12 12:24:59
   album_id: 2
   image: cat_9.jpg
@@ -146,7 +146,7 @@ cat_10:
   id: 17
   name: 小猫10
   description: 小猫喵喵10
-  creator_id: 2
+  creator_id: 4
   created_at: 2007-08-10 12:24:59
   album_id: 2
   image: cat_10.jpg

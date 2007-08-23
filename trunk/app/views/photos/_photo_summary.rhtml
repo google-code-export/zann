@@ -16,11 +16,19 @@
 					<td>Submitter:</td><td><%= @photo.creator.full_name %></td>
 				</tr>
 				<tr>
+					<td>Album:</td><td><%= link_to(@photo.album.name, {:controller => 'albums', :action => 'gallery', :id => @photo.album}) %></td>
+				</tr>
+				<tr>
 					<td>Popularity(User views):</td><td><div class="graph"><span class="bar" style="width: <%= @photo.view_count + 1 %>%;"><%= @photo.view_count %></span></div></td>
 				</tr>
 				<tr>
 					<td>Download:</td><td><%= link_to(@photo.name, url_for_file_column(@photo,'image'))%></td>
 				</tr>
+				<% if(permit?('creator of :photo')) %>
+				<tr>
+					<td>Operation:</td><td><%= link_to('Edit', :action => 'edit', :id => @photo) %></td>
+				</tr>
+				<% end %>
 			</table>
 		</td>
 	</tr>

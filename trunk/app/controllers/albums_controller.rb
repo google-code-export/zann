@@ -1,5 +1,6 @@
 class AlbumsController < ApplicationController
   before_filter :login_required, :except => [ :list, :show, :gallery, :slideshow]
+  permit 'admin', :only => [:new, :edit, :create, :update, :destroy]
   def index
     list
     render :action => 'list'

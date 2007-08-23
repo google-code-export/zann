@@ -14,6 +14,9 @@ class CreateRoles < ActiveRecord::Migration
       t.column :created_at,         :datetime
       t.column :updated_at,         :datetime
     end
+    joetucci = User.find(:first, :conditions => "login = 'joetucci'")
+    joetucci.has_role 'admin'
+    joetucci.save
   end
 
   def self.down

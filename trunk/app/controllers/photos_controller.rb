@@ -1,6 +1,5 @@
 class PhotosController < ApplicationController
   before_filter :login_required, :except => [ :list, :show]
-
   def index
     list
     render :action => 'list'
@@ -30,6 +29,7 @@ class PhotosController < ApplicationController
     @photo = Photo.new(params[:photo])
     @photo.created_at = Time.now
     @photo.creator_id = current_user.id
+    @photo.accepts_role 'creator', current_user
     if @photo.save
       flash[:notice] = 'Photo was successfully created.'
       redirect_to :action => 'list'
@@ -40,21 +40,29 @@ class PhotosController < ApplicationController
 
   def edit
     @photo = Photo.find(params[:id])
+    permit "creator of :photo" do
+    end
   end
 
   def update
     @photo = Photo.find(params[:id])
-    if @photo.update_attributes(params[:photo])
-      flash[:notice] = 'Photo was successfully updated.'
-      redirect_to :action => 'show', :id => @photo
-    else
-      render :action => 'edit'
+    permit "creator of :photo" do
+      if @photo.update_attributes(params[:photo])
+        flash[:notice] = 'Photo was successfully updated.'
+        redirect_to :action => 'show', :id => @photo
+      else
+        render :action => 'edit'
+      end
     end
   end
 
   def destroy
-    Photo.find(params[:id]).destroy
-    redirect_to :action => 'list'
+    @photo = Photo.find(params[:id])
+    permit "creator of :photo" do
+      @photo.accepts_no_role 'creator', current_user
+      @photo.destroy
+      redirect_to :action => 'list'
+    end
   end
   
   def top_viewed

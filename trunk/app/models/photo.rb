@@ -1,4 +1,5 @@
 class Photo < ActiveRecord::Base
+  acts_as_authorizable
   file_column :image
   validates_file_format_of :image, :in => ["gif", "png", "jpg"]
   validates_filesize_of :image, :in => 0..50.megabytes
