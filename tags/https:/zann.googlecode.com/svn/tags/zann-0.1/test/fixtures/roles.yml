@@ -1,0 +1,118 @@
+admin:
+  id: 1
+  name: admin
+shanghai_1_creator:
+  id: 2
+  name: creator
+  authorizable_type: Photo
+  authorizable_id: 1
+shanghai_2_creator:
+  id: 3
+  name: creator
+  authorizable_type: Photo
+  authorizable_id: 2
+cat_1_creator:
+  id: 4
+  name: creator
+  authorizable_type: Photo
+  authorizable_id: 3
+cat_2_creator:
+  id: 5
+  name: creator
+  authorizable_type: Photo
+  authorizable_id: 4
+shanghai_3_creator:
+  id: 6
+  name: creator
+  authorizable_type: Photo
+  authorizable_id: 5
+shanghai_4_creator:
+  id: 7
+  name: creator
+  authorizable_type: Photo
+  authorizable_id: 6
+shanghai_5_creator:
+  id: 8
+  name: creator
+  authorizable_type: Photo
+  authorizable_id: 7
+shanghai_6_creator:
+  id: 9
+  name: creator
+  authorizable_type: Photo
+  authorizable_id: 8
+shanghai_7_creator:
+  id: 10
+  name: creator
+  authorizable_type: Photo
+  authorizable_id: 9
+cat_3_creator:
+  id: 11
+  name: creator
+  authorizable_type: Photo
+  authorizable_id: 10
+cat_4_creator:
+  id: 12
+  name: creator
+  authorizable_type: Photo
+  authorizable_id: 11
+cat_5_creator:
+  id: 13
+  name: creator
+  authorizable_type: Photo
+  authorizable_id: 12
+cat_6_creator:
+  id: 14
+  name: creator
+  authorizable_type: Photo
+  authorizable_id: 13
+cat_7_creator:
+  id: 15
+  name: creator
+  authorizable_type: Photo
+  authorizable_id: 14
+cat_8_creator:
+  id: 16
+  name: creator
+  authorizable_type: Photo
+  authorizable_id: 15
+cat_9_creator:
+  id: 17
+  name: creator
+  authorizable_type: Photo
+  authorizable_id: 16
+cat_10_creator:
+  id: 18
+  name: creator
+  authorizable_type: Photo
+  authorizable_id: 17
+user_joetucci_owner:
+  id: 19
+  name: owner
+  authorizable_type: User
+  authorizable_id: 1
+user_aaron_owner:
+  id: 20
+  name: owner
+  authorizable_type: User
+  authorizable_id: 2
+user_samuel_owner:
+  id: 21
+  name: owner
+  authorizable_type: User
+  authorizable_id: 3
+user_yolanda_owner:
+  id: 22
+  name: owner
+  authorizable_type: User
+  authorizable_id: 4
+user_charlie_owner:
+  id: 23
+  name: owner
+  authorizable_type: User
+  authorizable_id: 5
+user_quentin_owner:
+  id: 24
+  name: owner
+  authorizable_type: User
+  authorizable_id: 6

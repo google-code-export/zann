@@ -1,0 +1,14 @@
+<%= error_messages_for :user %>
+<% form_tag :action => 'signup' do %>
+<fieldset>
+	<legend>Sign up</legend>
+	<%= render :partial => 'form' %>
+</fieldset>
+<fieldset>
+	<div class="submit">
+		<div>
+			<%= submit_tag 'Sign up', :class => "inputSubmit"%>
+		</div>
+	</div>
+</fieldset>
+<% end %>
