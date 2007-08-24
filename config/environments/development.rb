@@ -20,11 +20,6 @@ config.action_view.debug_rjs                         = true
 
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
-ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.delivery_method = :sendmail
 ActionMailer::Base.perform_deliveries = :true
 ActionMailer::Base.default_charset = "utf-8"
-ActionMailer::Base.smtp_settings = {
-  :address => "localhost",
-  :port => "2525",
-  :domain => "emccrdc.com"
-}
