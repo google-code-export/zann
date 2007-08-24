@@ -1,0 +1,21 @@
+<div class="album-item">
+	<table>
+		<tr>
+			<td>
+				<div class="album-image">
+					<%= link_to(image_tag('album_icon.gif', :size => '128x128', :class => 'glossy'), {:action => 'gallery', :id => album }) %>
+				</div>
+			</td>
+			<td width="30%">
+				<div class="album-name"><%= album.name %></div>
+				<div class="album-description"><%= album.description[0..99] %><%= "..." if(album.description.length > 100)%></div>
+			</td>
+			<td>
+				Submitter: <%= album.creator.full_name %><br/>
+			</td>
+		</tr>
+	</table>
+	
+	<div class="hr">
+	</div>
+</div>
