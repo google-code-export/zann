@@ -1,0 +1,29 @@
+<hr/>
+<% if(logged_in?) %>
+<script language="javascript" type="text/javascript">
+	function comment_posting(){
+		$('post-button').disabled = true;
+		Element.show('loading-icon');
+	}
+	function comment_posted(){
+		var comment = $('comment-list').lastChild;
+		new Effect.Highlight(comment);
+		Element.hide('loading-icon');
+		$('post-button').disabled = false;
+		$('comment_content').value = '';
+		Field.focus('comment_content');
+	}
+</script>
+<%= form_remote_tag(:update => 'comment-list', 
+									:url => {:controller => "comments", :action => "new"},
+									:position => :bottom,
+									:loading => 'comment_posting()',
+									:complete => 'comment_posted()') %>
+	<%= text_area "comment", "content", {:rows => 5, :cols => 160} %>
+	<%= hidden_field_tag "comment[comment_object_type]", "photo" %>
+	<%= hidden_field_tag "comment[comment_object_id]", @photo.id %>
+	<%= submit_tag "Post comment", :id => "post-button" %><%= image_tag("loading.gif", :id => "loading-icon", :style=>"display: none; border: 0;" ) %>
+<%= end_form_tag %>
+<% else %>
+	<p>Please <%= link_to "login", :controller => "account", :action => "login" %> to post comments.</p>
+<% end %>
