@@ -1,0 +1,10 @@
+<div width="130" style="float:left;display:inline;margin:0 18px 20px 18px; border: #F0F0F0 solid;height:320px;">
+	<%= link_to(image_tag(url_for_file_column(photo,'image'), :size => '160x160', :class => 'glossy'), {:action => 'show', :id => photo }) %>
+	<div style="text-align:center">
+		<b><%= photo.name %></b> <br/>
+		<%= link_to(photo.creator.full_name, :controller => "photos", :action => "user", :id => photo.creator) %><br/>
+		<%= link_to "(#{photo.comments_count})", {:action => 'show', :id => photo } %> comments <br/>
+		<%= photo.view_count %> times viewed <br/>
+	</div>
+	<%= render(:partial => 'photos/zann_counter', :locals => {:photo => photo}) %>
+</div>

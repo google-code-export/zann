@@ -1,0 +1,19 @@
+
+
+<!--[form:album]-->
+<div class="notes">
+	<h4>Notice</h4>
+	<p>Albums are first category of photos.</p>
+</div>
+<!--[form:photo]-->
+<div class="required">
+<label for="album_name">Name</label>
+<%= text_field 'album', 'name', :class => "inputText"  %>
+</div>
+<div class="optional">
+<label for="album_description">Description</label>
+<%= text_area 'album', 'description', :class => "inputTextarea", :cols => 50, :rows => 8  %>
+<small>Must be less than 500 characters, basic HTML is supported.</small>
+</div>
+<!--[eoform:album]-->
+

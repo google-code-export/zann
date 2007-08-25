@@ -1,0 +1,7 @@
+<h1>Listing albums</h1>
+
+<%= render(:partial => 'album', :collection => @albums ) %>
+
+<% if(permit? 'admin')%>
+	<%= link_to 'New album', :action => 'new' %>
+<% end %>
