@@ -1,5 +1,5 @@
 class UserNotifier < ActionMailer::Base
-  ZANN_SERVER_ADDRESS = '152.62.42.58'
+  ZANN_SERVER_ADDRESS = '152.62.42.40'
   def signup_notification(user)
     setup_email(user)
     @subject    += 'Registration Verification'
