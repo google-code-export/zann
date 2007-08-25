@@ -5,9 +5,11 @@ shanghai:
   description: 上海风景
   creator_id: 3
   created_at: 2007-08-11 11:04:20
+  photos_count: 7
 cat:
   id: 2
   name: 猫
   description: 小猫喵喵
   creator_id: 3
   created_at: 2007-08-11 11:05:21
+  photos_count: 10

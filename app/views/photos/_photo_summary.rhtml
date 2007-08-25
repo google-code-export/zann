@@ -24,7 +24,7 @@
 				<tr>
 					<td>Download:</td><td><%= link_to(@photo.name, url_for_file_column(@photo,'image'))%></td>
 				</tr>
-				<% if(permit?('creator of :photo')) %>
+				<% if(logged_in? &&permit?('creator of :photo')) %>
 				<tr>
 					<td>Operation:</td><td><%= link_to('Edit', :action => 'edit', :id => @photo) %></td>
 				</tr>

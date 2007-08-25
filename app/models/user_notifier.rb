@@ -15,8 +15,8 @@ class UserNotifier < ActionMailer::Base
   protected
   def setup_email(user)
     @recipients  = "#{user.email}"
-    @from        = "donotreply@emccrdc.com"
-    @subject     = "[ZANN]"
+    @from        = "photography@emccrdc.com"
+    @subject     = "[Photography Club]"
     @sent_on     = Time.now
     @body[:user] = user
   end
