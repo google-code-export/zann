@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  before_filter :login_required, :except => [ :list, :show]
+  before_filter :login_required, :except => [ :list, :show, :top_viewed, :top_zanned, :top_commented, :user, :my]
   def index
     list
     render :action => 'list'

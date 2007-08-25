@@ -259,5 +259,8 @@ sup {
     line-height: 1em;            
 }
 .graph .bar span { position: absolute; left: 1em; }
-
+.highlightgreen{
+	color: #669966;
+	font-size: 1.2em;
+}
 
