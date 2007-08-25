@@ -62,4 +62,5 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
     #render(:layout => 'single_column')
   end
+  
 end
