@@ -40,36 +40,45 @@ class UserTest < Test::Unit::TestCase
       assert u.errors.on(:email)
     end
   end
-
+  
+  def test_should_require_internal_email
+      u = create_user(:email => 'nounderscore@emc.com')
+      assert u.errors.on(:email)
+      u = create_user(:email => 'non_emc@nonemc.com')
+      assert u.errors.on(:email)
+      u = create_user(:email => 'non_plus+plus@emc.com')
+      assert u.errors.on(:email)
+  end
+  
   def test_should_reset_password
-    users(:quentin).update_attributes(:password => 'new password', :password_confirmation => 'new password')
-    assert_equal users(:quentin), User.authenticate('quentin', 'new password')
+    users(:samuel).update_attributes(:password => 'new password', :password_confirmation => 'new password')
+    assert_equal users(:samuel), User.authenticate('samuel', 'new password')
   end
 
   def test_should_not_rehash_password
-    users(:quentin).update_attributes(:login => 'quentin2')
-    assert_equal users(:quentin), User.authenticate('quentin2', 'test')
+    users(:samuel).update_attributes(:login => 'samuel2')
+    assert_equal users(:samuel), User.authenticate('samuel2', 'test')
   end
 
   def test_should_authenticate_user
-    assert_equal users(:quentin), User.authenticate('quentin', 'test')
+    assert_equal users(:samuel), User.authenticate('samuel', 'test')
   end
 
   def test_should_set_remember_token
-    users(:quentin).remember_me
-    assert_not_nil users(:quentin).remember_token
-    assert_not_nil users(:quentin).remember_token_expires_at
+    users(:samuel).remember_me
+    assert_not_nil users(:samuel).remember_token
+    assert_not_nil users(:samuel).remember_token_expires_at
   end
 
   def test_should_unset_remember_token
-    users(:quentin).remember_me
-    assert_not_nil users(:quentin).remember_token
-    users(:quentin).forget_me
-    assert_nil users(:quentin).remember_token
+    users(:samuel).remember_me
+    assert_not_nil users(:samuel).remember_token
+    users(:samuel).forget_me
+    assert_nil users(:samuel).remember_token
   end
   
   protected
     def create_user(options = {})
-      User.create({ :login => 'quire', :email => 'quire@example.com', :password => 'quire', :password_confirmation => 'quire', :first_name => 'quire', :last_name => 'steven' }.merge(options))
+      User.create({ :login => 'quire', :email => 'quire_steven@emc.com', :password => 'quire', :password_confirmation => 'quire', :first_name => 'quire', :last_name => 'steven' }.merge(options))
     end
 end

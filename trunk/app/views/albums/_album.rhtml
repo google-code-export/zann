@@ -11,7 +11,11 @@
 				<div class="album-description"><%= album.description[0..99] %><%= "..." if(album.description.length > 100)%></div>
 			</td>
 			<td>
-				Submitter: <%= album.creator.full_name %><br/>
+				<%= album.photos_count %> images <br/>
+				Creator: <%= album.creator.full_name %><br/>
+				<% if(logged_in? && permit?('admin'))%>
+					<%= link_to('Edit', :action => 'edit', :id => album)%>
+				<% end %>
 			</td>
 		</tr>
 	</table>

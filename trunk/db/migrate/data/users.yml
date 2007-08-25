@@ -1,7 +1,7 @@
 joetucci:
   id: 1
   login: joetucci
-  email: admin.zann@zann.com
+  email: admin_zann@emc.com
   first_name: Joe
   last_name: Tucci
   crypted_password: 9e96ba77de5a7aea5ae055177f928e1001fc58e8

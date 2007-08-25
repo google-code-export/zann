@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   validates_length_of       :last_name,    :maximum => 100
 #  validates_length_of       :avatar,    :maximum => 200
   validates_uniqueness_of   :login, :email, :case_sensitive => false
-  validates_format_of :email, :with => /(^([^@\s]+)@((?:[-_a-z0-9]+\.)+[a-z]{2,})$)|(^$)/i
+  validates_format_of :email, :with => /^([^@+\s]+)_([^@+\s]+)@emc\.com$/i
   before_save :encrypt_password
   before_create :make_activation_code
   

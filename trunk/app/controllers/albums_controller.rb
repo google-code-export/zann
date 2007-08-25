@@ -54,7 +54,7 @@ class AlbumsController < ApplicationController
   end
   
   def gallery
-    @photos = Photo.find_all_by_album_id(params[:id])    
+    @photos = Photo.find_all_by_album_id(params[:id]) 
   end
   
   def slideshow

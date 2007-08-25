@@ -5,6 +5,7 @@ class CreateAlbums < ActiveRecord::Migration
       t.column :description, :string, :limit => 1000
       t.column :creator_id, :integer
       t.column :created_at, :datetime
+      t.column :photos_count, :integer, :default => 0
     end
   end
 

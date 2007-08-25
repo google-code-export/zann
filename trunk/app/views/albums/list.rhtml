@@ -4,5 +4,6 @@
   
 <%= render(:partial => 'album', :collection => @albums ) %>
 
-
-<%= link_to 'New album', :action => 'new' %>
+<% if(permit? 'admin')%>
+	<%= link_to 'New album', :action => 'new' %>
+<% end %>
