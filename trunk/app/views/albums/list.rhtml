@@ -2,6 +2,6 @@
 
 <%= render(:partial => 'album', :collection => @albums ) %>
 
-<% if(permit? 'admin')%>
+<% if(logged_in? && permit?('admin'))%>
 	<%= link_to 'New album', :action => 'new' %>
 <% end %>
