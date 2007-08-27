@@ -23,5 +23,4 @@
 }
 #viewedimage{
 	max-width:820px;
-	width:expression(document.body.clientWidth > 820? "820px": "auto" );
 }
