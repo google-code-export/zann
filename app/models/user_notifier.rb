@@ -3,13 +3,13 @@ class UserNotifier < ActionMailer::Base
   def signup_notification(user)
     setup_email(user)
     @subject    += 'Registration Verification'
-    @body[:url]  = "http://#{ZANN_SERVER_ADDRESS}:3000/account/activate/#{user.activation_code}"
+    @body[:url]  = "http://#{ZANN_SERVER_ADDRESS}/account/activate/#{user.activation_code}"
   end
   
   def activation(user)
     setup_email(user)
     @subject    += 'Your account has been activated!'
-    @body[:url]  = "http://#{ZANN_SERVER_ADDRESS}:3000/main"
+    @body[:url]  = "http://#{ZANN_SERVER_ADDRESS}/main"
   end
   
   protected
