@@ -33,8 +33,8 @@ class AccountController < ApplicationController
     # comment out redirect_back_to_failed and instead add render :action => 'welcome'
     # Add a welcome.rhtml file to your views directory (don��t need to add anything to the controller) and you��re done.
     # redirect_back_or_default(:controller => '/account', :action => 'index')
-    redirect_to :controller => 'main', :action => 'welcome'
-    flash[:notice] = "Thanks for signing up!"
+    redirect_to :controller => 'main', :action => 'index'
+    flash[:notice] = "Thanks for signing up! Please check your email inbox to activate your account first."
     @user.accepts_role 'owner', @user
     @user.save
   rescue ActiveRecord::RecordInvalid
