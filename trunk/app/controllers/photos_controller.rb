@@ -71,12 +71,12 @@ class PhotosController < ApplicationController
     render(:template => "photos/list")
   end
   def my
-    @photos = Photo.find(:all, :conditions => "creator_id = #{current_user.id}")
+    @photos = Photo.find(:all, :conditions => ["creator_id = ?", current_user.id])
     @photo_pages, @photos = paginate_collection @photos, :page => params[:page]
     render(:template => "photos/list")
   end
   def user
-    @photos = Photo.find(:all, :conditions => "creator_id = #{params[:id]}")
+    @photos = Photo.find(:all, :conditions => ["creator_id = ?", params[:id]])
     @photo_pages, @photos = paginate_collection @photos, :page => params[:page]
     render(:template => "photos/list")    
   end
