@@ -5,6 +5,6 @@ class Album < ActiveRecord::Base
   validates_length_of :description, :maximum => 1000
   validates_uniqueness_of :name, :case_sensitive => false
   def album_cover_photo
-    Photo.find(:first, :conditions => "album_id = #{id}")
+    Photo.find(:first, :conditions => ["album_id = ?", id])
   end
 end
