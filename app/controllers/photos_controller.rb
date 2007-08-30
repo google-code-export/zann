@@ -59,7 +59,7 @@ class PhotosController < ApplicationController
   def destroy
     @photo = Photo.find(params[:id])
     permit "creator of :photo" do
-      @photo.accepts_no_role 'creator', current_user
+      # destroy all records related with this photo      
       @photo.destroy
       redirect_to :action => 'list'
     end

@@ -25,4 +25,9 @@ class Photo < ActiveRecord::Base
     zann_count = Zann.count(:conditions => ["zannee_type = 'photo' AND zannee_id = ? AND zanner_id = ?", id, user_id])
     return zann_count>0 ? true : false;
   end  
+  def before_destroy
+    self.accepts_no_role 'creator', self.creator
+    Zann.delete_all(["zannee_type = ? AND zannee_id = ?", 'photo', id])
+    Comment.delete_all(["comment_object_type = ? AND comment_object_id = ?", 'photo', id])
+  end
 end
