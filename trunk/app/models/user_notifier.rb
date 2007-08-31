@@ -12,6 +12,12 @@ class UserNotifier < ActionMailer::Base
     @body[:url]  = "http://#{ZANN_SERVER_ADDRESS}/main"
   end
   
+  def resend_signup_notification(user)
+    setup_email(user)
+    @subject    += 'Registration Verification'
+    @body[:url]  = "http://#{ZANN_SERVER_ADDRESS}/account/activate/#{user.activation_code}"
+  end
+  
   protected
   def setup_email(user)
     @recipients  = "#{user.email}"

@@ -85,4 +85,14 @@ class AccountController < ApplicationController
       end
     end
   end
+  
+  def resend
+    user = User.find(params[:login])
+    if(user.nil?)
+      flash[:warning] = "There's no user named #{params[:login]} existing."
+    else
+      flash[:notice] = "Activation email has been sent to you again. Please check your email inbox to activate your account."
+      UserNotifier.deliver_signup_notification(user)
+    end
+  end
 end
