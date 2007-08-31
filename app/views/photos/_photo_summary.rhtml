@@ -13,7 +13,7 @@
 					<td>Created At:</td><td><%= @photo.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
 				</tr>
 				<tr>
-					<td>Submitter:</td><td><%= @photo.creator.full_name %></td>
+					<td>Submitter:</td><td><%= link_to(@photo.creator.full_name, :controller => "photos", :action => "user", :id => @photo.creator) %> | <%= link_to 'email the author', "mailto:#{@photo.creator.email}"%></td>
 				</tr>
 				<tr>
 					<td>Album:</td><td><%= link_to(@photo.album.name, {:controller => 'albums', :action => 'gallery', :id => @photo.album}) %></td>
