@@ -14,3 +14,8 @@
 		<%= render(:partial => 'photos/zann_counter', :locals => {:photo => photo}) %>
 	</div>
 <% end %>
+<div style="clear:both;"></div>
+<hr/>
+<% if(logged_in?)%>
+	<%= link_to 'Add new photo to this album', :controller => 'photos', :action => 'add', :album_id => params[:id] %>
+<% end %>
