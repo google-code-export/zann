@@ -24,7 +24,12 @@ class PhotosController < ApplicationController
   def new
     @photo = Photo.new
   end
-
+  
+  def add
+    @photo = Photo.new({:album_id => params[:album_id]})
+    render :action => 'new'
+  end
+  
   def create
     @photo = Photo.new(params[:photo])
     @photo.created_at = Time.now
