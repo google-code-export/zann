@@ -16,6 +16,9 @@
 				<% if(logged_in? && permit?('admin'))%>
 					<%= link_to('Edit', :action => 'edit', :id => album)%>
 				<% end %>
+				<% if(logged_in?)%>
+					<%= link_to 'Add new photo to this album', :controller => 'photos', :action => 'add', :album_id => album.id %>
+				<% end %>
 			</td>
 		</tr>
 	</table>
