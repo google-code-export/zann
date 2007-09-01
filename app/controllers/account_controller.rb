@@ -3,10 +3,11 @@ class AccountController < ApplicationController
   include AuthenticatedSystem
   # If you want "remember me" functionality, add this before_filter to Application Controller
   before_filter :login_from_cookie
-  before_filter :login_required, :except => [ :login, :signup, :activate, :show]
+  before_filter :login_required, :except => [ :login, :signup, :activate, :show, :resend]
   # say something nice, you goof!  something sweet.
   def index
     redirect_to(:action => 'signup') unless logged_in? || User.count > 0
+    redirect_to(:controller => 'main', :action => 'index')
   end
 
   def login
@@ -87,12 +88,14 @@ class AccountController < ApplicationController
   end
   
   def resend
-    user = User.find(params[:login])
+    return unless request.post?
+    user = User.find(:first, :conditions => ["login = ? AND activated_at IS NULL AND NOT activation_code IS NULL", params[:login]])
     if(user.nil?)
-      flash[:warning] = "There's no user named #{params[:login]} existing."
+      flash[:warning] = "There's no unactivated user named #{params[:login]} existing."
     else
       flash[:notice] = "Activation email has been sent to you again. Please check your email inbox to activate your account."
       UserNotifier.deliver_signup_notification(user)
     end
+    render :template => 'account/login'
   end
 end

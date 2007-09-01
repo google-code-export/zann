@@ -66,6 +66,7 @@ class PhotosController < ApplicationController
     permit "creator of :photo" do
       # destroy all records related with this photo      
       @photo.destroy
+      flash[:notice] = 'Photo was successfully deleted.'
       redirect_to :action => 'list'
     end
   end

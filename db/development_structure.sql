@@ -31,6 +31,23 @@ CREATE TABLE `photos` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `roles` (
+  `id` int(11) NOT NULL auto_increment,
+  `name` varchar(40) default NULL,
+  `authorizable_type` varchar(30) default NULL,
+  `authorizable_id` int(11) default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `roles_users` (
+  `user_id` int(11) default NULL,
+  `role_id` int(11) default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `schema_info` (
   `version` int(11) default NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -62,4 +79,4 @@ CREATE TABLE `zanns` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO schema_info (version) VALUES (5)
+INSERT INTO schema_info (version) VALUES (6)
