@@ -9,6 +9,6 @@ class Album < ActiveRecord::Base
     Photo.find(:first, :conditions => ["album_id = ?", id])
   end
   def winner_photo
-    Photo.find(:first, :conditions => ["album_id = ?", id ])
+    Photo.find(:first, :conditions => ["album_id = ?", id ], :order => "zanns_count DESC")
   end
 end

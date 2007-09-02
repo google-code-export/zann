@@ -8,9 +8,10 @@ class AlbumTest < Test::Unit::TestCase
     assert_equal 2, Album.count
   end
   
-  def winner_photo
+  def test_winner_photo
     album_shanghai = albums(:shanghai)
-    album_winner_photo = album_shangha.winner_photo
+    album_winner_photo = album_shanghai.winner_photo
     assert_not_nil album_winner_photo
+    assert_equal 1, album_winner_photo.id 
   end
 end
