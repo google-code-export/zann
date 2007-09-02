@@ -35,4 +35,8 @@ class Photo < ActiveRecord::Base
   def self.top_scored
     Photo.find_by_sql("SELECT *, view_count*0.2+comments_count*0.3+zanns_count*0.5 AS score  FROM photos ORDER BY score DESC LIMIT 10")
   end
+  
+  def self.photos_count_until_day(date)
+    Photo.count(:conditions => ["created_at <= ? ", date.tomorrow])
+  end
 end

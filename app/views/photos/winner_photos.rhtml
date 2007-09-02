@@ -1,0 +1,12 @@
+<% for photo in @winner_photos %>
+<div width="130" style="float:left;display:inline;margin:0 8px 10px 8px; border: #F0F0F0 solid;height:230px;">
+	<%= link_to(image_tag(url_for_file_column(photo,'image'), :size => '128x128', :class => 'glossy'), {:action => 'show', :id => photo }) %>
+	<div style="text-align:center">
+		<b><%= photo.name %></b> <br/>
+		<%= link_to(photo.creator.full_name, :controller => "photos", :action => "user", :id => photo.creator) %><br/>
+		Album: <%= photo.album.name %><br/>
+                <%= photo.zanns_count %> zanns
+         </div>
+</div>
+<% end %>
+  

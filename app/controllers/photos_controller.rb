@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  before_filter :login_required, :except => [ :list, :show, :top_viewed, :top_zanned, :top_commented, :top_scored, :winner_photos, :user, :my]
+  before_filter :login_required, :except => [ :list, :show, :top_viewed, :top_zanned, :top_commented, :top_scored, :winner_photos, :photo_growth, :user, :my]
   def index
     list
     render :action => 'list'
@@ -76,38 +76,56 @@ class PhotosController < ApplicationController
     @photo_pages, @photos = paginate_collection @photos, :page => params[:page]
     render(:template => "photos/list")
   end
+  
   def my
     @photos = Photo.find(:all, :conditions => ["creator_id = ?", current_user.id])
     @photo_pages, @photos = paginate_collection @photos, :page => params[:page]
     render(:template => "photos/list")
   end
+  
   def user
     @photos = Photo.find(:all, :conditions => ["creator_id = ?", params[:id]])
     @photo_pages, @photos = paginate_collection @photos, :page => params[:page]
     render(:template => "photos/list")    
   end
+  
   def top_zanned
     @photos = Photo.find(:all,  :order => 'zanns_count DESC')
     @photo_pages, @photos = paginate_collection @photos, :page => params[:page]
     render(:template => "photos/list")
   end
+  
   def top_commented
     @photos = Photo.find(:all,  :order => 'comments_count DESC')
     @photo_pages, @photos = paginate_collection @photos, :page => params[:page]
     render(:template => "photos/list")
   end
+  
   def top_scored
     @photos = Photo.top_scored
     @photo_pages, @photos = paginate_collection @photos, :page => params[:page]
-    render(:layout => false, :template => "photos/photo_list")
+    render(:layout => false)
   end
+  
   def winner_photos
     albums = Album.find(:all)
     @winner_photos = []
     for album in albums
       album_winner_photo = album.winner_photo
-      @winner_photos << album_winner_photo if album_winner_photo.nil?
+      @winner_photos << album_winner_photo if !album_winner_photo.nil?
     end
-    render(:layout => false, :template => "photos/photo_list")
+    render(:layout => false)
+  end
+  
+  def photo_growth
+    today = Time.now
+    @photos_count_today = Photo.photos_count_until_day(today)
+    @photos_count_one_days_ago = Photo.photos_count_until_day(1.days.ago(today))
+    @photos_count_two_days_ago = Photo.photos_count_until_day(2.days.ago(today))
+    @photos_count_three_days_ago = Photo.photos_count_until_day(3.days.ago(today))
+    @photos_count_four_days_ago = Photo.photos_count_until_day(4.days.ago(today))
+    @photos_count_five_days_ago = Photo.photos_count_until_day(5.days.ago(today))
+    @photos_count_six_days_ago = Photo.photos_count_until_day(6.days.ago(today))    
+    render(:layout => false)
   end
 end

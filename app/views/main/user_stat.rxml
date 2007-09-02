@@ -1,4 +1,5 @@
 xml.chart do
+   xml.axis_category(:bold => "false", :size => "10", :alpha => "75")
   xml.chart_data do
     xml.row do
       xml.null("")
