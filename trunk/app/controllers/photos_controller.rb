@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  before_filter :login_required, :except => [ :list, :show, :top_viewed, :top_zanned, :top_commented, :user, :my]
+  before_filter :login_required, :except => [ :list, :show, :top_viewed, :top_zanned, :top_commented, :top_scored, :winner_photos, :user, :my]
   def index
     list
     render :action => 'list'
@@ -95,5 +95,19 @@ class PhotosController < ApplicationController
     @photos = Photo.find(:all,  :order => 'comments_count DESC')
     @photo_pages, @photos = paginate_collection @photos, :page => params[:page]
     render(:template => "photos/list")
+  end
+  def top_scored
+    @photos = Photo.top_scored
+    @photo_pages, @photos = paginate_collection @photos, :page => params[:page]
+    render(:layout => false, :template => "photos/photo_list")
+  end
+  def winner_photos
+    albums = Album.find(:all)
+    @winner_photos = []
+    for album in albums
+      album_winner_photo = album.winner_photo
+      @winner_photos << album_winner_photo if album_winner_photo.nil?
+    end
+    render(:layout => false, :template => "photos/photo_list")
   end
 end
