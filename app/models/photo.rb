@@ -24,10 +24,15 @@ class Photo < ActiveRecord::Base
   def zanned_by_user?(user_id)
     zann_count = Zann.count(:conditions => ["zannee_type = 'photo' AND zannee_id = ? AND zanner_id = ?", id, user_id])
     return zann_count>0 ? true : false;
-  end  
+  end 
+  
   def before_destroy
     self.accepts_no_role 'creator', self.creator
     Zann.delete_all(["zannee_type = ? AND zannee_id = ?", 'photo', id])
     Comment.delete_all(["comment_object_type = ? AND comment_object_id = ?", 'photo', id])
+  end
+  
+  def self.top_scored
+    Photo.find_by_sql("SELECT *, view_count*0.2+comments_count*0.3+zanns_count*0.5 AS score  FROM photos ORDER BY score DESC LIMIT 10")
   end
 end

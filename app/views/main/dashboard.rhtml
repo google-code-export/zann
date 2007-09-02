@@ -6,3 +6,50 @@
 5.Which are current top 20 photos according to current evaluation.
 views(30%)+comments(30%)+zanns(40%)
 -->
+<%= javascript_include_tag "swfobject" %>
+<h1>User Statistics</h1>
+<div id="user-stat" style="padding-left:10px;">
+		<strong>You need to upgrade your Flash Player</strong>
+		Please install a flash player in your browser or turn javascript on.
+</div>
+<script type="text/javascript">
+		// <![CDATA[		
+		var so = new SWFObject("/charts.swf", "user-stat-flash", "700", "400", "7", "#666666");
+		so.addVariable("library_path", "/charts_library");
+		so.addVariable("xml_source", "<%= url_for :action=>'user_stat', :only_path=>true %>");
+		so.write("user-stat");		
+		// ]]>
+</script>
+<div style="clear:both;"/>
+<h1>Top Scored Photos</h1>
+<div id="top-scored-photos">
+	
+</div>
+<script type="text/javascript">
+Event.observe(window, 'load', function() {
+  <%= remote_function(:update => 'top-scored-photos', 
+								   :url => {
+								   		:controller => :photos,
+								   		:action => :top_scored
+									}
+								   )
+	%>
+});
+</script>
+<div style="clear:both;"/>
+<h1>Top Scored Photos</h1>
+<div id="album-winner-photos">
+	
+</div>
+<script type="text/javascript">
+Event.observe(window, 'load', function() {
+  <%= remote_function(:update => 'album-winner-photos', 
+								   :url => {
+								   		:controller => :photos,
+								   		:action => :winner_photos
+									}
+								   )
+	%>
+});
+</script>
+
