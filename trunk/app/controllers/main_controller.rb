@@ -3,7 +3,7 @@ class MainController < ApplicationController
     render 
   end
   
-  def user_stat
+  def statistics
     @total_users = User.count
     @photo_owners = User.count("users.id in (SELECT creator_id FROM photos)")
     @photo_zanners = User.count("users.id in (SELECT zanner_id FROM zanns)") 

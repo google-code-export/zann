@@ -1,29 +1,4 @@
-<!--
-1.How many registered users till now.
-2.How many users have uploaded photos.
-3.How many users have vote for photos.
--->
-<h1>Top Scored Photos</h1>
-<%= image_tag("loading.gif", :id => "top-scored-photos-loading-icon", :style=>"display: none; border: 0;" ) %>
-<div id="top-scored-photos">
-	
-</div>
-<script type="text/javascript">
-Event.observe(window, 'load', function() {
-  <%= remote_function(:update => 'top-scored-photos', 
-                                   :url => {
-                                                :controller => :photos,
-                                                :action => :top_scored
-                                        },
-                                   :loading => "Element.show('top-scored-photos-loading-icon');",
-                                   :complete => "Element.hide('top-scored-photos-loading-icon');"
-                                   )
-	%>
-});
-</script>
-<div style="clear:both;"/>
-
-<h1>Top Photos in Albums</h1>
+<h1>Top Zanned Photos in Albums</h1>
 <%= image_tag("loading.gif", :id => "top-photos-in-album-loading-icon", :style=>"display: none; border: 0;" ) %>
 <div id="album-winner-photos">
 	
@@ -42,21 +17,8 @@ Event.observe(window, 'load', function() {
 });
 </script>
 
-<div style="clear:both;"/>
+<div style="clear:both;margin-top:20px;"/>
 <%= javascript_include_tag "swfobject" %>
-<h1>User Statistics</h1>
-<div id="user-stat" style="padding-left:10px;">
-		<strong>You need to upgrade your Flash Player</strong>
-		Please install a flash player in your browser or turn javascript on.
-</div>
-<script type="text/javascript">
-		// <![CDATA[		
-		var so = new SWFObject("/charts.swf", "user-stat-flash", "700", "400", "7", "#666666");
-		so.addVariable("library_path", "/charts_library");
-		so.addVariable("xml_source", "<%= url_for :action=>'user_stat', :only_path=>true %>");
-		so.write("user-stat");		
-		// ]]>
-</script>
 <h1>Photo Growth</h1>
 <div id="photo-growth" style="padding-left:10px;">
 		<strong>You need to upgrade your Flash Player</strong>
@@ -64,9 +26,48 @@ Event.observe(window, 'load', function() {
 </div>
 <script type="text/javascript">
 		// <![CDATA[		
-		var so = new SWFObject("/charts.swf", "photo-growth-flash", "700", "400", "7", "#666666");
+		var so = new SWFObject("/charts.swf", "photo-growth-flash", "800", "400", "7", "#666666");
 		so.addVariable("library_path", "/charts_library");
 		so.addVariable("xml_source", "<%= url_for :controller => 'photos', :action=>'photo_growth', :only_path=>true %>");
 		so.write("photo-growth");		
 		// ]]>
+</script>
+<div style="clear:both;margin-top:20px;"/>
+<h1>Interesting Figures</h1>
+<%= image_tag("loading.gif", :id => "interesting-figures-loading-icon", :style=>"display: none; border: 0;" ) %>
+<div id="interesting-figures">
+	
+</div>
+<script type="text/javascript">
+Event.observe(window, 'load', function() {
+  <%= remote_function(:update => 'interesting-figures', 
+                                   :url => {
+                                                :controller => :main,
+                                                :action => :statistics
+                                        },
+                                   :loading => "Element.show('interesting-figures-loading-icon');",
+                                   :complete => "Element.hide('interesting-figures-loading-icon');"
+								   )
+	%>
+});
+</script>
+<div style="clear:both;margin-top:20px;"/>
+
+<h1>Top Scored Photos (score = zanns * 0.5 + comments * 0.3 + views * 0.2)</h1>
+<%= image_tag("loading.gif", :id => "top-scored-photos-loading-icon", :style=>"display: none; border: 0;" ) %>
+<div id="top-scored-photos">
+	
+</div>
+<script type="text/javascript">
+Event.observe(window, 'load', function() {
+  <%= remote_function(:update => 'top-scored-photos', 
+                                   :url => {
+                                                :controller => :photos,
+                                                :action => :top_scored
+                                        },
+                                   :loading => "Element.show('top-scored-photos-loading-icon');",
+                                   :complete => "Element.hide('top-scored-photos-loading-icon');"
+                                   )
+	%>
+});
 </script>
