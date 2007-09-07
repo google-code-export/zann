@@ -1,0 +1,25 @@
+xml.chart do
+   xml.axis_category(:bold => "false", :size => "10", :alpha => "75")
+  xml.chart_data do
+    xml.row do
+      xml.null("")
+      xml.string("Register Users")
+      xml.string("Photo Owners")
+      xml.string("Photo Zanners")
+      xml.string("Total Photos")
+      xml.string("Average Photos")
+      xml.string("Total Zanns")
+      xml.string("Average Zanns")      
+    end
+    xml.row do
+      xml.string("Number of Users")
+      xml.number(@total_users)
+      xml.number(@photo_owners)
+      xml.number(@photo_zanners)
+      xml.number(@total_photos)
+      xml.number(@total_photos/@total_users)
+      xml.number(@total_zanns)
+      xml.number(@total_zanns/@total_users)
+    end
+  end
+end
