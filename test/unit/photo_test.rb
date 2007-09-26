@@ -31,13 +31,11 @@ class PhotoTest < Test::Unit::TestCase
     assert_equal 0, Zann.find(:all).length
   end
   
-  def test_photos_count_in_one_day
-    photos_count = Photo.photos_count_until_day(Time.local(2007, 8, 10))
-    assert_equal 5, photos_count
-    photos_count = Photo.photos_count_until_day(Time.local(2007, 8, 11))
-    assert_equal 12, photos_count    
-    photos_count = Photo.photos_count_until_day(Time.local(2007, 8, 12))
+  def test_photos_count_in_one_day 
+    photos_count = Photo.photos_count_until_day(Time.now)
     assert_equal 17, photos_count
+    photos_count = Photo.photos_count_until_day(2.days.ago(Time.now))
+    assert_equal 14, photos_count
   end
   
   def teardown

@@ -34,8 +34,8 @@ class PhotosController < ApplicationController
     @photo = Photo.new(params[:photo])
     @photo.created_at = Time.now
     @photo.creator_id = current_user.id
-    @photo.accepts_role 'creator', current_user
     if @photo.save
+      @photo.accepts_role 'creator', current_user
       flash[:notice] = 'Photo was successfully created.'
       redirect_to :action => 'list'
     else

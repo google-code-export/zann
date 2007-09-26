@@ -5,7 +5,7 @@ require 'photos_controller'
 class PhotosController; def rescue_action(e) raise e end; end
 
 class PhotosControllerTest < Test::Unit::TestCase
-  fixtures :photos, :users
+  fixtures :photos, :users, :roles, :roles_users
 
   def setup
     @controller = PhotosController.new
@@ -33,16 +33,22 @@ class PhotosControllerTest < Test::Unit::TestCase
   end
 
   def test_show
-    view_count = photos(:shanghai_1).view_count
-    get :show, :id => @shanghai_1_id
-    #photo  creator is aaron, viewed by samuel, so view count increase
-    assert_equal view_count + 1, Photo.find(@shanghai_1_id).view_count
+    view_count = photos(:shanghai_2).view_count
+    shanghai_2_id = photos(:shanghai_2).id
+    get :show, :id => shanghai_2_id
+    #photo  creator is yolanda, viewed by samuel, so view count increase
+    assert_equal view_count + 1, Photo.find(shanghai_2_id).view_count
 
     assert_response :success
     assert_template 'show'
 
     assert_not_nil assigns(:photo)
     assert assigns(:photo).valid?
+    
+    view_count = photos(:shanghai_1).view_count
+    get :show, :id => @shanghai_1_id
+    #photo  creator is samuel, viewed by samuel, so view count does not increase
+    assert_equal view_count, Photo.find(@shanghai_1_id).view_count
   end
 
   def test_new
