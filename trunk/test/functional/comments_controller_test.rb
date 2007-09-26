@@ -1,12 +1,12 @@
 require File.dirname(__FILE__) + '/../test_helper'
-require 'comment_controller'
+require 'comments_controller'
 
 # Re-raise errors caught by the controller.
-class CommentController; def rescue_action(e) raise e end; end
+class CommentsController; def rescue_action(e) raise e end; end
 
-class CommentControllerTest < Test::Unit::TestCase
+class CommentsControllerTest < Test::Unit::TestCase
   def setup
-    @controller = CommentController.new
+    @controller = CommentsController.new
     @request    = ActionController::TestRequest.new
     @response   = ActionController::TestResponse.new
   end

@@ -5,7 +5,7 @@ require 'albums_controller'
 class AlbumsController; def rescue_action(e) raise e end; end
 
 class AlbumsControllerTest < Test::Unit::TestCase
-  fixtures :albums
+  fixtures :albums, :users, :roles, :roles_users
 
   def setup
     @controller = AlbumsController.new
@@ -13,6 +13,7 @@ class AlbumsControllerTest < Test::Unit::TestCase
     @response   = ActionController::TestResponse.new
 
     @shanghai_id = albums(:shanghai).id
+    @request.session[:user] = users(:joetucci)
   end
 
   def test_index

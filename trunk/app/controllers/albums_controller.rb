@@ -54,11 +54,11 @@ class AlbumsController < ApplicationController
   end
   
   def gallery
-    @photos = Photo.find_all_by_album_id(params[:id]) 
+    @photos = Photo.find_all_by_album_id(params[:id].to_i) 
   end
   
   def slideshow
-    @photos = Photo.find_all_by_album_id(params[:id])    
+    @photos = Photo.find_all_by_album_id(params[:id].to_i)    
     @album = Album.find(params[:id])
     #render(:layout => 'single_column')
   end
