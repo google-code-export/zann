@@ -38,6 +38,13 @@ class PhotoTest < Test::Unit::TestCase
     assert_equal 14, photos_count
   end
   
+  def test_top_scored_photos
+    top_scored_photos = Photo.top_scored
+    assert top_scored_photos.length == 10
+    assert top_scored_photos[0].score >= top_scored_photos[1].score
+    assert top_scored_photos[1].score >= top_scored_photos[2].score
+  end
+  
   def teardown
     teardown_fixture_files
   end

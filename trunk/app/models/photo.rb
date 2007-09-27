@@ -11,6 +11,11 @@ class Photo < ActiveRecord::Base
   def find_comments
     Comment.find(:all, :conditions => ["comment_object_type = 'photo' AND comment_object_id = ?", id])
   end
+  
+  def score
+    view_count*0.2 + comments_count*0.3 + zanns_count*0.5
+  end
+  
   def view_once
     self.view_count = self.view_count + 1
     self.save
@@ -33,7 +38,7 @@ class Photo < ActiveRecord::Base
   end
   
   def self.top_scored
-    Photo.find_by_sql("SELECT *, view_count*0.2+comments_count*0.3+zanns_count*0.5 AS score  FROM photos ORDER BY score DESC LIMIT 10")
+    Photo.find(:all, :order => "view_count*0.2+comments_count*0.3+zanns_count*0.5 DESC", :limit => 10)
   end
   
   def self.photos_count_until_day(date)
