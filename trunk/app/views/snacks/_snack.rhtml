@@ -1,0 +1,23 @@
+<div class="snack-item">
+	<table>
+		<tr>
+			<td width="12%">
+			</td>
+			<td>
+				<div class="snack-image">
+					<%= link_to(image_tag(url_for_file_column(snack,'image'), :size => '128x128'), {:action => 'show', :id => snack }) %>
+				</div>
+			</td>
+			<td width="30%">
+				<div class="snack-name"><%= snack.name %></div>
+				<div class="snack-description"><%= snack.description[0..99] %><%= "..." if(snack.description.length > 100)%></div>
+			</td>
+			<td>
+				Submitter: <%= snack.creator.full_name %><br/>
+			</td>
+		</tr>
+	</table>
+	
+	<div class="hr">
+	</div>
+</div>

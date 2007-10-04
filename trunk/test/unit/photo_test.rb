@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class PhotoTest < Test::Unit::TestCase
-  fixtures :photos, :zanns, :comments, :users, :roles, :roles_users
+  fixtures :photos, :zanns, :comments, :users
   
   def setup
     setup_fixture_files

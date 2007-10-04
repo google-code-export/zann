@@ -10,12 +10,11 @@ class ZannTest < Test::Unit::TestCase
   def test_zanns_count
     photo_shanghai = photos(:shanghai_1)
     assert_equal 2, photo_shanghai.zanns_count
-    zann = Zann.new
-    zann.zanner_id = 3
-    zann.zanned_at = Time.now
-    zann.zannee_type = 'photo'
-    zann.zannee_id = 1
-    zann.save
+    zann = Zann.new({:zanner_id => 3, 
+		     :zanned_at => Time.now,
+		     :zannee_type => 'photo',
+		     :zannee_id => 1 })
+    assert zann.save
     photo_shanghai = Photo.find(photo_shanghai.id)
     assert_equal 3, photo_shanghai.zanns_count
   end
