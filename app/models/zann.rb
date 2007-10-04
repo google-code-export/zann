@@ -3,11 +3,13 @@ class Zann < ActiveRecord::Base
   validates_presence_of :zannee_id
   validates_inclusion_of :zannee_type, :in => %w{ photo }
   validates_numericality_of :zannee_id, :only_integer => true
+  @@zannee_types = {
+    'photo' => Photo,
+    'snack' => Snack
+  }
   def after_save
-    if(self.zannee_type == 'photo')
-      photo = Photo.find(self.zannee_id)
-      photo.zanns_count = photo.zanns_count + 1
-      photo.save
-    end
+    zannee_class = @@zannee_types[self.zannee_type]
+    zannee = zannee_class.find(self.zannee_id)
+    zannee.update_attribute('zanns_count', zannee.zanns_count + 1)
   end
 end
