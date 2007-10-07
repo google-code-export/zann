@@ -8,5 +8,5 @@
 <%= link_to 'Next page', { :page => @snack_pages.current.next } if @snack_pages.current.next %> 
 <br />
 <% if(logged_in?)%>
-	<%= link_to 'Upload new snack', :action => 'new' %>
+	<%= link_to 'Create new snack', :action => 'new' %>
 <% end %>
