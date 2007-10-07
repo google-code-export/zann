@@ -2,6 +2,7 @@
 	<%= link_to(image_tag(url_for_file_column(snack,'image'), :size => '160x160'), {:action => 'show', :id => snack }) %>
 	<div style="text-align:center">
 		<b><%= snack.name %></b> <br/>
+		<%= snack.description[0..29] %><%= "..." if(snack.description.length > 30)%> <br/>
 		<%= link_to(snack.creator.full_name, :controller => "snacks", :action => "user", :id => snack.creator) %><br/>
 	</div>
 	<%= render(:partial => 'snacks/zann_counter', :locals => {:snack => snack}) %>

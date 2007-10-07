@@ -6,9 +6,13 @@
 <%= render(:partial => 'layouts/snack_header') %>
 
 <div id="container" style="width:860px;">
-	<div id="left"  style="width:840px;background:0;">
+	<div id="left"  style="width:640px;background:0;">
 	<%= render(:partial => 'layouts/flash', :object => flash) %>
 		<%= @content_for_layout %>
+	</div>
+	<div id="right" style="width:190px;">
+		<h1>Live Filter</h1>
+		<p>Category:</p>
 	</div>
 	
 	<div id="clear"></div>
