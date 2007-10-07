@@ -14,13 +14,20 @@ class ZannControllerTest < Test::Unit::TestCase
     setup_fixture_files
   end
 
-  def test_create
-    amount = Zann.count
+  def test_zann_photo
+    photo_amount = Zann.count
     post :new, {:zannee_type => 'photo', :zannee_id => 1}
-    assert_equal amount + 1, Zann.count
+    assert_equal photo_amount + 1, Zann.count
     assert_template "photos/_zann_counter"
   end
   
+  def test_zann_snack
+    amount = Zann.count
+    post :new, {:zannee_type => 'snack', :zannee_id => 1}
+    assert_equal amount + 1, Zann.count
+    assert_template "snacks/_zann_counter"
+  end
+
   def teardown
     teardown_fixture_files
   end

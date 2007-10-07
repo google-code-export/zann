@@ -1,23 +1,8 @@
-<div class="snack-item">
-	<table>
-		<tr>
-			<td width="12%">
-			</td>
-			<td>
-				<div class="snack-image">
-					<%= link_to(image_tag(url_for_file_column(snack,'image'), :size => '128x128'), {:action => 'show', :id => snack }) %>
-				</div>
-			</td>
-			<td width="30%">
-				<div class="snack-name"><%= snack.name %></div>
-				<div class="snack-description"><%= snack.description[0..99] %><%= "..." if(snack.description.length > 100)%></div>
-			</td>
-			<td>
-				Submitter: <%= snack.creator.full_name %><br/>
-			</td>
-		</tr>
-	</table>
-	
-	<div class="hr">
+<div width="130" style="float:left;display:inline;margin:0 18px 20px 18px; border: #F0F0F0 solid;height:320px;">
+	<%= link_to(image_tag(url_for_file_column(snack,'image'), :size => '160x160'), {:action => 'show', :id => snack }) %>
+	<div style="text-align:center">
+		<b><%= snack.name %></b> <br/>
+		<%= link_to(snack.creator.full_name, :controller => "snacks", :action => "user", :id => snack.creator) %><br/>
 	</div>
+	<%= render(:partial => 'snacks/zann_counter', :locals => {:snack => snack}) %>
 </div>
