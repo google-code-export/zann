@@ -11,8 +11,10 @@ class SnacksControllerTest < Test::Unit::TestCase
     @response   = ActionController::TestResponse.new
   end
 
-  # Replace this with your real tests.
-  def test_truth
-    assert true
+  def test_list
+    get :list
+    assert_response :success
+    assert_template 'list'
   end
+
 end
