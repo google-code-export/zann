@@ -22,5 +22,9 @@
 <label for="photo_image">Image</label>
 <%= file_column_field "photo", "image", :class => "inputFile" %>
 </div>
+<div class="optional">
+<label for="photo_tags">Tags</label>
+<%= text_field 'photo', 'tag_list', :class => "inputText"  %>
+</div>
 <!--[eoform:photo]-->
 

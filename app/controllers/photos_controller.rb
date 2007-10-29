@@ -36,6 +36,7 @@ class PhotosController < ApplicationController
     @photo.creator_id = current_user.id
     if @photo.save
       @photo.accepts_role 'creator', current_user
+			@photo.tag_with(params[:photo][:tag_list]) if !params[:photo][:tag_list].nil?
       flash[:notice] = 'Photo was successfully created.'
       redirect_to :action => 'list'
     else

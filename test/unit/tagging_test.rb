@@ -1,0 +1,30 @@
+require File.dirname(__FILE__) + '/../test_helper'
+
+class TaggingTest < Test::Unit::TestCase
+  fixtures :taggings, :tags, :photos
+
+  def setup
+    setup_fixture_files
+  end
+
+	def test_tag_photos
+		shanghai_photo = photos(:shanghai_1)
+		shanghai_photo.tag_with('shanghai')
+		shanghai_photo = Photo.find(shanghai_photo.id)
+		assert_equal 'shanghai', shanghai_photo.tag_list
+		shanghai_photo.tag_with('tag testing')
+		shanghai_photo = Photo.find(shanghai_photo.id)
+		assert_equal 'shanghai tag testing', shanghai_photo.tag_list
+  end
+
+	def test_tag_chinese
+		shanghai_photo = photos(:shanghai_1)
+		shanghai_photo.tag_with('上海')
+		shanghai_photo = Photo.find(shanghai_photo.id)
+		assert_equal '上海', shanghai_photo.tag_list
+  end
+
+  def teardown
+    teardown_fixture_files
+  end
+end
