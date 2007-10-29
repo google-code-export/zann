@@ -13,6 +13,7 @@ if RUBY_PLATFORM =~ /java/
   require 'rubygems'
   RAILS_CONNECTION_ADAPTERS = %w(jdbc)
 end
+#require 'has_many_polymorphs'
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here
   
@@ -77,3 +78,5 @@ end
 
 AUTHORIZATION_MIXIN = 'object roles'
 DEFAULT_REDIRECTION_HASH = { :controller => 'account', :action => 'login' }
+# add tag suppport to ActiveRecord::Base via RAILS_ROOT/lib/tag_extenstions.rb
+require 'tag_extensions'

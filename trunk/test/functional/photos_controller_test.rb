@@ -5,7 +5,7 @@ require 'photos_controller'
 class PhotosController; def rescue_action(e) raise e end; end
 
 class PhotosControllerTest < Test::Unit::TestCase
-  fixtures :photos, :users, :roles, :roles_users
+  fixtures :photos, :users, :roles, :roles_users, :albums
 
   def setup
     @controller = PhotosController.new
@@ -69,6 +69,19 @@ class PhotosControllerTest < Test::Unit::TestCase
     assert_redirected_to :action => 'list'
 
     assert_equal num_photos + 1, Photo.count
+  end
+
+  def test_create_with_tag
+    num_photos = Photo.count
+
+    post :create, :photo => {:name => 'new shanghai city', :description => 'better city, better life', :album_id => 1, :image => upload("#{RAILS_ROOT}/test/fixtures/file_column/test/shanghai_map.jpg"), :tag_list => 'shanghai map'}
+
+    assert_response :redirect
+    assert_redirected_to :action => 'list'
+
+    assert_equal num_photos + 1, Photo.count
+		tagged_photo = Photo.find_by_name('new shanghai city')
+		assert_equal 'shanghai map', tagged_photo.tag_list
   end
 
   def test_edit
