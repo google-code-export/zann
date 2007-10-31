@@ -5,7 +5,7 @@ require 'zann_controller'
 class ZannController; def rescue_action(e) raise e end; end
 
 class ZannControllerTest < Test::Unit::TestCase
-  fixtures :zanns, :users, :photos
+  fixtures :zanns, :users, :photos, :snacks
   def setup
     @controller = ZannController.new
     @request    = ActionController::TestRequest.new
