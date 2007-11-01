@@ -24,6 +24,16 @@ class TaggingTest < Test::Unit::TestCase
 		assert_equal '上海', shanghai_photo.tag_list
   end
 
+  def test_tag_update
+		shanghai_photo = photos(:shanghai_1)
+		shanghai_photo.tag_with('shanghai city')
+		shanghai_photo = Photo.find(shanghai_photo.id)
+		assert_equal 'shanghai city', shanghai_photo.tag_list
+		shanghai_photo.tag_update('new shanghai')
+		shanghai_photo = Photo.find(shanghai_photo.id)
+		assert_equal 'new shanghai', shanghai_photo.tag_list
+  end
+
   def teardown
     teardown_fixture_files
   end

@@ -23,8 +23,9 @@
 <%= file_column_field "photo", "image", :class => "inputFile" %>
 </div>
 <div class="optional">
-<label for="photo_tags">Tags</label>
-<%= text_field 'photo', 'tag_list', :class => "inputText"  %>
+<label for="photo_tag_list">Tags</label>
+  <%= text_field_tag 'tag_list', @tag_list, :class => "inputText"  %>
+  <small>space separated</small>
 </div>
 <!--[eoform:photo]-->
 

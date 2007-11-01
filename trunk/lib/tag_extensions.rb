@@ -1,3 +1,4 @@
+require 'has_many_polymorphs'
 class ActiveRecord::Base
   def tag_with tags
     tags.split(" ").each do |tag|
@@ -14,4 +15,12 @@ class ActiveRecord::Base
 		tags.delete tags.select{|t| split.include? t.name}
 	end
 
+  def tag_update tag_string
+    # delete all and add all
+    tag_delete tag_list
+    tag_with tag_string
+    # TODO performance improvement
+    # delete unexisting tags
+    # add new tags
+  end
 end
