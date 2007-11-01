@@ -12,6 +12,8 @@ require File.join(File.dirname(__FILE__), 'boot')
 if RUBY_PLATFORM =~ /java/
   require 'rubygems'
   RAILS_CONNECTION_ADAPTERS = %w(jdbc)
+  gem 'ActiveRecord-JDBC'
+  require 'jdbc_adapter'
 end
 #require 'has_many_polymorphs'
 Rails::Initializer.run do |config|

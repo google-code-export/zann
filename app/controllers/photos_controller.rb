@@ -36,7 +36,7 @@ class PhotosController < ApplicationController
     @photo.creator_id = current_user.id
     if @photo.save
       @photo.accepts_role 'creator', current_user
-			@photo.tag_with(params[:photo][:tag_list]) if !params[:photo][:tag_list].nil?
+			@photo.tag_with(params[:tag_list]) if !params[:tag_list].nil?
       flash[:notice] = 'Photo was successfully created.'
       redirect_to :action => 'list'
     else
@@ -46,6 +46,7 @@ class PhotosController < ApplicationController
 
   def edit
     @photo = Photo.find(params[:id])
+    @tag_list = @photo.tag_list
     permit "creator of :photo" do
     end
   end
@@ -54,6 +55,7 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
     permit "creator of :photo" do
       if @photo.update_attributes(params[:photo])
+        @photo.tag_update(params[:tag_list].nil?()?'':params[:tag_list])
         flash[:notice] = 'Photo was successfully updated.'
         redirect_to :action => 'show', :id => @photo
       else

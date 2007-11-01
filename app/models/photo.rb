@@ -44,4 +44,5 @@ class Photo < ActiveRecord::Base
   def self.photos_count_until_day(date)
     Photo.count(:conditions => ["created_at <= ? ", date.tomorrow])
   end
+
 end

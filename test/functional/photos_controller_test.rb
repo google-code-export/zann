@@ -74,7 +74,13 @@ class PhotosControllerTest < Test::Unit::TestCase
   def test_create_with_tag
     num_photos = Photo.count
 
-    post :create, :photo => {:name => 'new shanghai city', :description => 'better city, better life', :album_id => 1, :image => upload("#{RAILS_ROOT}/test/fixtures/file_column/test/shanghai_map.jpg"), :tag_list => 'shanghai map'}
+    post :create,
+         :photo => {:name => 'new shanghai city', 
+                    :description => 'better city, better life',
+                    :album_id => 1,
+                    :image => upload("#{RAILS_ROOT}/test/fixtures/file_column/test/shanghai_map.jpg")
+                    },
+         :tag_list => 'shanghai map'
 
     assert_response :redirect
     assert_redirected_to :action => 'list'
