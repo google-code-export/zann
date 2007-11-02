@@ -24,6 +24,9 @@
 				<tr>
 					<td>Download:</td><td><%= link_to(@photo.name, url_for_file_column(@photo,'image'))%></td>
 				</tr>
+				<tr>
+					<td>Tags:</td><td><%=sanitize @photo.tag_list %></td>
+				</tr>
 				<% if(logged_in? &&permit?('creator of :photo')) %>
 				<tr>
 					<td>Operation:</td>
