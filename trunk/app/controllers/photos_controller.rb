@@ -131,4 +131,8 @@ class PhotosController < ApplicationController
     @photos_count_six_days_ago = Photo.photos_count_until_day(6.days.ago(today))    
     render(:layout => false)
   end
+
+  def tag
+    
+  end
 end

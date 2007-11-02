@@ -1,3 +1,4 @@
+#gem 'has_many_polymorphs'
 require 'has_many_polymorphs'
 class ActiveRecord::Base
   def tag_with tags

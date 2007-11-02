@@ -45,4 +45,12 @@ class Photo < ActiveRecord::Base
     Photo.count(:conditions => ["created_at <= ? ", date.tomorrow])
   end
 
+  def self.tagged_by tags
+    Photo.find(:all, 
+      :joins => "JOIN taggings ON taggings.taggable_type = 'Photo' 
+                 AND photos.id = taggings.taggable_id 
+                 JOIN tags ON taggings.tag_id = tags.id",
+      :conditions => ["tags.name = ? ", ])
+  end
+
 end

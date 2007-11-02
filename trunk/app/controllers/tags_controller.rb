@@ -1,9 +1,10 @@
 class TagsController < ApplicationController
-  def photo
+  def photo_tag_cloud
     @cloud = Tag.cloud(:conditions => "taggings.taggable_type = 'Photo'")
   end
 
-  def snack
+  def snack_tag_cloud
     @cloud = Tag.cloud(:conditions => "taggings.taggable_type = 'Snack'")
   end
+
 end
