@@ -87,7 +87,7 @@ class PhotosController < ApplicationController
   end
   
   def user
-    @photos = Photo.find(:all, :conditions => ["creator_id = ?", params[:id]])
+    @photos = Photo.find(:all, :conditions => ["creator_id = ?", params[:id].to_i])
     @photo_pages, @photos = paginate_collection @photos, :page => params[:page]
     render(:template => "photos/list")    
   end
@@ -133,6 +133,8 @@ class PhotosController < ApplicationController
   end
 
   def tag
-    
+    @photos = Photo.find_by_tag(params[:id])
+    @photo_pages, @photos = paginate_collection @photos, :page => params[:page]
+    render(:template => "photos/list")
   end
 end
