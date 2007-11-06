@@ -36,35 +36,35 @@ namespace :db do
       end 
     end
   
+    desc "Load yml data into database."
     task :load => [:environment, 'db:schema:load'] do 
       connect()
-      data = YAML.load(File.read(filename))
+      data = YAML.load(File.read("#{RAILS_ROOT}/db/backup/backup-20071106-1527.yml"))
       data.each_key do |table|
-       if table == 'schema_info'
+        if table == 'schema_info'
           ActiveRecord::Base.connection.execute("delete from schema_info")
           ActiveRecord::Base.connection.execute("insert into schema_info (version) values (#{data[table].first['version']})")
-       else
-       # Create a temporary model to talk to the DB
-    eval %Q{
-    class TempClass < ActiveRecord::Base
-      set_table_name '#{table}'
-      reset_column_information
-    end
-    }
+        else
+          # Create a temporary model to talk to the DB
+          eval %Q{
+            class TempClass < ActiveRecord::Base
+              set_table_name '#{table}'
+              reset_column_information
+            end
+          }
+          TempClass.delete_all
 
-    TempClass.delete_all
+          data[table].each do |record|
+            r = TempClass.new(record)
+            r.id = record['id'] if record.has_key?('id')
+            r.save
+          end
 
-    data[table].each do |record|
-      r = TempClass.new(record)
-      r.id = record['id'] if record.has_key?('id')
-      r.save
-    end
-
-    if ActiveRecord::Base.connection.respond_to?(:reset_pk_sequence!)
-      ActiveRecord::Base.connection.reset_pk_sequence!(table)
-    end
-  end
-end
+          if ActiveRecord::Base.connection.respond_to?(:reset_pk_sequence!)
+            ActiveRecord::Base.connection.reset_pk_sequence!(table)
+          end
+        end
+      end
     end
   end
 end
