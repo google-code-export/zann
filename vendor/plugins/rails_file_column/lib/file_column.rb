@@ -1,6 +1,7 @@
 require 'fileutils'
 require 'tempfile'
 require 'magick_file_column'
+require 'digest/sha1'
 
 module FileColumn # :nodoc:
   def self.append_features(base)
@@ -709,7 +710,8 @@ module FileColumn # :nodoc:
   
   def self.sanitize_filename(filename)
     filename = File.basename(filename.gsub("\\", "/")) # work-around for IE
-    filename.gsub!(/[^a-zA-Z0-9\.\-\+_]/,"x")
+    #filename.gsub!(/[^a-zA-Z0-9\.\-\+_]/,"x")
+    filename = Digest::SHA1.hexdigest(File.basename(filename)) + File.extname(filename)
     filename = "_#{filename}" if filename =~ /^\.+$/
     filename = "unnamed" if filename.size == 0
     filename

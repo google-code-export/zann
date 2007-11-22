@@ -1,6 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
-
+require 'thumbnail'
 class PhotoTest < Test::Unit::TestCase
+  include ImageProcessing
   fixtures :photos, :zanns, :comments, :users
   
   def setup
@@ -43,6 +44,17 @@ class PhotoTest < Test::Unit::TestCase
     assert top_scored_photos.length == 10
     assert top_scored_photos[0].score >= top_scored_photos[1].score
     assert top_scored_photos[1].score >= top_scored_photos[2].score
+  end
+
+  def test_create_photo_thumb
+    photo = Photo.new(
+      :name => 'thumbnail test',
+      :album_id => 1,
+      :image => upload(File.join(RAILS_ROOT, 'test', 'unit', 'data', 'apple.jpg'))
+    )
+    assert photo.save
+    assert File.exist?(medium_size_image_name(photo.image))
+    assert File.exist?(small_size_image_name(photo.image))
   end
   
   def teardown
