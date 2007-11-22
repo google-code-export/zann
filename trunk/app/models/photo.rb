@@ -1,4 +1,6 @@
+require 'thumbnail'
 class Photo < ActiveRecord::Base
+  include ImageProcessing
   acts_as_authorizable
   file_column :image
   validates_file_format_of :image, :in => ["gif", "png", "jpg"]
@@ -20,12 +22,7 @@ class Photo < ActiveRecord::Base
     self.view_count = self.view_count + 1
     self.save
   end
-  #def zanns_count
-   # Zann.count(:conditions => "zannee_type = 'photo' AND zannee_id = #{id}")
-  #end
-  #def comments_count
-   # Comment.count(:all, :conditions => "comment_object_type = 'photo' AND comment_object_id = #{id}")
-  #end
+
   def zanned_by_user?(user_id)
     zann_count = Zann.count(:conditions => ["zannee_type = 'photo' AND zannee_id = ? AND zanner_id = ?", id, user_id])
     return zann_count>0 ? true : false;
@@ -44,5 +41,9 @@ class Photo < ActiveRecord::Base
   def self.photos_count_until_day(date)
     Photo.count(:conditions => ["created_at <= ? ", date.tomorrow])
   end
-
+  
+  def after_save
+    # creat thumbnail and extract exif info
+    create_thumb(image)
+  end
 end
