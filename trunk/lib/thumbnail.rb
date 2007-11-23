@@ -19,6 +19,21 @@ module ImageProcessing
     "#{File.dirname(image)}#{File::SEPARATOR}#{File.basename(image, File.extname(image))}_m#{File.extname(image)}"
   end
 
+  def medium_size_file_url(object, method)
+    if(File.exist?(medium_size_image_name(object.send(method))))
+      return medium_size_image_name(url_for_file_column(object, method))
+    else
+      return url_for_file_column(object, method)
+    end
+  end
+
+  def small_size_file_url(object, method)
+    if(File.exist?(small_size_image_name(object.send(method))))
+      return small_size_image_name(url_for_file_column(object, method))
+    else
+      return url_for_file_column(object, method)
+    end
+  end
   # full image file path
   def create_thumb(image)
     image_scalor = ImageScalor.new(image)
