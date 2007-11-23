@@ -16,9 +16,9 @@
     <div class="imageElement">
       <h3><%= photo.name %></h3>
       <p><%= photo.description %></p>
-      <%= link_to('', {:action => :show, :id => photo}, {:class => 'open'}) %>
-      <%= image_tag(url_for_file_column(photo, 'image'), :class => 'full') %>
-      <%= image_tag(small_size_image_name(url_for_file_column(photo, 'image')), :class => 'thumbnail') %>
+      <%= link_to('', {:controller => :photos, :action => :show, :id => photo}, {:class => 'open'}) %>
+      <%= image_tag(medium_size_file_url(photo, 'image'), :class => 'full') %>
+      <%= image_tag(small_size_file_url(photo, 'image'), :class => 'thumbnail') %>
     </div>
   <% end %>
 </div>

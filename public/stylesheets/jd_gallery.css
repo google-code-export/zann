@@ -1,16 +1,11 @@
 #myGallery, #myGallerySet, #flickrGallery
 {
-	width: 460px;
-	height: 345px;
+	width: 840px;
+	height: 600px;
 	z-index:5;
 	border: 1px solid #000;
 }
 
-#flickrGallery
-{
-	width: 500px;
-	height: 334px;
-}
 
 #myGallery img.thumbnail, #myGallerySet img.thumbnail
 {
@@ -85,7 +80,7 @@
 .jdGallery .slideInfoZone p
 {
 	padding: 0;
-	font-size: 60%;
+	font-size: 80%;
 	margin: 2px 5px;
 	color: #eee;
 }

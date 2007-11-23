@@ -18,7 +18,8 @@
 				<% end %>
 				<% if(logged_in?)%>
 					<%= link_to 'Add new photo to this album', :controller => 'photos', :action => 'add', :album_id => album.id %>
-				<% end %>
+				<% end %><br/>
+        <%= link_to 'View as Slideshow', {:action => :slideshow, :id => album}%>
 			</td>
 		</tr>
 	</table>

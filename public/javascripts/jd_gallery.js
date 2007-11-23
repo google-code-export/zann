@@ -63,7 +63,7 @@ var gallery = {
 			thumbWidth: 100,
 			thumbSpacing: 10,
 			thumbIdleOpacity: 0.2,
-			textShowCarousel: 'Pictures',
+			textShowCarousel: 'Quick Look',
 			showCarouselLabel: true,
 			thumbCloseCarousel: true,
 			useThumbGenerator: false,
