@@ -1,4 +1,6 @@
+require 'thumbnail'
 module AlbumsHelper
+  include ImageProcessing
   def album_cover(album)
     cover = album.album_cover_photo
     if cover.nil?

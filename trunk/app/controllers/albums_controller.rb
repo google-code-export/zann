@@ -60,7 +60,7 @@ class AlbumsController < ApplicationController
   def slideshow
     @photos = Photo.find_all_by_album_id(params[:id].to_i)    
     @album = Album.find(params[:id])
-    #render(:layout => 'single_column')
+    render(:not_require_prototype => true)
   end
   
 end
