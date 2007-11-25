@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  before_filter :login_required, :except => [ :list, :show, :top_viewed, :top_zanned, :top_commented, :top_scored, :winner_photos, :photo_growth, :user, :my]
+  before_filter :login_required, :except => [ :list, :show, :top_viewed, :top_zanned, :top_commented, :top_scored, :winner_photos, :photo_growth, :user, :tag]
   def index
     list
     render :action => 'list'
@@ -133,8 +133,13 @@ class PhotosController < ApplicationController
   end
 
   def tag
-    @photos = Photo.find_by_tag(params[:id])
+    if(!params[:id].nil?)
+      @photos = Photo.find_by_tag(params[:id])
+    else
+      @photos = Photo.find(:all)
+    end
     @photo_pages, @photos = paginate_collection @photos, :page => params[:page]
-    render(:template => "photos/list")
+    @tags = Tag.cloud
+    #render(:template => "photos/list")
   end
 end

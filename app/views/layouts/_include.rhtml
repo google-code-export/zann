@@ -1,7 +1,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 	<title>zann | <%= controller.controller_name %> <%= controller.action_name %></title>
-<% if(!params[:not_require_prototype].nil?) %>
+<% if(@not_require_prototype.nil?) %>
 	<%= javascript_include_tag "prototype" %>
 	<%= javascript_include_tag "effects" %>
 <% end %>
@@ -11,5 +11,6 @@
 	<%= stylesheet_link_tag "photo", :media => "all" %>
 	<%= stylesheet_link_tag "form", :media => "all" %>
 	<%= stylesheet_link_tag "bubbles", :media => "all" %>
+	<%= stylesheet_link_tag "tag_cloud", :media => "all" %>
 	<link rel="shortcut icon" href="/favicon.ico" />
 </head>

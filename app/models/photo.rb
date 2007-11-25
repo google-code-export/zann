@@ -41,6 +41,14 @@ class Photo < ActiveRecord::Base
   def self.photos_count_until_day(date)
     Photo.count(:conditions => ["created_at <= ? ", date.tomorrow])
   end
+
+  def self.find_by_album_and_tag(album_id, tag)
+    Photo.find(:all,
+      :select => 'photos.*',
+      :joins => 'JOIN taggings ON photos.id = taggings.taggable_id JOIN tags ON taggings.tag_id = tags.id',
+      :conditions => ['album_id = ? AND tags.name = ?', album_id, tag]
+    )
+  end
   
   def after_save
     # creat thumbnail and extract exif info

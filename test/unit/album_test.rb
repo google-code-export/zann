@@ -14,4 +14,10 @@ class AlbumTest < Test::Unit::TestCase
     assert_not_nil album_winner_photo
     assert_equal 1, album_winner_photo.id 
   end
+
+  def test_find_tags_of_photos_in_one_album
+    album_shanghai = albums(:shanghai)
+    tags = album_shanghai.find_tags_in_album
+    assert 2, tags.length
+  end
 end
