@@ -25,4 +25,11 @@ module ApplicationHelper
       ''
     end
   end
+  def tag_cloud_class(tag_popularity)
+    tag_popularity = tag_popularity.to_i if(tag_popularity.is_a?(String))
+    cloud_level = tag_popularity / 2
+    cloud_level = 1 if cloud_level <= 0
+    cloud_level = 10 if cloud_level > 10
+    return "tag#{cloud_level}"
+  end
 end

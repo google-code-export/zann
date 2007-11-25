@@ -57,6 +57,13 @@ class PhotoTest < Test::Unit::TestCase
     assert File.exist?(small_size_image_name(photo.image))
   end
   
+  def test_find_photo_by_album_and_tag
+     shanghai_photos = Photo.find_by_album_and_tag(1, 'shanghai') 
+     assert 2, shanghai_photos.length
+     subway_photos = Photo.find_by_album_and_tag(1, 'subway') 
+     assert 1, subway_photos.length
+  end
+
   def teardown
     teardown_fixture_files
   end

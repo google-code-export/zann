@@ -11,7 +11,7 @@
 	text-align: center;
 }
 .zann-count{
-	font-family: Georgia, Times, serif;;
+	font-family: Georgia, Times, serif;
 	font-size: 3em;
 	font-weight: bold;
 	color: #669966;
@@ -26,4 +26,11 @@
 }
 #viewedsnack{
     max-width: 500px;
+}
+.list-photo-frame {
+  float:left;
+  display:inline;
+  margin:0 18px 20px 18px;
+  border: #F0F0F0 solid;
+  height:320px;
 }

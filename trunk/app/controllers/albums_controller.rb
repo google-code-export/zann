@@ -54,13 +54,24 @@ class AlbumsController < ApplicationController
   end
   
   def gallery
-    @photos = Photo.find_all_by_album_id(params[:id].to_i) 
+    find_photos_in_album
+    @album = Album.find(params[:id])
+    @tags = @album.find_tags_in_album
   end
   
   def slideshow
-    @photos = Photo.find_all_by_album_id(params[:id].to_i)    
+    find_photos_in_album
     @album = Album.find(params[:id])
-    render(:params => {:not_require_prototype => true})
+    @not_require_prototype = true
+  end
+
+  private
+  def find_photos_in_album
+    if(params[:tag].nil?)
+      @photos = Photo.find_all_by_album_id(params[:id].to_i) 
+    else
+      @photos = Photo.find_by_album_and_tag(params[:id].to_i, params[:tag])
+    end
   end
   
 end

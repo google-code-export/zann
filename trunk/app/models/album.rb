@@ -8,7 +8,18 @@ class Album < ActiveRecord::Base
   def album_cover_photo
     Photo.find(:first, :conditions => ["album_id = ?", id])
   end
+
   def winner_photo
     Photo.find(:first, :conditions => ["album_id = ?", id ], :order => "zanns_count DESC")
+  end
+
+  def find_tags_in_album
+    Tag.find(:all,
+      :select => 'tags.name, count(*) as popularity',
+      :joins => 'JOIN taggings ON tags.id = taggings.tag_id 
+      JOIN photos ON taggings.taggable_id = photos.id',
+      :conditions => ["photos.album_id = ? AND taggings.taggable_type = ?", id, 'Photo'],
+      :group => 'tags.name'
+    )
   end
 end

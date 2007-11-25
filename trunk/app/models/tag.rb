@@ -6,11 +6,11 @@ class Tag < ActiveRecord::Base
 
   def self.cloud(args = {})
     find(:all, 
-      :select => 'tags.*, count(*) as popularity',
-      :limit => args[:limit] || 5,
+      :select => 'tags.name, count(*) as popularity',
+      :limit => args[:limit] || 1000,
       :joins => 'JOIN taggings ON taggings.tag_id = tags.id',
       :conditions => args[:conditions],
-      :group => 'taggings.tag_id',
+      :group => 'tags.name',
       :order => 'popularity DESC'
     )
   end

@@ -56,7 +56,11 @@ Event.observe(window, 'load', function() {
 <h1>Top Scored Photos (score = zanns * 0.5 + comments * 0.3 + views * 0.2)</h1>
 <%= image_tag("loading.gif", :id => "top-scored-photos-loading-icon", :style=>"display: none; border: 0;" ) %>
 <div id="top-scored-photos">
-	
+<% if(params[:not_require_prototype].nil?) %>
+  nil
+<% else %>
+  non nil
+<% end %>
 </div>
 <script type="text/javascript">
 Event.observe(window, 'load', function() {

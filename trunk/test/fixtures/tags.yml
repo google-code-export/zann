@@ -1,0 +1,9 @@
+shanghai:
+  id: 1
+  name: shanghai
+cat:
+  id: 2
+  name: cat
+subway:
+  id: 3
+  name: subway
