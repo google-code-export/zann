@@ -52,6 +52,17 @@ class AlbumsController < ApplicationController
     Album.find(params[:id]).destroy
     redirect_to :action => 'list'
   end
+
+  def data
+    find_photos_in_album
+    @album = Album.find(params[:id])
+    @tags = @album.find_tags_in_album
+    respond_to do |format|
+      format.html
+      format.json { render :template => "albums/data_json", :layout => false }
+      format.js { render :template => "albums/data_js", :layout => false }
+    end
+  end
   
   def gallery
     find_photos_in_album
