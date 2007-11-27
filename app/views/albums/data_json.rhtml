@@ -1,0 +1,15 @@
+<%
+  display_photos = []
+  for photo in @photos
+    display_photos << {
+      :name => photo.name,
+      :description => photo.description,
+      :creator => photo.creator.full_name,
+      :view_count => photo.view_count,
+      :zanns_count => photo.zanns_count,
+      :comment_count => photo.comments_count,
+      :image_url => small_size_file_url(photo, 'image')
+    }
+  end
+%>
+<%= "photos = #{display_photos.to_json};" %>

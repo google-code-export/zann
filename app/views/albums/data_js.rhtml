@@ -1,0 +1,11 @@
+<script src="<%= url_for(:controller => 'albums', :action => 'data', :id => "#{params[:id]}.json")%>" type="text/javascript">
+</script>
+<script type="text/javascript">
+for(var i = 0; i<photos.size(); i++)
+{
+  document.write('<ul>');
+  var photo_template = new Template('<li>Name: #{name}<br/> Description: #{description}</li>');
+  document.write(photo_template.evaluate(photos[i]));
+  document.write('</ul>');
+}
+</script>
