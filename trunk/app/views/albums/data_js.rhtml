@@ -1,11 +1,14 @@
-<script src="<%= url_for(:controller => 'albums', :action => 'data', :id => "#{params[:id]}.json")%>" type="text/javascript">
-</script>
-<script type="text/javascript">
-for(var i = 0; i<photos.size(); i++)
+<%= render(:partial => 'albums/data_json') %>
+for(var i = 0; i<photos.length; i++)
 {
-  document.write('<ul>');
-  var photo_template = new Template('<li>Name: #{name}<br/> Description: #{description}</li>');
+  document.write('<div>');
+  var photo_template = new Template('<div width="130">\
+    <a href="<%= url_for(:controller => :photos, :action => :show) %>/#{id}"><img src="#{image_url}" class="glossy"/></a>\
+    <div style="text-align:center">\
+      <b>#{name}</b><br/>\
+    </div>\
+  </div>\
+    ');
   document.write(photo_template.evaluate(photos[i]));
-  document.write('</ul>');
+  document.write('</div>');
 }
-</script>

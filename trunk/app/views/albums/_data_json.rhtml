@@ -2,6 +2,7 @@
   display_photos = []
   for photo in @photos
     display_photos << {
+      :id => photo.id,
       :name => photo.name,
       :description => photo.description,
       :creator => photo.creator.full_name,
@@ -12,4 +13,4 @@
     }
   end
 %>
-<%= "photos = #{display_photos.to_json};" %>
+<%= "var photos = #{display_photos.to_json};" %>
