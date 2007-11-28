@@ -1,5 +1,5 @@
 class AlbumsController < ApplicationController
-  before_filter :login_required, :except => [ :list, :show, :gallery, :slideshow]
+  before_filter :login_required, :except => [ :list, :show, :gallery, :slideshow, :data, :data_json]
   permit 'admin', :only => [:new, :edit, :create, :update, :destroy]
   def index
     list
@@ -59,11 +59,21 @@ class AlbumsController < ApplicationController
     @tags = @album.find_tags_in_album
     respond_to do |format|
       format.html
-      format.json { render :template => "albums/data_json", :layout => false }
+      format.json { render :template => "albums/_data_json", :layout => false }
       format.js { render :template => "albums/data_js", :layout => false }
     end
   end
   
+  def data_json
+    find_photos_in_album
+    @album = Album.find(params[:id])
+    @tags = @album.find_tags_in_album
+    respond_to do |format|
+      format.js { render :template => "albums/_data_json", :layout => false }
+    end
+    
+  end
+
   def gallery
     find_photos_in_album
     @album = Album.find(params[:id])
