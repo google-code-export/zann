@@ -1,14 +1,18 @@
 <%= render(:partial => 'albums/data_json') %>
 for(var i = 0; i<photos.length; i++)
 {
-  document.write('<div>');
-  var photo_template = new Template('<div width="130">\
-    <a href="<%= url_for(:controller => :photos, :action => :show) %>/#{id}"><img src="#{image_url}" class="glossy"/></a>\
-    <div style="text-align:center">\
-      <b>#{name}</b><br/>\
-    </div>\
-  </div>\
+  document.write('<table border="0">');
+  var photo_template = new Template('\
+    <tr>\
+      <td>\
+        <a href="<%= url_for(:controller => :photos, :action => :show) %>/#{id}"><img src="#{image_url}" class="glossy" style="border:0px;"/></a>\
+      </td>\
+      <td>\
+        #{name}<br/>\
+        #{description}<br/>\
+      </td>\
+    </tr>\
     ');
   document.write(photo_template.evaluate(photos[i]));
-  document.write('</div>');
+  document.write('</table>');
 }
