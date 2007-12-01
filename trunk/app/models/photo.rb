@@ -2,7 +2,7 @@ require 'thumbnail'
 class Photo < ActiveRecord::Base
   include ImageProcessing
   acts_as_authorizable
-  file_column :image
+  file_column :image, :jthumb => {}
   validates_file_format_of :image, :in => ["gif", "png", "jpg"]
   validates_filesize_of :image, :in => 0..50.megabytes
   belongs_to :creator, :class_name => 'User', :foreign_key => 'creator_id'
@@ -50,8 +50,4 @@ class Photo < ActiveRecord::Base
     )
   end
   
-  def after_save
-    # creat thumbnail and extract exif info
-    create_thumb(image)
-  end
 end
