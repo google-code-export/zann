@@ -9,7 +9,9 @@
       :view_count => photo.view_count,
       :zanns_count => photo.zanns_count,
       :comment_count => photo.comments_count,
-      :image_url => small_size_file_url(photo, 'image')
+      :small_image_url => "http://#{request.host}:#{request.port}#{small_size_file_url(photo, 'image')}",
+      :medium_image_url => "http://#{request.host}:#{request.port}#{medium_size_file_url(photo, 'image')}",
+      :image_url => "http://#{request.host}:#{request.port}#{url_for_file_column(photo, 'image')}"
     }
   end
 %>
