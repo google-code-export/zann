@@ -1,11 +1,14 @@
 <%= render(:partial => 'albums/data_json') %>
+<% show_photo_url = "http://#{request.host}:#{request.port}#{url_for(:controller => :photos, :action => :show)}" %>
 for(var i = 0; i<photos.length; i++)
 {
   document.write('<table border="0">');
   var photo_template = new Template('\
     <tr>\
       <td>\
-        <a href="<%= url_for(:controller => :photos, :action => :show) %>/#{id}"><img src="#{image_url}" class="glossy" style="border:0px;"/></a>\
+        <a href="<%= show_photo_url %>/#{id}">\
+          <img src="#{small_image_url}" class="glossy" style="border:0px;"/>\
+        </a>\
       </td>\
       <td>\
         #{name}<br/>\
