@@ -61,7 +61,13 @@ class AlbumsController < ApplicationController
     respond_to do |format|
       format.html
       format.json { render :template => "albums/_data_json", :layout => false }
-      format.js { render :template => "albums/data_js", :layout => false }
+      format.js { 
+        if(params[:gallery])
+          render :template => "albums/data_gallery_js", :layout => false
+        else
+          render :template => "albums/data_slideshow_js", :layout => false
+        end
+      }
     end
   end
   
