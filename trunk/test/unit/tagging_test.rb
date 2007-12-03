@@ -28,7 +28,8 @@ class TaggingTest < Test::Unit::TestCase
     shanghai_photo = photos(:shanghai_1)
     shanghai_photo.tag_with('shanghai city')
     shanghai_photo = Photo.find(shanghai_photo.id)
-    assert_equal 'shanghai city', shanghai_photo.tag_list
+    assert shanghai_photo.tag_list.include?('shanghai')
+    assert shanghai_photo.tag_list.include?('city')
     shanghai_photo.tag_update('new shanghai')
     shanghai_photo = Photo.find(shanghai_photo.id)
     assert shanghai_photo.tag_list.include?('new')

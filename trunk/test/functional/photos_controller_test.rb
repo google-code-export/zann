@@ -87,7 +87,8 @@ class PhotosControllerTest < Test::Unit::TestCase
 
     assert_equal num_photos + 1, Photo.count
 		tagged_photo = Photo.find_by_name('new shanghai city')
-		assert_equal 'shanghai map', tagged_photo.tag_list
+    assert tagged_photo.tag_list.include?('shanghai')
+    assert tagged_photo.tag_list.include?('map')
   end
 
   def test_edit
