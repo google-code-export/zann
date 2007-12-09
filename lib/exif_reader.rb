@@ -13,7 +13,7 @@ class ExifReader
     exif_info = {}
     metadata = Sanselan.getMetadata(java.io.File.new(file));
     if(metadata.kind_of?(JpegImageMetadata))
-      exif_info[:date_time] = metadata.findEXIFValue(TiffConstants::TIFF_TAG_DateTime)
+      exif_info[:date_time] = metadata.findEXIFValue(TiffConstants::TIFF_TAG_DateTime).getValueDescription()
       exif_info[:make] = metadata.findEXIFValue(TiffConstants::TIFF_TAG_Make).getValueDescription()
       exif_info[:model] = metadata.findEXIFValue(TiffConstants::TIFF_TAG_Model).getValueDescription()
       exif_info[:pixel_x_dimension] = metadata.findEXIFValue(TiffConstants::TIFF_TAG_PixelXDimension).getValueDescription()

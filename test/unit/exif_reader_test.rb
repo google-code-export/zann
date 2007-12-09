@@ -17,6 +17,7 @@ class ExifReaderTest < Test::Unit::TestCase
     assert_equal "0", exif_info[:flash]
     assert_equal "38", exif_info[:focal_length]
     assert_equal "0", exif_info[:white_balance]
+    assert_equal "2006-09-06T17:27:39.000+0800", exif_info[:date_time]
   end
 
   def teardown

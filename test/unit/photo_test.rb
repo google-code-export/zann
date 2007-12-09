@@ -57,6 +57,18 @@ class PhotoTest < Test::Unit::TestCase
     assert File.exist?(small_size_image_name(photo.image))
   end
   
+  def test_extract_photo_exif
+    photo = Photo.new(
+      :name => 'exif test',
+      :album_id => 1,
+      :image => upload(File.join(RAILS_ROOT, 'test', 'unit', 'data', 'test.jpg'))
+    )
+    assert photo.save
+    assert_not_nil photo.exif
+    assert_equal "'NIKON D50'", photo.exif.model
+    assert_equal "10/80", photo.exif.exposure_time
+  end
+
   def test_find_photo_by_album_and_tag
      shanghai_photos = Photo.find_by_album_and_tag(1, 'shanghai') 
      assert 2, shanghai_photos.length
