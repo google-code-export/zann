@@ -1,0 +1,28 @@
+xml.chart do
+  xml.chart_type do
+    xml.string("line")
+  end
+  xml.axis_category(:bold => "false", :size => "10", :alpha => "75")
+  xml.chart_data do
+    xml.row do
+      xml.null("")
+      xml.string(6.days.ago(Time.now).strftime("%Y-%m-%d"))
+      xml.string(5.days.ago(Time.now).strftime("%Y-%m-%d"))
+      xml.string(4.days.ago(Time.now).strftime("%Y-%m-%d"))
+      xml.string(3.days.ago(Time.now).strftime("%Y-%m-%d"))
+      xml.string(2.days.ago(Time.now).strftime("%Y-%m-%d"))
+      xml.string(1.days.ago(Time.now).strftime("%Y-%m-%d"))
+      xml.string(Time.now.strftime("%Y-%m-%d"))
+    end
+    xml.row do
+      xml.string("Photos")
+      xml.number(@photos_count_six_days_ago)
+      xml.number(@photos_count_five_days_ago)
+      xml.number(@photos_count_four_days_ago)
+      xml.number(@photos_count_three_days_ago)
+      xml.number(@photos_count_two_days_ago)
+      xml.number(@photos_count_one_days_ago)
+      xml.number(@photos_count_today)
+    end
+  end
+end

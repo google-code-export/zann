@@ -1,0 +1,47 @@
+<table style="border:1px solid;" width="100%">
+	<tr>
+		<td width="15%"><%= render(:partial => 'zann_counter', :locals => {:photo => @photo}) %></td>
+		<td>
+			<table>
+				<tr>
+					<td>Title:</td><td><%=h @photo.name %></td>
+				</tr>
+				<tr>
+					<td>Description:</td><td><%=sanitize @photo.description %></td>
+				</tr>
+				<tr>
+					<td>Created At:</td><td><%= @photo.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+				</tr>
+				<tr>
+					<td>Submitter:</td><td><%= link_to(@photo.creator.full_name, :controller => "photos", :action => "user", :id => @photo.creator) %> | <%= link_to 'email the author', "mailto:#{@photo.creator.email}"%></td>
+				</tr>
+				<tr>
+					<td>Album:</td><td><%= link_to(@photo.album.name, {:controller => 'albums', :action => 'gallery', :id => @photo.album}) %></td>
+				</tr>
+				<tr>
+					<td>Popularity(User views):</td><td><div class="graph"><span class="bar" style="width: <%= @photo.view_count + 1 %>%;"><%= @photo.view_count %></span></div></td>
+				</tr>
+				<tr>
+					<td>Download:</td><td><%= link_to(@photo.name, url_for_file_column(@photo,'image'))%></td>
+				</tr>
+				<tr>
+					<td>Tags:</td>
+          <td>
+           <% for tag in @photo.tags %>
+             <%= link_to(tag.name, :action => :tag, :id => tag.name) %>&nbsp;
+           <% end %>
+          </td>
+				</tr>
+				<% if(logged_in? &&permit?('creator of :photo')) %>
+				<tr>
+					<td>Operation:</td>
+					<td>
+						<%= link_to('Edit', :action => 'edit', :id => @photo) %> |
+						<%= link_to('Delete', {:action => 'destroy', :id => @photo}, :confirm => 'Are you sure you want to delete this photo? (All the related zanns and comments will be deleted too.)', :method => 'post') %>
+					</td>
+				</tr>
+				<% end %>
+			</table>
+		</td>
+	</tr>
+</table>

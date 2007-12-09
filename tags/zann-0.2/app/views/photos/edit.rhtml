@@ -1,0 +1,14 @@
+<%= error_messages_for 'photo' %>
+
+<% form_tag({:action => 'update', :id => @photo}, {:multipart => true}) do %>
+<fieldset>
+	<legend>Editing photo</legend>
+  <%= render :partial => 'form' %>
+</fieldset>
+<fieldset>
+  <%= submit_tag 'Save', :class => "inputSubmit" %>
+</fieldset>  
+<% end %>
+
+<%= link_to 'Show', :action => 'show', :id => @photo %> |
+<%= link_to 'Back', :action => 'list' %>

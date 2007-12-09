@@ -1,0 +1,11 @@
+<div class="zann-counter" id="zann-counter-<%= snack.id %>">
+	<div class="zann-count"><span id="zann-count-<%= snack.id %>"><%= snack.zanns_count %></span><div><%= image_tag("loading.gif", :id => "loading-icon-#{snack.id}", :style=>"display: none; border: 0;" ) %></div></div>
+	<div style="font-size:1em;">zanns</div>
+	<% if(logged_in?)%>
+		<% if(!snack.zanned_by_user?(current_user.id))%>
+			<div><%= link_to_remote 'zann it', :update => "zann-counter-#{snack.id}", :url => {:controller => 'zann', :action => 'new', :zannee_type => 'snack', :zannee_id => snack.id}, :loading => "Element.hide('zann-count-#{snack.id}');Element.show('loading-icon-#{snack.id}');", :complete => "Element.hide('loading-icon-#{snack.id}');Element.show('zann-count-#{snack.id}');" %></div>
+		<% else %>
+			<div>zanned</div>
+		<% end %>
+	<% end %>	
+</div>

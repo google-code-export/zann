@@ -1,0 +1,29 @@
+<div class="album-item">
+	<table width="100%">
+		<tr>
+			<td width="20%">
+				<div class="album-image">
+					<%= link_to(image_tag(album_cover(album), :size => '128x128', :class => 'glossy'), {:action => 'gallery', :id => album }) %>
+				</div>
+			</td>
+			<td width="50%">
+				<div class="album-name"><b><%= album.name %></b></div>
+				<div class="album-description"><%= album.description[0..99] %><%= "..." if(album.description.length > 100)%></div>
+			</td>
+			<td>
+				<%= album.photos_count %> images <br/>
+				Creator: <%= album.creator.full_name %><br/>
+				<% if(logged_in? && permit?('admin'))%>
+					<%= link_to('Edit', :action => 'edit', :id => album)%><br/>
+				<% end %>
+				<% if(logged_in?)%>
+					<%= link_to 'Add new photo to this album', :controller => 'photos', :action => 'add', :album_id => album.id %>
+				<% end %><br/>
+        <%= link_to 'View as Slideshow', {:action => :slideshow, :id => album}%>
+			</td>
+		</tr>
+	</table>
+	
+	<div class="hr">
+	</div>
+</div>
