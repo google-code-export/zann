@@ -5,9 +5,10 @@
   }
 </style>
 <h1>Listing photos</h1>
-
+<div id="photo-list" style="float:left;width:560px;">
 <%= render(:partial => 'photo', :collection => @photos ) %>
-<div id="tag-list" style="margin-left:720px;">
+</div>
+<div id="tag-list" style="float:left;">
   Tags:<br/>
   <ul id="cloud">
   <% for tag in @tags %>

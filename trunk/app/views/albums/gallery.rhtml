@@ -2,9 +2,9 @@
 	<%= javascript_include_tag "thickbox" %>
 	<%= stylesheet_link_tag "thickbox", :media => "screen" %>
 	<%= image_tag "loadingAnimation.gif", {:style => 'display:none;'}%>
-<div id="album-photos" style="width:720px;">
+<div id="album-photos" style="float:left;width:620px;">
 <% for photo in @photos %>
-	<div width="130" style="float:left;margin:0 5px 20px 5px; border: #F0F0F0 solid;height:320px;">
+	<div style="float:left;margin:0 20px 20px 20px;border: #F0F0F0 solid;width:160px;height:320px;">
 		<%= link_to(image_tag(small_size_file_url(photo,'image'), :size => '160x160', :class => 'glossy'), url_for_file_column(photo,'image'), {:class => 'thickbox', :rel => photo.album.name, :title => "<b>#{photo.name}</b> - #{link_to('detail of this photo', {:controller => 'photos', :action => 'show', :id => photo}, {:style => "color:blue;"})}" }) %></br>
 		<div style="text-align:center">
 			<b><%= photo.name %></b> <br/>
@@ -16,7 +16,7 @@
 	</div>
 <% end %>
 </div>
-<div id="tag-list" style="margin-left:720px;">
+<div id="tag-list" style="float:left;">
   Tags in album <%= link_to(@album.name, {:action => :gallery, :id => @album}, {:style => "text-decoration: underline;"}) %>:<br/>
   <ul id="cloud">
   <% for tag in @tags %>

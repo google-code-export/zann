@@ -1,8 +1,7 @@
-require 'thumbnail'
+require 'exif_reader'
 class Photo < ActiveRecord::Base
-  include ImageProcessing
   acts_as_authorizable
-  file_column :image, :jthumb => {}
+  file_column :image, :jthumb => {}, :exif => {}
   validates_file_format_of :image, :in => ["gif", "png", "jpg"]
   validates_filesize_of :image, :in => 0..50.megabytes
   belongs_to :creator, :class_name => 'User', :foreign_key => 'creator_id'
@@ -10,6 +9,7 @@ class Photo < ActiveRecord::Base
   validates_presence_of :name,:album_id, :image
   validates_length_of :name, :maximum => 100
   validates_uniqueness_of :name, :case_sensitive => false
+  has_one :exif
   def find_comments
     Comment.find(:all, :conditions => ["comment_object_type = 'photo' AND comment_object_id = ?", id])
   end
@@ -49,5 +49,5 @@ class Photo < ActiveRecord::Base
       :conditions => ['album_id = ? AND tags.name = ?', album_id, tag]
     )
   end
-  
+
 end

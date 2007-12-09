@@ -2,6 +2,7 @@ require 'fileutils'
 require 'tempfile'
 require 'magick_file_column'
 require 'jthumb_file_column'
+require 'exif_file_column'
 require 'digest/sha1'
 
 module FileColumn # :nodoc:
@@ -699,6 +700,7 @@ module FileColumn # :nodoc:
 
       FileColumn::MagickExtension::file_column(self, attr, my_options) if options[:magick]
       FileColumn::JthumbExtension::file_column(self, attr, my_options) if options[:jthumb]
+      FileColumn::ExifExtension::file_column(self, attr, my_options) if options[:exif]
     end
     
   end
