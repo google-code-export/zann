@@ -13,18 +13,25 @@ class ExifReader
     exif_info = {}
     metadata = Sanselan.getMetadata(java.io.File.new(file));
     if(metadata.kind_of?(JpegImageMetadata))
-      exif_info[:date_time] = metadata.findEXIFValue(TiffConstants::TIFF_TAG_DateTime).getValueDescription()
-      exif_info[:make] = metadata.findEXIFValue(TiffConstants::TIFF_TAG_Make).getValueDescription()
-      exif_info[:model] = metadata.findEXIFValue(TiffConstants::TIFF_TAG_Model).getValueDescription()
-      exif_info[:pixel_x_dimension] = metadata.findEXIFValue(TiffConstants::TIFF_TAG_PixelXDimension).getValueDescription()
-      exif_info[:pixel_y_dimension] = metadata.findEXIFValue(TiffConstants::TIFF_TAG_PixelYDimension).getValueDescription()
-      exif_info[:software] = metadata.findEXIFValue(TiffConstants::TIFF_TAG_Software).getValueDescription()
-      exif_info[:exposure_time] = metadata.findEXIFValue(TiffConstants::TIFF_TAG_ExposureTime).getValueDescription()
-      exif_info[:fnumber] = metadata.findEXIFValue(TiffConstants::TIFF_TAG_FNumber).getValueDescription()
-      exif_info[:flash] = metadata.findEXIFValue(TiffConstants::TIFF_TAG_Flash).getValueDescription()
-      exif_info[:focal_length] = metadata.findEXIFValue(TiffConstants::TIFF_TAG_FocalLength).getValueDescription()
-      exif_info[:white_balance] = metadata.findEXIFValue(TiffConstants::TIFF_TAG_WhiteBalance).getValueDescription()
+      exif_info[:date_time] = get_value_description(metadata, TiffConstants::TIFF_TAG_DateTime)
+      exif_info[:make] = get_value_description(metadata, TiffConstants::TIFF_TAG_Make)
+      exif_info[:model] = get_value_description(metadata, TiffConstants::TIFF_TAG_Model)
+      exif_info[:pixel_x_dimension] = get_value_description(metadata, TiffConstants::TIFF_TAG_PixelXDimension)
+      exif_info[:pixel_y_dimension] = get_value_description(metadata, TiffConstants::TIFF_TAG_PixelYDimension)
+      exif_info[:software] = get_value_description(metadata, TiffConstants::TIFF_TAG_Software)
+      exif_info[:exposure_time] = get_value_description(metadata, TiffConstants::TIFF_TAG_ExposureTime)
+      exif_info[:fnumber] = get_value_description(metadata, TiffConstants::TIFF_TAG_FNumber)
+      exif_info[:flash] = get_value_description(metadata, TiffConstants::TIFF_TAG_Flash)
+      exif_info[:focal_length] = get_value_description(metadata, TiffConstants::TIFF_TAG_FocalLength)
+      exif_info[:white_balance] = get_value_description(metadata, TiffConstants::TIFF_TAG_WhiteBalance)
     end
     return exif_info
+  end
+  private
+  def self.get_value_description(metadata, tag)
+    tag_value = metadata.findEXIFValue(tag)
+    value_description = ""
+    value_description = tag_value.getValueDescription() if !tag_value.nil?
+    return value_description
   end
 end
