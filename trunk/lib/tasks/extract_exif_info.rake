@@ -13,7 +13,7 @@ namespace :zann do
           photo.save
         end
       rescue
-        logger.error("[Extracting EXIF info] Failed to extract exif info from photo #{photo.id}")
+        puts "[Extracting EXIF info] Failed to extract exif info from photo #{photo.id}"
       end
     end
   end
