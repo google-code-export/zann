@@ -39,7 +39,7 @@ namespace :db do
     desc "Load yml data into database."
     task :load => [:environment, 'db:schema:load'] do 
       connect()
-      data = YAML.load(File.read("#{RAILS_ROOT}/db/backup/backup-20071207-1749.yml"))
+      data = YAML.load(File.read(File.join(RAILS_ROOT, ENV['BACKUP_FILE'])))
       data.each_key do |table|
         if table == 'schema_info'
           ActiveRecord::Base.connection.execute("delete from schema_info")
