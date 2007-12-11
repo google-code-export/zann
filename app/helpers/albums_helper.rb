@@ -6,7 +6,7 @@ module AlbumsHelper
     if cover.nil?
       'album_icon.gif' 
     else
-      url_for_file_column(cover,'image')
+      small_size_file_url(cover,'image')
     end
   end
 end
