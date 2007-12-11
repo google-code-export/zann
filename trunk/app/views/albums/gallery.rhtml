@@ -26,6 +26,11 @@
 </div>
 <div style="clear:both;"></div>
 <hr/>
+<% if !@photo_pages.nil? %>
+<%= link_to 'Previous page', { :page => @photo_pages.current.previous } if @photo_pages.current.previous %>
+<%= link_to 'Next page', { :page => @photo_pages.current.next } if @photo_pages.current.next %> 
+<% end %>
+<br />
 <% if(logged_in?)%>
 	<%= link_to 'Add new photo to this album', :controller => 'photos', :action => 'add', :album_id => params[:id] %>
 <% end %>
