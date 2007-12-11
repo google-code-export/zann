@@ -20,6 +20,11 @@ class ExifReaderTest < Test::Unit::TestCase
     assert_equal "2006-09-06T17:27:39.000+0800", exif_info[:date_time]
   end
 
+  def test_fail_to_extract_exif
+    exif_info = ExifReader.read(File.join(RAILS_ROOT, 'test', 'unit', 'data', 'IMG_9150.jpg'))
+    assert_equal 0, exif_info.length
+  end
+
   def teardown
   end
 end

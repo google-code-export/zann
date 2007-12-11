@@ -87,6 +87,7 @@ class AlbumsController < ApplicationController
   def find_photos_in_album
     if(params[:tag].nil?)
       @photos = Photo.find_all_by_album_id(params[:id].to_i) 
+      @photo_pages, @photos = paginate_collection @photos, :page => params[:page], :per_page => 48
     else
       @photos = Photo.find_by_album_and_tag(params[:id].to_i, params[:tag])
     end
