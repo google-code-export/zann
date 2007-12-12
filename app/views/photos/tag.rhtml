@@ -5,10 +5,10 @@
   }
 </style>
 <h1>Listing photos</h1>
-<div id="photo-list" style="float:left;width:560px;">
+<div id="photo-list" style="float:left;width:540px;">
 <%= render(:partial => 'photo', :collection => @photos ) %>
 </div>
-<div id="tag-list" style="float:left;">
+<div id="tag-list" style="width:240px;float:left;">
   Tags:<br/>
   <ul id="cloud">
   <% for tag in @tags %>
