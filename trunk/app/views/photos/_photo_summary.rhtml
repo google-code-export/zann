@@ -32,6 +32,7 @@
            <% end %>
           </td>
 				</tr>
+
 				<% if(logged_in? &&permit?('creator of :photo')) %>
 				<tr>
 					<td>Operation:</td>
@@ -44,4 +45,25 @@
 			</table>
 		</td>
 	</tr>
+  <% if(!@photo.exif.nil?)%>
+    <!--
+  <tr style="border-top: 1px solid black;">
+    <td></td>
+    <td>
+      Make: <%= @photo.exif.make %><br/>
+      Model: <%= @photo.exif.model %><br/>
+      Software: <%= @photo.exif.software %><br/>
+      Exposure Time: <%= @photo.exif.exposure_time %><br/>
+      Flash: <%= @photo.exif.flash %><br/>
+    </td>
+    <td>
+      Fnumber: <%= @photo.exif.fnumber %><br/>
+      Focal Length: <%= @photo.exif.focal_length %><br/>
+      White Balance: <%= @photo.exif.white_balance %><br/>
+      Datetime: <%= @photo.exif.date_time %><br/>
+      Resolution: <%= @photo.exif.pixel_x_dimension %> x <%= @photo.exif.pixel_y_dimension %>
+    </td>
+  </tr>
+  -->
+  <% end %>
 </table>
