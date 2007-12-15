@@ -90,4 +90,35 @@ class AlbumsControllerTest < Test::Unit::TestCase
       Album.find(@shanghai_id)
     }
   end
+
+  def test_add_album_admin
+    post :grant, :album_id => @shanghai_id, :admin_email => 'chen_charlie@emc.com'
+    assert_response :redirect
+    assert_redirected_to :action => 'admin'
+    shanghai_album = Album.find(@shanghai_id)
+    assert_equal 3, shanghai_album.admins.length
+  end
+
+  def test_add_existing_album_admin
+    post :grant, :album_id => @shanghai_id, :admin_email => 'ni_yue@emc.com'
+    assert_response :redirect
+    assert_redirected_to :action => 'admin'
+    shanghai_album = Album.find(@shanghai_id)
+    assert_equal 2, shanghai_album.admins.length
+  end
+
+  def test_add_unexisting_user_as_album_admin
+    post :grant, :album_id => @shanghai_id, :admin_email => 'no_such_user@emc.com'
+    assert_response :redirect
+    assert_redirected_to :action => 'admin'
+    assert_not_nil flash[:warning]
+  end
+
+  def test_remove_existing_album_admin
+    post :ungrant, :album_id => @shanghai_id, :admin_email => 'ni_yue@emc.com'
+    assert_response :redirect
+    assert_redirected_to :action => 'admin'
+    shanghai_album = Album.find(@shanghai_id)
+    assert_equal 1, shanghai_album.admins.length
+  end
 end

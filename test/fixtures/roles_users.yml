@@ -70,3 +70,12 @@ owner_user_charlie:
 owner_user_quentin:
   user_id: 6
   role_id: 24 
+shanghai_album_admin_user_samuel:
+  user_id: 3
+  role_id: 25 
+shanghai_album_admin_user_yolanda:
+  user_id: 4
+  role_id: 25 
+cat_album_admin_user_samuel:
+  user_id: 3
+  role_id: 26 

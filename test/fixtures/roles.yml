@@ -116,3 +116,13 @@ user_quentin_owner:
   name: owner
   authorizable_type: User
   authorizable_id: 6
+album_shanghai_admin:
+  id: 25
+  name: album_admin
+  authorizable_type: Album
+  authorizable_id: 1
+album_cat_admin:
+  id: 26
+  name: album_admin
+  authorizable_type: Album
+  authorizable_id: 2
