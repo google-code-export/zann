@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+macbook:
+  id: 1
+  name: macbook in action
+  description: macbook in action
+  creator_id: 3
+  created_at: <%= 1.days.ago(Time.now).to_s(:db) %>
+  movie: macbook_in_action.avi
+  view_count: 20
+  comments_count: 0
+  zanns_count: 0

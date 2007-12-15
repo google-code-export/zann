@@ -1,0 +1,22 @@
+<%= render(:partial => 'albums/data_json') %>
+<% show_photo_url = "http://#{request.host}:#{request.port}#{url_for(:controller => :photos, :action => :show)}" %>
+function startGallery() {
+				var albumGallery = new gallery($('myGallery'), {
+					timed: false,
+					defaultTransition: "fadeslideleft"
+				});
+			}
+window.onDomReady(startGallery);
+
+document.write('<div id="myGallery">');
+for(var i = 0; i < photos.length; i++)
+{
+  document.write('<div class="imageElement">');
+  document.write('<h3>' + photos[i].name + '</h3>');
+  document.write('<p>' + photos[i].description + '</p>');
+  document.write('<a href="<%= show_photo_url %>/' + photos[i].id + '" class="open"></a>');
+  document.write('<img src="' + photos[i].medium_image_url + '" class="full"/>');
+  document.write('<img src="' + photos[i].small_image_url + '" class="thumbnail"/>');
+  document.write('</div>');
+}
+document.write('</div>');

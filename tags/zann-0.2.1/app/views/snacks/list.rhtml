@@ -1,0 +1,12 @@
+<h1>Listing snacks</h1>
+
+<%= render(:partial => 'snack', :collection => @snacks ) %>
+
+<div style="clear:both;"></div>
+<hr/>
+<%= link_to 'Previous page', { :page => @snack_pages.current.previous } if @snack_pages.current.previous %>
+<%= link_to 'Next page', { :page => @snack_pages.current.next } if @snack_pages.current.next %> 
+<br />
+<% if(logged_in?)%>
+	<%= link_to 'Create new snack', :action => 'new' %>
+<% end %>

@@ -1,0 +1,36 @@
+	<%= javascript_include_tag "jquery" %>
+	<%= javascript_include_tag "thickbox" %>
+	<%= stylesheet_link_tag "thickbox", :media => "screen" %>
+	<%= image_tag "loadingAnimation.gif", {:style => 'display:none;'}%>
+<div id="album-photos" style="float:left;width:540px;">
+<% for photo in @photos %>
+	<div style="float:left;margin:0 5px 20px 5px;border: #F0F0F0 solid;width:160px;height:320px;">
+		<%= link_to(image_tag(small_size_file_url(photo,'image'), :size => '160x160', :class => 'glossy'), url_for_file_column(photo,'image'), {:class => 'thickbox', :rel => photo.album.name, :title => "<b>#{photo.name}</b> - #{link_to('detail of this photo', {:controller => 'photos', :action => 'show', :id => photo}, {:style => "color:blue;"})}" }) %></br>
+		<div style="text-align:center">
+			<b><%= photo.name %></b> <br/>
+			<%= link_to(photo.creator.full_name, :controller => "photos", :action => "user", :id => photo.creator) %><br/>
+			<%= link_to "(#{photo.comments_count})", {:action => 'show', :id => photo } %> comments <br/>
+			<%= photo.view_count %> times viewed <br/>
+		</div>
+		<%= render(:partial => 'photos/zann_counter', :locals => {:photo => photo}) %>
+	</div>
+<% end %>
+</div>
+<div id="tag-list" style="width:240px;float:left;">
+  Tags in album <%= link_to(@album.name, {:action => :gallery, :id => @album}, {:style => "text-decoration: underline;"}) %>:<br/>
+  <ul id="cloud">
+  <% for tag in @tags %>
+    <li><%= link_to(tag.name, {:action=> :gallery, :id => params[:id], :tag => tag.name}, {:class => tag_cloud_class(tag.popularity) }) %> (<%= tag.popularity %>)</li>
+  <% end %>
+  </ul>
+</div>
+<div style="clear:both;"></div>
+<hr/>
+<% if !@photo_pages.nil? %>
+<%= link_to 'Previous page', { :page => @photo_pages.current.previous } if @photo_pages.current.previous %>
+<%= link_to 'Next page', { :page => @photo_pages.current.next } if @photo_pages.current.next %> 
+<% end %>
+<br />
+<% if(logged_in?)%>
+	<%= link_to 'Add new photo to this album', :controller => 'photos', :action => 'add', :album_id => params[:id] %>
+<% end %>

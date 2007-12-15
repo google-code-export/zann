@@ -1,0 +1,8 @@
+<% for snack in @snacks %>
+	{
+		name:	"<%= snack.name %>",
+		description:	"<%= snack.description %>",
+		creator: "<%= snack.creator.full_name %>",
+		zanns_count: "<%= snack.zanns_count %>",
+	},
+<% end %>

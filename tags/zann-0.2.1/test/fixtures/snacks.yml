@@ -1,0 +1,89 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+green_tea_mints:
+  id: 1
+  name: Green Tea Mints
+  description: 一种绿茶薄荷糖
+  creator_id: 3
+  created_at: <%= 1.days.ago(Time.now).to_s(:db) %>
+  image: green_tea_mints.jpg
+  zanns_count: 0
+green_tea:
+  id: 2
+  name: Green Tea
+  description: 绿茶饮料
+  creator_id: 3
+  created_at: <%= 1.days.ago(Time.now).to_s(:db) %>
+  image: green_tea.jpg
+  zanns_count: 0 
+kettle_chips:
+  id: 3
+  name: Kettle Chips
+  description: Kettle牌的薯片
+  creator_id: 3
+  created_at: <%= 1.days.ago(Time.now).to_s(:db) %>
+  image: kettle_chips.jpg
+  zanns_count: 0 
+lays:
+  id: 4
+  name: Lays
+  description: 乐事薯片
+  creator_id: 3
+  created_at: <%= 1.days.ago(Time.now).to_s(:db) %>
+  image: lays.jpg
+  zanns_count: 0 
+mentos_mints:
+  id: 5
+  name: Mentos Mints
+  description: 曼妥斯薄荷糖
+  creator_id: 3
+  created_at: <%= 1.days.ago(Time.now).to_s(:db) %>
+  image: mentos_mints.jpg
+  zanns_count: 0 
+milk:
+  id: 6
+  name: Milk
+  description: 罐装牛奶,吃了补钙
+  creator_id: 3
+  created_at: <%= 1.days.ago(Time.now).to_s(:db) %>
+  image: milk.jpg
+  zanns_count: 0 
+orange_juice:
+  id: 7
+  name: Orange Juice 
+  description: 橙汁饮料
+  creator_id: 3
+  created_at: <%= 1.days.ago(Time.now).to_s(:db) %>
+  image: orange_juice.jpg
+  zanns_count: 0 
+oreo_cookies:
+  id: 8 
+  name: Oreo Cookies
+  description: 奥力奥饼干
+  creator_id: 3
+  created_at: <%= 1.days.ago(Time.now).to_s(:db) %>
+  image: oreo_cookies.jpg
+  zanns_count: 0 
+pirate_cookies:
+  id: 9
+  name: Pirate Cookies
+  description: 做成海盗样子的饼干
+  creator_id: 3
+  created_at: <%= 1.days.ago(Time.now).to_s(:db) %>
+  image: pirate_cookies.jpg
+  zanns_count: 0 
+soy_crisps:
+  id: 10
+  name: Soy Crisps
+  description: 酱薯片
+  creator_id: 3
+  created_at: <%= 1.days.ago(Time.now).to_s(:db) %>
+  image: soy_crisps.jpg
+  zanns_count: 0 
+wafer_cookies:
+  id: 11
+  name: Wafter Cookies
+  description: 威化饼干
+  creator_id: 3
+  created_at: <%= 1.days.ago(Time.now).to_s(:db) %>
+  image: wafer_cookies.jpg
+  zanns_count: 0 

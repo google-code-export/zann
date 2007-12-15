@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<%= render(:partial => 'layouts/include') %>
+
+<body>
+<%= render(:partial => 'layouts/video_header') %>
+
+<div id="container" style="width:860px;">
+	<div id="left"  style="width:840px;background:0;">
+	<%= render(:partial => 'layouts/flash', :object => flash) %>
+		<%= @content_for_layout %>
+	</div>
+	
+	<div id="clear"></div>
+</div>
+<%= render(:partial => 'layouts/footer') %>
+</body>
+</html>

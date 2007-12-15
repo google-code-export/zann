@@ -1,0 +1,31 @@
+
+	<div class="notes">
+		<h4>Notice</h4>
+		<p>A well descripted photo may get more attention. You can describe some insight of your photo, the DC you use, or whatever you like.</p>
+	</div>
+<!--[form:photo]-->
+<div class="required">
+<label for="photo_name">Name</label>
+<%= text_field 'photo', 'name', :class => "inputText"  %>
+</div>
+<div class="optional">
+<label for="photo_description">Description</label>
+<%= text_area 'photo', 'description', :class => "inputTextarea", :cols => 50, :rows => 8  %>
+<small>Must be less than 500 characters, basic HTML is supported.</small>
+</div>
+
+<div class="required">
+	<label for="photo_album">Album</label>
+	<%= collection_select("photo", "album_id" , Album.find(:all), "id", "name",  :class => "selectOne") %>
+</div>
+<div class="required">
+<label for="photo_image">Image</label>
+<%= file_column_field "photo", "image", :class => "inputFile" %>
+</div>
+<div class="optional">
+<label for="photo_tag_list">Tags</label>
+  <%= text_field_tag 'tag_list', @tag_list, :class => "inputText"  %>
+  <small>space separated</small>
+</div>
+<!--[eoform:photo]-->
+
