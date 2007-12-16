@@ -41,7 +41,7 @@ namespace :zann do
 
   private
   def tag_photos_in_album(album_id, tag_list)
-    photos = Photo.find(:first, :conditions => ["album_id = ?", album_id])
+    photos = Photo.find(:all, :conditions => ["album_id = ?", album_id])
     for photo in photos
       photo.tag_with(tag_list)
     end
