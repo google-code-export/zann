@@ -1,8 +1,3 @@
-<% for column in Video.content_columns %>
-<p>
-  <b><%= column.human_name %>:</b> <%=h @video.send(column.name) %>
-</p>
-<% end %>
-
-<%= link_to 'Edit', :action => 'edit', :id => @video %> |
-<%= link_to 'Back', :action => 'list' %>
+Name: <%= @video.name %>
+Description: <%= @video.description %>
+<%= render :partial => 'flv_player'%>
