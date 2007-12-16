@@ -1,9 +1,7 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class VideoTest < Test::Unit::TestCase
+  include VideoProcessing
   fixtures :videos
 
-  def test_default
-    assert true
-  end
 end

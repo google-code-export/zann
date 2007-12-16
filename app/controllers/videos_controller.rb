@@ -12,6 +12,10 @@ class VideosController < ApplicationController
     @video_pages, @videos= paginate_collection @videos, :page => params[:page]
   end
 
+  def show
+    @video = Video.find(params[:id])
+  end
+
   def new
     @video = Video.new
   end
@@ -30,7 +34,7 @@ class VideosController < ApplicationController
   end
 
   def edit
-    @video = video.find(params[:id])
+    @video = Video.find(params[:id])
     @tag_list = @video.tag_list
     permit "creator of :video" do
     end
