@@ -32,7 +32,7 @@ namespace :zann do
     )
     outing_album.save
     puts "move all huangshan photos to outing album"
-    photos = Photo.find(:all, :conditions => ["album_id <> 7 OR album_id <> 8"])
+    photos = Photo.find(:all, :conditions => ["album_id <> 7 AND album_id <> 8"])
     for photo in photos
       photo.album = outing_album
       photo.save
