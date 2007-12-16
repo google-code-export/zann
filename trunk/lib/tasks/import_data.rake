@@ -28,9 +28,10 @@ namespace :zann do
       :name => 'Outing',
       :description => '读万卷书,行万里路. A true scholar balances himself by indoor learning and outdoor practices :p',
       :creator_id => 1,
+      :created_at => Time.now,
       :photos_count => 0
     )
-    outing_album.save
+    outing_album.save!
     puts "move all huangshan photos to outing album"
     photos = Photo.find(:all, :conditions => ["album_id <> 7 AND album_id <> 8"])
     for photo in photos
