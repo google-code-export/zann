@@ -11,8 +11,8 @@ RAILS_GEM_VERSION = '1.2.3' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 if RUBY_PLATFORM =~ /java/
   require 'rubygems'
-  RAILS_CONNECTION_ADAPTERS = %w(jdbc)
-  gem 'ActiveRecord-JDBC'
+  RAILS_CONNECTION_ADAPTERS = %w(jdbcderby)
+  gem 'activerecord-jdbc-adapter'
   require 'jdbc_adapter'
 end
 #require 'has_many_polymorphs'
