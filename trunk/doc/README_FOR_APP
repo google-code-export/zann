@@ -1,2 +1,6 @@
-Use this README file to introduce your application and point to useful places in the API for learning more.
-Run "rake appdoc" to generate API documentation for your models and controllers.
+Dependencies:
+1. Rails 1.2.6
+2. JRuby 1.0.3
+3. activerecord-jdbc-adapter
+4. activerecord-jdbcderby-adapter
+5. jdbc-derby
