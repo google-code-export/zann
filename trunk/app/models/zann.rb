@@ -1,11 +1,12 @@
 class Zann < ActiveRecord::Base
   belongs_to :zanner, :class_name => 'User', :foreign_key => 'zanner_id'
   validates_presence_of :zannee_id
-  validates_inclusion_of :zannee_type, :in => %w{ photo snack }
+  validates_inclusion_of :zannee_type, :in => %w{ photo snack video}
   validates_numericality_of :zannee_id, :only_integer => true
   @@zannee_types = {
     'photo' => Photo,
-    'snack' => Snack
+    'snack' => Snack,
+    'video' => Video
   }
   def after_save
     zannee_class = @@zannee_types[self.zannee_type]

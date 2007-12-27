@@ -18,6 +18,7 @@ class PhotosControllerTest < Test::Unit::TestCase
   end
 
   def test_index
+    @request.session[:user] = nil
     get :index
     assert_response :success
     assert_template 'list'

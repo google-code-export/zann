@@ -1,15 +1,16 @@
 module VideoProcessing
-  FLASH_VIDEO_RESOLUTION = '640x480'
+  FLASH_VIDEO_RESOLUTION = '640x360'
   def convert_video(file_path)
     converted_file_path = flash_video_file_name(file_path)
     if(File.exist?(converted_file_path))
       File.delete(converted_file_path)
     end
-    system("ffmpeg -i #{file_path} -acodec mp3 -ar 22050 -ab 32 -f flv -s #{FLASH_VIDEO_RESOLUTION} #{converted_file_path}")
+    system("ffmpeg -i #{file_path} -acodec mp3 -ar 22050 -ab 32 -b 400 -f flv -s #{FLASH_VIDEO_RESOLUTION} #{converted_file_path}")
     video_preview_image = flash_video_preview_image(file_path)
     if(File.exist?(video_preview_image))
       File.delete(video_preview_image)
     end
+    # create a preview image for this video
     system("ffmpeg -i #{converted_file_path} -vcodec png -vframes 1 -ss 00:00:03 -an -f rawvideo #{video_preview_image}")
   end
 

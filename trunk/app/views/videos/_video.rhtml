@@ -1,0 +1,8 @@
+<div width="130" class="list-video-frame"> 
+	<%= link_to(image_tag(flash_video_preview_image_url(video,'movie'), :size => '240x135', :class => 'glossy'), {:action => 'show', :id => video }) %>
+	<div style="text-align:center">
+		<b><%= video.name %></b> <br/>
+		<%= video.creator.full_name %><br/>
+	</div>
+	<%= render(:partial => 'videos/zann_counter', :locals => {:video => video}) %>
+</div>

@@ -79,3 +79,6 @@ shanghai_album_admin_user_yolanda:
 cat_album_admin_user_samuel:
   user_id: 3
   role_id: 26 
+macbook_video_creator_user_samuel:
+  user_id: 3
+  role_id: 27 

@@ -2,12 +2,12 @@
 <div id="player">This text will be replaced with flvplayer.</div>
 
 <script type="text/javascript">
-var so = new SWFObject('/flash/flvplayer.swf','mpl','640','480','7');
+var so = new SWFObject('/flash/flvplayer.swf','mpl','640','360','7');
 so.addParam('allowfullscreen','true');
 so.addParam('allowscriptaccess','always');
-so.addVariable('displayheight','480');
+so.addVariable('displayheight','360');
 so.addVariable('file','<%= flash_video_url(@video, 'movie') %>');
-so.addVariable('height','480');
+so.addVariable('height','360');
 so.addVariable('image','<%= flash_video_preview_image_url(@video, 'movie') %>');
 so.addVariable('width','640');
 //so.addVariable('logo','http://www.emc.com/_v6/images/common/top_bar/emc_logo.gif');

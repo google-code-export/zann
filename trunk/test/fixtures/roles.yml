@@ -126,3 +126,8 @@ album_cat_admin:
   name: album_admin
   authorizable_type: Album
   authorizable_id: 2
+macbook_video_creator:
+  id: 27
+  name: creator
+  authorizable_type: Video
+  authorizable_id: 1
