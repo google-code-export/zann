@@ -7,7 +7,7 @@ class ZannController < ApplicationController
 		    :zanned_at => Time.now,
 		    :zanner_id => current_user.id
 		})
-    if zann.save
+    if zann.save!
       flash[:info] = 'Thank you for your voting.'
     else
       flash[:info] = "Zann failed. You're allowed to vote for one photo only once."
@@ -18,6 +18,9 @@ class ZannController < ApplicationController
     elsif(params[:zannee_type] == 'snack')
 			@snack = Snack.find(params[:zannee_id]) 
 			render(:partial => 'snacks/zann_counter', :locals => {:snack => @snack})
+    elsif(params[:zannee_type] == 'video')
+			@video = Video.find(params[:zannee_id]) 
+			render(:partial => 'videos/zann_counter', :locals => {:video => @video})
     end
   end
 end

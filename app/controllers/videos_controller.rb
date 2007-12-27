@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-  before_filter :login_required, :except => [ :list, :show, :user, :tag]
+  before_filter :login_required, :except => [ :index, :list, :show, :user, :tag]
   def index
     list
     render :action => 'list'

@@ -1,3 +1,5 @@
-Name: <%= @video.name %>
-Description: <%= @video.description %>
+<div id="imagebg" style="text-align:center;padding-top:10px;background-color:black;">
 <%= render :partial => 'flv_player'%>
+</div>
+<%= render(:partial => "video_summary") %>
+<div class="hr"></div>

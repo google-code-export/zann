@@ -8,8 +8,8 @@ namespace :zann do
     FileUtils.mkdir_p tmp_path unless File.exists?(tmp_path)
     FileUtils.cp_r file_fixtures, tmp_path
 
-    tmp_path = File.join(RAILS_ROOT, "public", "snack")
-    file_fixtures = Dir.glob File.join(RAILS_ROOT, "test", "fixtures", "file_column", "snack", "*")
+    tmp_path = File.join(RAILS_ROOT, "public", "video")
+    file_fixtures = Dir.glob File.join(RAILS_ROOT, "test", "fixtures", "file_column", "video", "*")
     
     FileUtils.mkdir_p tmp_path unless File.exists?(tmp_path)
     FileUtils.cp_r file_fixtures, tmp_path
@@ -21,7 +21,7 @@ namespace :zann do
     uploaded_photos = File.join(RAILS_ROOT, "public", "photo")
     puts uploaded_photos
     FileUtils.remove_dir uploaded_photos, :verbose => true
-    uploaded_snacks = File.join(RAILS_ROOT, "public", "snack")
-    FileUtils.remove_dir uploaded_snacks, :verbose => true
+    uploaded_videos = File.join(RAILS_ROOT, "public", "video")
+    FileUtils.remove_dir uploaded_videos, :verbose => true
   end
 end
