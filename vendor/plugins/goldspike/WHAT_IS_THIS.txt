@@ -1,6 +1,0 @@
-This plugin is described at
-   http://www.headius.com/jrubywiki/index.php/Rails_Integration
-and was created using
-   script/plugin install http://jruby-extras.rubyforge.org/svn/trunk/rails-integration/plugins/goldspike
-on August 24 2007.
-
