@@ -1,5 +1,0 @@
---- 
-port: !str 3000
-jport: !str 31415
-servers: 3
-pid_file: log/mongrel.pid
