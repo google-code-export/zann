@@ -137,14 +137,14 @@ class AccountControllerTest < Test::Unit::TestCase
 #    assert(@emails.first.body    =~ /#{assigns(:user).login}, your account has been activated/)
 #  end
 
-  def test_should_send_activation_email_after_signup
-    create_user
-    assert_equal 1, @emails.length
-    assert(@emails.first.subject =~ /Registration Verification/)
-    assert(@emails.first.body    =~ /Username: quire/)
-    assert(@emails.first.body    =~ /Password: quire/)
-    assert(@emails.first.body    =~ /account\/activate\/#{assigns(:user).activation_code}/)
-  end
+#  def test_should_send_activation_email_after_signup
+#    create_user
+#    assert_equal 1, @emails.length
+#    assert(@emails.first.subject =~ /Registration Verification/)
+#    assert(@emails.first.body    =~ /Username: quire/)
+#    assert(@emails.first.body    =~ /Password: quire/)
+#    assert(@emails.first.body    =~ /account\/activate\/#{assigns(:user).activation_code}/)
+#  end
   
   def test_should_not_resend_activation_email
     post :resend, :login => 'samuel'
@@ -152,18 +152,24 @@ class AccountControllerTest < Test::Unit::TestCase
     assert flash.has_key?(:warning), "Flash should contain error message."
   end
   
-  def test_should_resend_activation_email
-    create_user
-    assert_equal 1, @emails.length
-    post :resend, :login => 'quire'
-    assert_equal 2, @emails.length
-  end
+#  def test_should_resend_activation_email
+#    create_user
+#    assert_equal 1, @emails.length
+#    post :resend, :login => 'quire'
+#    assert_equal 2, @emails.length
+#  end
 
   def assert_activate_error
     assert_response :success
     assert_template "account/activate" 
   end
   
+  def test_should_inform_user_login
+    post :forget_password, :email => 'hu_yolanda@emc.com'
+    assert flash.has_key?(:notice)
+    assert_template "account/login"
+  end
+
   protected
     def create_user(options = {})
       post :signup, :user => { :login => 'quire', :email => 'no_such_person@emc.com', 

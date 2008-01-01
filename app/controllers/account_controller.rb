@@ -3,7 +3,7 @@ class AccountController < ApplicationController
   include AuthenticatedSystem
   # If you want "remember me" functionality, add this before_filter to Application Controller
   before_filter :login_from_cookie
-  before_filter :login_required, :except => [ :login, :signup, :activate, :show, :resend]
+  before_filter :login_required, :except => [ :login, :signup, :activate, :show, :resend, :forget_password]
   # say something nice, you goof!  something sweet.
   def index
     redirect_to(:action => 'signup') unless logged_in? || User.count > 0
@@ -35,9 +35,11 @@ class AccountController < ApplicationController
     # Add a welcome.rhtml file to your views directory (don��t need to add anything to the controller) and you��re done.
     # redirect_back_or_default(:controller => '/account', :action => 'index')
     redirect_to :controller => 'main', :action => 'index'
-    flash[:notice] = "Thanks for signing up! Please check your email inbox to activate your account first."
+    flash[:notice] = "Thanks for signing up! Your account has been activated. Please login to use zann."
     @user.accepts_role 'owner', @user
     @user.save
+    # active user automatically
+    @user.activate
   rescue ActiveRecord::RecordInvalid
     render :action => 'signup'
   end
@@ -95,6 +97,17 @@ class AccountController < ApplicationController
     else
       flash[:notice] = "Activation email has been sent to you again. Please check your email inbox to activate your account."
       UserNotifier.deliver_signup_notification(user)
+    end
+    render :template => 'account/login'
+  end
+
+  def forget_password
+    return unless request.post?
+    user = User.find(:first, :conditions => ["email = ?", params[:email]])
+    if(user.nil?)
+      flash[:warning] = "There's no user with email #{params[:email]}."
+    else
+      flash[:notice] = "Your username is '#{user.login}'. Please try to login with this username and your possible password."
     end
     render :template => 'account/login'
   end

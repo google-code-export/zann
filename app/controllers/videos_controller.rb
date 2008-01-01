@@ -62,4 +62,15 @@ class VideosController < ApplicationController
       redirect_to :action => 'list'
     end
   end
+
+  def tag
+    if(!params[:id].nil?)
+      @videos = Video.find_by_tag(params[:id])
+    else
+      @videos = Video.find(:all)
+    end
+    @video_pages, @videos = paginate_collection @videos, :page => params[:page]
+    @tags = Tag.cloud(:conditions => "taggings.taggable_type = 'Video'")
+    #render(:template => "videos/list")
+  end
 end

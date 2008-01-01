@@ -139,7 +139,7 @@ class PhotosController < ApplicationController
       @photos = Photo.find(:all)
     end
     @photo_pages, @photos = paginate_collection @photos, :page => params[:page]
-    @tags = Tag.cloud
+    @tags = Tag.cloud(:conditions => "taggings.taggable_type = 'Photo'")
     #render(:template => "photos/list")
   end
 end

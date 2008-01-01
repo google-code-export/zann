@@ -1,5 +1,5 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-macbook:
+macbook_in_action:
   id: 1
   name: macbook in action
   description: macbook in action

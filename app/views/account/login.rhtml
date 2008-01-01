@@ -3,7 +3,9 @@
 	<legend>Login</legend>
 	<div class="notes">
 		<h4>Notice</h4>
-		<p>Couldn't receive your activation email? Click <%= link_to 'here', :action => 'resend' %> to resend activation email.</p>
+		<p>
+      Forget your <%= link_to 'username or password', :action => 'forget_password' %>?
+    </p>
 	</div>
 	<div class="required">
 		<label for="login">Username</label>

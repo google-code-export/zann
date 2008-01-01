@@ -105,6 +105,12 @@ class VideosControllerTest < Test::Unit::TestCase
     }
   end
 
+  def test_tag
+    get :tag, :id => 'macbook'
+    assert_response :success
+    assert_template 'videos/tag'
+  end
+
   def teardown
     teardown_fixture_files
   end
