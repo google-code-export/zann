@@ -102,7 +102,7 @@ END_OF_WEB_INF_OVERRIDE
           <New class="org.mortbay.jetty.nio.SelectChannelConnector">
             <Set name="port"><SystemProperty name="jetty.port" default="80"/></Set>
             <Set name="maxIdleTime">30000</Set>
-            <Set name="Acceptors">10</Set>
+            <Set name="Acceptors">9</Set>
             <Set name="confidentialPort">8443</Set>
           </New>
       </Arg>
