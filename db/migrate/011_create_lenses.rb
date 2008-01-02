@@ -1,4 +1,4 @@
-class CreateLens < ActiveRecord::Migration
+class CreateLenses < ActiveRecord::Migration
   def self.up
     create_table :lenses do |t|
       t.column :name, :string, :limit => 100
