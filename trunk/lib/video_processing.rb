@@ -11,7 +11,7 @@ module VideoProcessing
       File.delete(video_preview_image)
     end
     # create a preview image for this video
-    system("ffmpeg -i #{converted_file_path} -vcodec png -vframes 1 -ss 00:00:03 -an -f rawvideo #{video_preview_image}")
+    system("ffmpeg -i #{converted_file_path} -vframes 1 -ss 00:00:03 -an -f mjpeg #{video_preview_image}")
   end
 
   def flash_video_url(object, method)
@@ -23,7 +23,7 @@ module VideoProcessing
   end
 
   def flash_video_preview_image(file_path)
-    "#{File.dirname(file_path)}#{File::SEPARATOR}#{File.basename(file_path, File.extname(file_path))}.png"
+    "#{File.dirname(file_path)}#{File::SEPARATOR}#{File.basename(file_path, File.extname(file_path))}.jpg"
   end
 
   def flash_video_file_name(file_path)

@@ -8,7 +8,7 @@ class VideoProcessingTest < Test::Unit::TestCase
     convert_video(File.join(video_dir, 'macbook.avi'))
     assert File.exist?(File.join(video_dir, 'macbook.flv'))
     File.delete(File.join(video_dir, 'macbook.flv'))
-    assert File.exist?(File.join(video_dir, 'macbook.png'))
-    File.delete(File.join(video_dir, 'macbook.png'))
+    assert File.exist?(File.join(video_dir, 'macbook.jpg'))
+    File.delete(File.join(video_dir, 'macbook.jpg'))
   end
 end
