@@ -3,3 +3,7 @@
 </div>
 <%= render(:partial => "video_summary") %>
 <div class="hr"></div>
+<ol id="comment-list" style="list-style:none;color:black;">
+	<%= render(:partial => 'comments/comment', :collection => @comments ) %>
+</ol>
+<%= render(:partial => "comment_form") %>
