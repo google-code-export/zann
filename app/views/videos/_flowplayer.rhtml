@@ -1,0 +1,23 @@
+<%= javascript_include_tag "swfobject" %>
+<div id="player">This text will be replaced with flvplayer.</div>
+
+<script type="text/javascript">
+var so = new SWFObject('/flash/flowplayer.swf','mpl','640','360','7');
+so.addParam('allowFullscreen','true');
+so.addParam('allowScriptAccess','always');
+config = "{" +
+  "autoPlay: false," +
+  "initialScale: 'scale'," + 
+  "autoBuffering: false," +
+  "splashImageFile: 'http://<%= request.host %>:<%= request.port %><%= flash_video_preview_image_url(@video, 'movie') %>'," +
+  "baseURL:  '/'," +
+  "showFullScreenButton:  false," +
+  "useNativeFullScreen:  true," +
+  "videoFile: '<%= flash_video_url(@video, 'movie') %>'}"; +
+"}";
+so.addVariable('config', config);
+so.addVariable('width', '640');
+so.addVariable('height', '360');
+//so.addVariable('callback','<%= url_for(:controller => :videos, :action => :view, :id => @video ) %>');
+so.write('player');
+</script>
