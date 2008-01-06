@@ -11,4 +11,9 @@ class Video < ActiveRecord::Base
     zann_count = Zann.count(:conditions => ["zannee_type = 'video' AND zannee_id = ? AND zanner_id = ?", id, user_id])
     return zann_count>0 ? true : false;
   end 
+
+  def view_once
+    self.view_count = self.view_count + 1
+    self.save!
+  end
 end
