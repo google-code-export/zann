@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
-  before_filter :login_required, :except => [ :index, :list, :show, :user, :tag]
+  before_filter :login_required, :except => [ :index, :list, :show, :user, :tag, :view]
   def index
     list
     render :action => 'list'
@@ -72,5 +72,11 @@ class VideosController < ApplicationController
     @video_pages, @videos = paginate_collection @videos, :page => params[:page]
     @tags = Tag.cloud(:conditions => "taggings.taggable_type = 'Video'")
     #render(:template => "videos/list")
+  end
+
+  def view
+    video = Video.find(params[:id])
+    video.view_once
+    render :nothing => true
   end
 end

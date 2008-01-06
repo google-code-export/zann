@@ -245,7 +245,7 @@ sup {
 }
 .graph { 
     position: relative; /* IE is dumb */
-    width: 200px; 
+    width: 400px; 
     border: 1px solid #B1D632; 
     padding: 2px; 
 }

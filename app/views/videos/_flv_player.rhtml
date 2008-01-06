@@ -11,6 +11,7 @@ so.addVariable('height','360');
 so.addVariable('image','<%= flash_video_preview_image_url(@video, 'movie') %>');
 so.addVariable('width','640');
 so.addVariable('showstop','true');
+so.addVariable('callback','<%= url_for(:controller => :videos, :action => :view, :id => @video ) %>');
 so.addVariable('showdigits','true');
 so.write('player');
 </script>

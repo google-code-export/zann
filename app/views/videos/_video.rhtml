@@ -3,6 +3,7 @@
 	<div style="text-align:center">
 		<b><%= video.name %></b> <br/>
 		<%= video.creator.full_name %><br/>
+		<%= video.view_count %> times viewed <br/>
 	</div>
 	<%= render(:partial => 'videos/zann_counter', :locals => {:video => video}) %>
 </div>

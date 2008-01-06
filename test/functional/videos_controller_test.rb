@@ -111,6 +111,14 @@ class VideosControllerTest < Test::Unit::TestCase
     assert_template 'videos/tag'
   end
 
+  def test_view_video
+    view_video_id = 1
+    viewed_video = Video.find(view_video_id)
+    view_count = viewed_video.view_count
+    post :view, :id => view_video_id
+    assert_equal view_count + 1, viewed_video.view_count
+  end
+
   def teardown
     teardown_fixture_files
   end
