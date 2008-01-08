@@ -1,3 +1,7 @@
+<script type="text/javascript">
+  <%= remote_function(:update => "",
+      :url => { :action => :view, :id => @video}) %>
+</script>
 <div id="imagebg" style="text-align:center;padding-top:10px;background-color:black;">
 <%= render :partial => 'flowplayer'%>
 </div>
