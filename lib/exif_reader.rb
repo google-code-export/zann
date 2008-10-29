@@ -1,5 +1,5 @@
 include Java
-require 'lib/sanselan.jar'
+require File.join(File.dirname(__FILE__), 'sanselan.jar')
 include_class Java::org.apache.sanselan.ImageReadException
 include_class Java::org.apache.sanselan.Sanselan
 include_class Java::org.apache.sanselan.common.IImageMetadata

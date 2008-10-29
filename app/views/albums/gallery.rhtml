@@ -9,7 +9,7 @@
 		<div style="text-align:center">
 			<b><%= photo.name %></b> <br/>
 			<%= link_to(photo.creator.full_name, :controller => "photos", :action => "user", :id => photo.creator) %><br/>
-			<%= link_to "(#{photo.comments_count})", {:action => 'show', :id => photo } %> comments <br/>
+			<%= link_to "(#{photo.comments_count})", {:controller => 'photos', :action => 'show', :id => photo } %> comments <br/>
 			<%= photo.view_count %> times viewed <br/>
 		</div>
 		<%= render(:partial => 'photos/zann_counter', :locals => {:photo => photo}) %>

@@ -1,6 +1,6 @@
 require 'ftools'
 include Java
-require 'lib/jthumb-0.1.jar'
+require File.join(File.dirname(__FILE__), 'jthumb-0.1.jar')
 include_class Java::com.googlecode.zann.ImageScalor
 
 module ImageProcessing

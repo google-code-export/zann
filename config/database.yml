@@ -1,20 +1,20 @@
 development:
-  adapter: jdbc
-  driver: org.apache.derby.jdbc.ClientDriver
-  url: jdbc:derby://localhost:1527/zann_development
+  adapter: mysql
+  encoding: utf8
+  database: zann_development
   username: zann
-  password: Iloveemc1314
+  password: 
 
 test:
-  adapter: jdbc
-  driver: org.apache.derby.jdbc.ClientDriver
-  url: jdbc:derby://localhost:1527/zann_test
+  adapter: mysql
+  encoding: utf8
+  database: zann_test
   username: zann
-  password: Iloveemc1314
+  password:
   
 production:
-  adapter: jdbc
-  driver: org.apache.derby.jdbc.ClientDriver
-  url: jdbc:derby://localhost:1527/zann_production
+  adapter: mysql
+  encoding: utf8
+  database: zann_production
   username: zann
-  password: Iloveemc1314
+  password:
