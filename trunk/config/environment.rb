@@ -9,12 +9,6 @@ RAILS_GEM_VERSION = '1.2.3' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
-if RUBY_PLATFORM =~ /java/
-  require 'rubygems'
-  RAILS_CONNECTION_ADAPTERS = %w(jdbc)
-  gem 'activerecord-jdbc-adapter'
-  require 'jdbc_adapter'
-end
 #require 'has_many_polymorphs'
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here
@@ -82,3 +76,6 @@ AUTHORIZATION_MIXIN = 'object roles'
 DEFAULT_REDIRECTION_HASH = { :controller => 'account', :action => 'login' }
 # add tag suppport to ActiveRecord::Base via RAILS_ROOT/lib/tag_extenstions.rb
 require 'tag_extensions'
+# setup the path for ffmpeg
+FFMPEG_PATH = 'C:/tools/ffmpeg/ffmpeg.exe'
+MP3_CODEC = 'libmp3lame' # or 'mp3'
