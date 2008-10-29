@@ -1,0 +1,10 @@
+<%= render(:partial => 'video', :collection => @videos ) %>
+
+<div style="clear:both;"></div>
+<hr/>
+<%= link_to 'Previous page', { :page => @video_pages.current.previous } if @video_pages.current.previous %>
+<%= link_to 'Next page', { :page => @video_pages.current.next } if @video_pages.current.next %> 
+<br />
+<% if(logged_in?)%>
+	<%= link_to 'Upload new video', :action => 'new' %>
+<% end %>

@@ -1,0 +1,43 @@
+.photo-item{
+	background-color: #F0F0F0;
+}
+.photo-name{
+	font-weight: bold;
+}
+.photo-image{
+	margin: 3px 5px 0 3px;
+}
+.zann-counter{
+	text-align: center;
+}
+.zann-count{
+	font-family: Georgia, Times, serif;
+	font-size: 3em;
+	font-weight: bold;
+	color: #669966;
+	margin-bottom: 2px;
+	/*background: #000 url(/images/zann.png);*/
+}
+.photo-detail-link{
+	color: blue;
+}
+#viewedimage{
+	max-width:820px;
+}
+#viewedsnack{
+    max-width: 500px;
+}
+.list-photo-frame {
+  float:left;
+  display:inline;
+  margin:0 18px 20px 18px;
+  border: #F0F0F0 solid;
+  height:320px;
+}
+.list-video-frame {
+  float:left;
+  display:inline;
+  margin: 0 10px 20px 10px;
+  border: #F0F0F0 solid;
+  height:300px;
+}

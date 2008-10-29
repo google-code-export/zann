@@ -1,0 +1,10 @@
+joetucci:
+  id: 1
+  login: joetucci
+  email: admin_zann@emc.com
+  first_name: Joe
+  last_name: Tucci
+  crypted_password: 9e96ba77de5a7aea5ae055177f928e1001fc58e8
+  salt: b7f24a3c6b1dfbe6a7fc5a73e5c9b27b7927c644
+  created_at: <%= Time.now.to_s :db %>
+  activated_at: <%= 5.days.ago.to_s :db %>

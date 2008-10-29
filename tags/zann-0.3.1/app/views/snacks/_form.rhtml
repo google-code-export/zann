@@ -1,0 +1,22 @@
+
+	<div class="notes">
+		<h4>Notice</h4>
+		<p>Promote your favourite snacks~</p>
+	</div>
+<!--[form:snack]-->
+<div class="required">
+<label for="snack_name">Name</label>
+<%= text_field 'snack', 'name', :class => "inputText"  %>
+</div>
+<div class="optional">
+<label for="snack_description">Description</label>
+<%= text_area 'snack', 'description', :class => "inputTextarea", :cols => 50, :rows => 8  %>
+<small>Must be less than 500 characters, basic HTML is supported.</small>
+</div>
+
+<div class="required">
+<label for="snack_image">Image</label>
+<%= file_column_field "snack", "image", :class => "inputFile" %>
+</div>
+<!--[eoform:snack]-->
+

@@ -1,0 +1,12 @@
+<%= error_messages_for 'snack' %>
+
+<% form_tag({:action => 'update', :id => @snack}, {:multipart => true}) do %>
+<fieldset>
+	<legend>Editing snack</legend>
+  <%= render :partial => 'form' %>
+</fieldset>
+<fieldset>
+  <%= submit_tag 'Save', :class => "inputSubmit" %>
+</fieldset>  
+<% end %>
+

@@ -1,0 +1,84 @@
+admin_joetucci:
+  user_id: 1
+  role_id: 1
+creator_shanghai_1:
+  user_id: 3
+  role_id: 2
+creator_shanghai_2:
+  user_id: 4
+  role_id: 3
+creator_cat_1:
+  user_id: 5
+  role_id: 4
+creator_cat_2:
+  user_id: 3
+  role_id: 5
+creator_shanghai_3:
+  user_id: 4
+  role_id: 6
+creator_shanghai_4:
+  user_id: 5
+  role_id: 7
+creator_shanghai_5:
+  user_id: 3
+  role_id: 8
+creator_shanghai_6:
+  user_id: 4
+  role_id: 9
+creator_shanghai_7:
+  user_id: 5
+  role_id: 10
+creator_cat_3:
+  user_id: 3
+  role_id: 11
+creator_cat_4:
+  user_id: 4
+  role_id: 12
+creator_cat_5:
+  user_id: 5
+  role_id: 13
+creator_cat_6:
+  user_id: 3
+  role_id: 14
+creator_cat_7:
+  user_id: 4
+  role_id: 15
+creator_cat_8:
+  user_id: 5
+  role_id: 16
+creator_cat_9:
+  user_id: 3
+  role_id: 17
+creator_cat_10:
+  user_id: 4
+  role_id: 18
+owner_user_joetucci:
+  user_id: 1
+  role_id: 19
+owner_user_aaron:
+  user_id: 2
+  role_id: 20
+owner_user_samuel:
+  user_id: 3
+  role_id: 21
+owner_user_yolanda:
+  user_id: 4
+  role_id: 22
+owner_user_charlie:
+  user_id: 5
+  role_id: 23
+owner_user_quentin:
+  user_id: 6
+  role_id: 24 
+shanghai_album_admin_user_samuel:
+  user_id: 3
+  role_id: 25 
+shanghai_album_admin_user_yolanda:
+  user_id: 4
+  role_id: 25 
+cat_album_admin_user_samuel:
+  user_id: 3
+  role_id: 26 
+macbook_video_creator_user_samuel:
+  user_id: 3
+  role_id: 27 

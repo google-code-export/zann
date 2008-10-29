@@ -1,0 +1,32 @@
+<style type="text/css">
+  .highlight {
+    font-size: 2em;
+    font-weight: bold;
+  }
+</style>
+	<div class="notes">
+		<h4>Notice</h4>
+     <p>Uploading and converting video content is a time-consuming process, please <span class="highlight">be patient</span> and keep your browser open. Typically, it will cost about <span class="highlight">3 mins</span> to process a <span class="highlight">100M-size</span> video.</p>
+	</div>
+<!--[form:video]-->
+<div class="required">
+<label for="video_name">Name</label>
+<%= text_field 'video', 'name', :class => "inputText"  %>
+</div>
+<div class="optional">
+<label for="video_description">Description</label>
+<%= text_area 'video', 'description', :class => "inputTextarea", :cols => 50, :rows => 8  %>
+<small>Must be less than 500 characters, basic HTML is supported.</small>
+</div>
+
+<div class="required">
+<label for="video_movie">Movie</label>
+<%= file_column_field "video", "movie", :class => "inputFile" %>
+</div>
+<div class="optional">
+<label for="video_tag_list">Tags</label>
+  <%= text_field_tag 'tag_list', @tag_list, :class => "inputText"  %>
+  <small>space separated</small>
+</div>
+<!--[eoform:video]-->
+

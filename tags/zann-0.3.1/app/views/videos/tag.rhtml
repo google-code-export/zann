@@ -1,0 +1,26 @@
+<style type="text/css">
+  .list-video-frame {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+</style>
+<h1>Listing videos</h1>
+<div id="video-list" style="float:left;width:540px;">
+<%= render(:partial => 'video', :collection => @videos ) %>
+</div>
+<div id="tag-list" style="width:240px;float:left;">
+  Tags:<br/>
+  <ul id="cloud">
+  <% for tag in @tags %>
+    <li><%= link_to(tag.name, {:action=> :tag, :id => tag.name}, {:class => tag_cloud_class(tag.popularity) }) %> (<%= tag.popularity %>)</li>
+  <% end %>
+  </ul>
+</div>
+<div style="clear:both;"></div>
+<hr/>
+<%= link_to 'Previous page', { :page => @video_pages.current.previous } if @video_pages.current.previous %>
+<%= link_to 'Next page', { :page => @video_pages.current.next } if @video_pages.current.next %> 
+<br />
+<% if(logged_in?)%>
+	<%= link_to 'Upload new video', :action => 'new' %>
+<% end %>

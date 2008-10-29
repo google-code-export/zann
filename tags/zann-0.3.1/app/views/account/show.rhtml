@@ -1,0 +1,6 @@
+<p><b>Username:</b> <%= @user.login %></p>
+<p><b>Email:</b> <%= @user.email %></p>
+<p><b>First Name:</b> <%= @user.first_name %></p>
+<p><b>Last Name:</b> <%= @user.last_name %></p>
+<hr/>
+<%= link_to 'Edit my profile', :action => 'edit', :id => @user %>

@@ -1,0 +1,29 @@
+<div id="header">
+	<div style="text-align:right;margin-right:20px;margin-top:-10px;">
+		<% if(logged_in?)%>
+			<span class="green"><%= current_user.full_name %></span>
+			<span class="green">|</span>
+			<%= link_to "my account", :controller => "account", :action => "show", :id => current_user %>
+			<span class="green">|</span>
+			<%= link_to "my photos", :controller => "photos", :action => "my"%>
+			<span class="green">|</span>
+			<%= link_to "logout", :controller => "account", :action => "logout"%>
+		<% else %>
+			<span class="green">|</span>
+			<%= link_to "login", :controller => "account", :action => "login"%>
+			<span class="green">|</span>
+			<%= link_to "signup", :controller => "account", :action => "signup"%>
+			<span class="green">|</span>
+		<% end %>
+	</div>
+	<h1><a href="/main"><span class="orange">.:</span> zan<span class="green">n</span><sup>BETA</sup></a></h1>
+	<ul id="nav">		
+		<li><%= link_to "Photos", :controller => "photos", :action => "list"%></li>
+		<li><%= link_to "Albums", :controller => "albums", :action => "list"%></li>
+		<li><%= link_to "Tags", :controller => "photos", :action => "tag", :id => "" %></li>
+		<li><%= link_to "Top Viewed", :controller => "photos", :action => "top_viewed"%></li>
+		<li><%= link_to "Top Commented", :controller => "photos", :action => "top_commented"%></li>
+		<li><%= link_to "Dashboard", :controller => "main", :action => "dashboard"%></li>
+		<li><%= link_to "Videos", :controller => "videos", :action => "list"%></li>
+	</ul>
+</div>

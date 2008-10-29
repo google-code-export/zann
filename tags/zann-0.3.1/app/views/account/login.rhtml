@@ -1,0 +1,32 @@
+<% form_tag do -%>
+<fieldset>
+	<legend>Login</legend>
+	<div class="notes">
+		<h4>Notice</h4>
+		<p>
+      Forget your <%= link_to 'username or password', :action => 'forget_password' %>?
+    </p>
+	</div>
+	<div class="required">
+		<label for="login">Username</label>
+		<%= text_field_tag 'login', "", :class => "inputText" %>
+	</div>
+	<div class="required">
+		<label for="password">Password</label>
+		<%= password_field_tag 'password', "", :class => "inputPassword" %>
+	</div>
+	<div class="optional">
+		<label for="remember_me" class="labelCheckbox">
+			<%= check_box_tag 'remember_me', 1, false, :class => "inputCheckbox" %>
+			Remember me
+		</label>
+	</div>
+</fieldset>
+<fieldset>
+	<div class="submit">
+		<div>
+			<%= submit_tag 'Log in', :class => "inputSubmit"%>
+		</div>
+	</div>
+</fieldset>
+<% end -%>

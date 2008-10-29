@@ -1,0 +1,6 @@
+Dependencies:
+1. Rails 1.2.6
+2. JRuby 1.0.3
+3. activerecord-jdbc-adapter
+4. activerecord-jdbcderby-adapter
+5. jdbc-derby

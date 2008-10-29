@@ -1,0 +1,85 @@
+joetucci:
+  id: 1
+  login: joetucci
+  email: admin_zann@emc.com
+  first_name: Joe
+  last_name: Tucci
+  crypted_password: 9e96ba77de5a7aea5ae055177f928e1001fc58e8
+  salt: b7f24a3c6b1dfbe6a7fc5a73e5c9b27b7927c644
+  created_at: <%= Time.now.to_s :db %>
+  activated_at: <%= 5.days.ago.to_s :db %>
+aaron:
+  id: 2
+  login: aaron
+  email: aaron@emc.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  activation_code: aaronscode # only if you're activating new signups
+  created_at: <%= 1.days.ago.to_s :db %>
+  first_name: aaron
+  last_name: zhang
+samuel:
+  id: 3
+  login: samuel
+  email: ni_yue@emc.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  created_at: <%= 5.days.ago.to_s :db %>
+  activated_at: <%= 5.days.ago.to_s :db %> # only if you're activating new signups
+  first_name: samuel
+  last_name: ni
+yolanda:
+  id: 4
+  login: yolanda
+  email: hu_yolanda@emc.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  #crypted_password: "ce2/iFrNtQ8=\n" # quentin, use only if you're using 2-way encryption
+  created_at: <%= 5.days.ago.to_s :db %>
+  activated_at: <%= 5.days.ago.to_s :db %> # only if you're activating new signups
+  first_name: yolanda
+  last_name: hu
+charlie:
+  id: 5
+  login: charlie
+  email: chen_charlie@emc.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  #crypted_password: "ce2/iFrNtQ8=\n" # quentin, use only if you're using 2-way encryption
+  created_at: <%= 5.days.ago.to_s :db %>
+  activated_at: <%= 5.days.ago.to_s :db %> # only if you're activating new signups
+  first_name: charlie
+  last_name: chen
+quentin:
+  id: 6
+  login: quentin
+  email: quentin@emc.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  #crypted_password: "ce2/iFrNtQ8=\n" # quentin, use only if you're using 2-way encryption
+  created_at: <%= 5.days.ago.to_s :db %>
+  activated_at: <%= 5.days.ago.to_s :db %> # only if you're activating new signups
+  first_name: quentin
+  last_name: wang
+tracy:
+  id: 7
+  login: tracy
+  email: wang_tracy@emc.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  #crypted_password: "ce2/iFrNtQ8=\n" # quentin, use only if you're using 2-way encryption
+  created_at: <%= 5.days.ago.to_s :db %>
+  activated_at: <%= 5.days.ago.to_s :db %> # only if you're activating new signups
+  first_name: tracy
+  last_name: wang
+wendy:
+  id: 8
+  login: wendy
+  email: yuan_wendy@emc.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  #crypted_password: "ce2/iFrNtQ8=\n" # quentin, use only if you're using 2-way encryption
+  created_at: <%= 5.days.ago.to_s :db %>
+  activated_at: <%= 5.days.ago.to_s :db %> # only if you're activating new signups
+  first_name: wendy
+  last_name: yuan

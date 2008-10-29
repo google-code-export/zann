@@ -1,0 +1,33 @@
+<div class="album-item">
+	<table width="100%">
+		<tr>
+			<td width="20%">
+				<div class="album-image">
+					<%= link_to(image_tag(album_cover(album), :size => '128x128', :class => 'glossy'), {:action => 'gallery', :id => album }) %>
+				</div>
+			</td>
+			<td width="50%">
+				<div class="album-name"><b><%= album.name %></b></div>
+				<div class="album-description"><%= album.description[0..199] %><%= "..." if(album.description.length > 200)%></div>
+			</td>
+			<td>
+				<%= album.photos_count %> images <br/>
+				Creator: <%= album.creator.full_name %><br/>
+				<% if(logged_in? && permit?('admin'))%>
+					<%= link_to('Edit', :action => 'edit', :id => album)%><br/>
+					<%= link_to('Delete', {:action => 'destroy', :id => album}, :confirm => 'Are you sure you want to delete this album?', :method => 'post') %><br/>
+				<% end %>
+				<% if(logged_in?)%>
+          <% if(album.accepts_role?('album_admin', current_user)) %>
+            <%= link_to('Reset zanns in album', {:action => 'reset_zanns_count', :id => album}, :confirm => 'Are you sure you want to reset zanns count for photos in this album?', :method => 'post') %><br/>
+          <% end %>
+					<%= link_to 'Add new photo to this album', :controller => 'photos', :action => 'add', :album_id => album.id %>
+				<% end %><br/>
+        <%= link_to 'View as Slideshow', {:action => :slideshow, :id => album}%>
+			</td>
+		</tr>
+	</table>
+	
+	<div class="hr">
+	</div>
+</div>

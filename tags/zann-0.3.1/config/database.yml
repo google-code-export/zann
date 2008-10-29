@@ -1,0 +1,20 @@
+development:
+  adapter: mysql
+  encoding: utf8
+  database: zann_development
+  username: zann
+  password: 
+
+test:
+  adapter: mysql
+  encoding: utf8
+  database: zann_test
+  username: zann
+  password:
+  
+production:
+  adapter: mysql
+  encoding: utf8
+  database: zann_production
+  username: zann
+  password:

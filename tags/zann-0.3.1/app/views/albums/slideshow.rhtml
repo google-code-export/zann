@@ -1,0 +1,24 @@
+<%= javascript_include_tag "mootools_1_1"%>
+<%= javascript_include_tag "jd_gallery" %>
+<%= javascript_include_tag "jd_gallery_transitions" %>
+<%= stylesheet_link_tag "jd_gallery", :media => "all" %>
+<script type="text/javascript">
+			function startGallery() {
+				var albumGallery = new gallery($('myGallery'), {
+					timed: false,
+					defaultTransition: "fadeslideleft"
+				});
+			}
+			window.onDomReady(startGallery);
+</script>
+<div id="myGallery">
+  <% for photo in @photos %>
+    <div class="imageElement">
+      <h3><%= photo.name %></h3>
+      <p><%= photo.description %></p>
+      <%= link_to('', {:controller => :photos, :action => :show, :id => photo}, {:class => 'open'}) %>
+      <%= image_tag(medium_size_file_url(photo, 'image'), :class => 'full') %>
+      <%= image_tag(small_size_file_url(photo, 'image'), :class => 'thumbnail') %>
+    </div>
+  <% end %>
+</div>
