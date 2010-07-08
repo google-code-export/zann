@@ -33,7 +33,8 @@ namespace :db do
       puts "dumping data from every table..."
       File.open(backup_file,'w') do |file|
         YAML.dump data, file
-      end 
+      end
+      puts "Data is successfully dumped into file " + backup_file
     end
   
     desc "Load yml data into database."
