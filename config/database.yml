@@ -3,18 +3,18 @@ development:
   encoding: utf8
   database: zann_development
   username: zann
-  password: 
+  password: n0lif3
 
 test:
   adapter: mysql
   encoding: utf8
   database: zann_test
   username: zann
-  password:
+  password: n0lif3
   
 production:
   adapter: mysql
   encoding: utf8
   database: zann_production
   username: zann
-  password:
+  password: n0lif3

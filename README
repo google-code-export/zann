@@ -1,12 +1,3 @@
-1. Dependencies
-1.1 ffmpeg (http://tripp.arrozcru.org/)
-1.2 JRuby >= 1.1.4
-1.3 Rails 1.2.3
-1.4 flvtool2 gem (gem install flvtool2)
-1.5 activerecord-jdbcmysql-adapter 0.8.2
-1.6 glassfish gem (gem install glassfish)
-1.7 mysql
-
 2. Deploy
 2.0 setup the ffmpeg path and mp3 codec name in environment.rb
 2.1 change config/database.yml
@@ -16,3 +7,63 @@
 2.5 must be done after 2.2 testing!!! link upload-file-dir to the target
 2.6 change the port in war_config.rb to 80
 2.7 link mysql sock 
+
+Prerequisites:
+1) Download and install JRuby 1.5.1
+2) Install Rubygems
+2.1) Rails 1.2.3
+	jruby -S gem install rails -v 1.2.3
+2.2) activerecord-jdbcmysql-adapter
+	jruby -S gem install activerecord-jdbcmysql-adapter
+2.3) Glassfish gem (This may take several minutes, the latest version of this gem, aka 1.0.2, cannot work with Rails 1.2.3)
+	jruby -S gem install glassfish -v 0.9.5
+2.4) flvtool2 gem (for video conversion)
+	jruby -S gem install flvtool2
+2.5) jruby-openssl (optional)
+	jruby -S gem install jruby-openssl
+3) Install MySQL
+4) Install ffmpeg (for video conversion)
+4.1) On Windows, download ffmpeg Win32 build from here, http://tripp.arrozcru.org/
+4.2) On Ubuntu Linux, "sudo apt-get install ffmpeg" might work
+4.3) On Mac OS X, install MacPort, then run "sudo port install ffmpeg +gpl +lame +x264 +xvid"
+
+Deployment:
+1) Create three databases in MySQL, respectively, zann_development, zann_test, zann_production 
+1.1) Use UTF8 character set to create database to allow APJ characters. For example,
+CREATE DATABASE zann_development CHARACTER SET = utf8 COLLATE = utf8_general_ci;
+1.2) Add an entry in my.ini on Windows (my.cnf on Mac OS X) if it is not automatically added:
+[mysqld]
+default-character-set=utf8
+2) Create a user and grant all privileges for these three databases to this user
+3) Check out source code from svn to some directory, called ZANN_HOME
+4) Modify username/password in ZANN_HOME/config/database.yml accordingly
+5) Setup database schema 
+	jruby -S rake db:migrate
+6) Configure ffmpeg path and mp3 codec name in ZANN_HOME/config/environment.rb
+7) Run test suite, every test case should pass
+	jruby -S rake test
+8) If every case passes, setup production environment with:
+8.1) jruby -S rake db:migrate RAILS_ENV=production
+9) Start web server
+9.1) jruby -S glassfish -p 80
+9.2) If you run into the problem reporting something like 
+	".../glassfish-0.9.5-universal-java/lib/config.rb:199:in `check_domain_dir?': uninitialized constant GlassFish::Config::FileUtils"
+	add one the line of code below to line 41 of config.rb: 
+	require 'fileutils'
+10) That's it. Just head to http://localhost:80
+
+Upgrade:
+Before upgrade, please back up two kinds of data up front.
+1) data in database
+1.1) jruby -S rake db:backup:dump
+1.2) Copy the dump file to another place (You can use rake db:backup:load to load the data back to database later on)
+2) binary data uploaded, such as photos and videos
+2.1) Copy ZANN_HOME/public/photo and video directory to other places, or use some symbolic links to point them to other places before upgrading
+
+Some useful rake tasks:
+1) jruby -S rake db:fixtures:load
+This will load all fixture data into database
+2) jruby -S rake db:zann:load_fixture_files
+This task will copy all test photos/videos into public directory for testing purpose
+3) jruby -S rake db:zann:remove_uploaded_files
+This task will remove all photos/videos in public directory after testing is complete
