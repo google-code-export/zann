@@ -1,13 +1,3 @@
-2. Deploy
-2.0 setup the ffmpeg path and mp3 codec name in environment.rb
-2.1 change config/database.yml
-2.2 rake db:backup:dump (rake db:migrate)
-2.3 rake testing
-2.4 change config/war.rb
-2.5 must be done after 2.2 testing!!! link upload-file-dir to the target
-2.6 change the port in war_config.rb to 80
-2.7 link mysql sock 
-
 Prerequisites:
 1) Download and install JRuby 1.5.1
 2) Install Rubygems
