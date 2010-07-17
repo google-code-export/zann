@@ -70,7 +70,7 @@ class VideosControllerTest < Test::Unit::TestCase
   end
 
   def test_create_with_tag
-    if VIDEO_ENABLED
+    if CONFIG['video_enabled']
       @request.session[:user] = users(:samuel)
       num_videos = Video.count
   

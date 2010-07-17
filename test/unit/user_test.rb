@@ -41,14 +41,14 @@ class UserTest < Test::Unit::TestCase
     end
   end
   
-  def test_should_require_internal_email
-      u = create_user(:email => 'nounderscore@emc.com')
-      assert u.errors.on(:email)
-      u = create_user(:email => 'non_emc@nonemc.com')
-      assert u.errors.on(:email)
-      u = create_user(:email => 'non_plus+plus@emc.com')
-      assert u.errors.on(:email)
-  end
+#  def test_should_require_internal_email
+#      u = create_user(:email => 'nounderscore@example.com')
+#      assert u.errors.on(:email)
+#      u = create_user(:email => 'non_emc@nonexample.com')
+#      assert u.errors.on(:email)
+#      u = create_user(:email => 'non_plus+plus@example.com')
+#      assert u.errors.on(:email)
+#  end
   
   def test_should_reset_password
     users(:samuel).update_attributes(:password => 'new password', :password_confirmation => 'new password')

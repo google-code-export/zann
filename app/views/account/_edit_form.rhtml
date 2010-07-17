@@ -18,6 +18,7 @@
 	<label for="last_name">Last Name</label>
 	<%= text_field 'user', 'last_name', :class => "inputText" %>
 </div>
+<% unless @user.password.nil? %>
 <div class="required">
 	<label for="password">Password</label>
 	<%= password_field 'user', 'password', :class => "inputPassword" %>
@@ -27,3 +28,4 @@
 	<label for="password_confirmation">Confirm Password</label>
 	<%= password_field 'user', 'password_confirmation', :class => "inputPassword" %>
 </div>
+<% end %>

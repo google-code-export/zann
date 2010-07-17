@@ -4,7 +4,7 @@ class VideoProcessingTest < Test::Unit::TestCase
   include VideoProcessing
 
   def test_convert_video
-    if VIDEO_ENABLED
+    if CONFIG['video_enabled']
       video_dir = File.join(RAILS_ROOT, 'test', 'unit', 'data')
       convert_video(File.join(video_dir, 'macbook.avi'))
       assert File.exist?(File.join(video_dir, 'macbook.flv'))

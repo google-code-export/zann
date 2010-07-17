@@ -59,24 +59,21 @@ end
 # Mime::Type.register "application/x-mobile", :mobile
 
 # Include your application configuration below
-ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
-  msg = instance.error_message
-  error_class = "errorField" 
-  if html_tag =~ /<(input|textarea|select)[^>]+class=/
-    class_attribute = html_tag =~ /class=['"]/
-    html_tag.insert(class_attribute + 7, "#{error_class}  ")
-  elsif html_tag =~ /<(input|textarea|select)/
-    first_whitespace = html_tag =~ /\s/
-    html_tag[first_whitespace] = " class='#{error_class}' " 
-  end
-  html_tag
-end
+require 'error_style'
 
 AUTHORIZATION_MIXIN = 'object roles'
 DEFAULT_REDIRECTION_HASH = { :controller => 'account', :action => 'login' }
 # add tag suppport to ActiveRecord::Base via RAILS_ROOT/lib/tag_extenstions.rb
 require 'tag_extensions'
-# setup the path for ffmpeg
-VIDEO_ENABLED = false
-FFMPEG_PATH = 'C:/tools/ffmpeg/ffmpeg.exe'
-MP3_CODEC = 'libmp3lame' # or 'mp3'
+
+zann_yml = File.read File.join(RAILS_ROOT, 'config', 'zann.yml') rescue nil
+CONFIG = YAML.load(zann_yml)
+
+if CONFIG['cas_enabled']
+  require 'casclient'
+  require 'casclient/frameworks/rails/filter'
+  require 'action_controller/abstract_request'
+  CASClient::Frameworks::Rails::Filter.configure(
+    :cas_base_url => CONFIG['cas_base_url']
+  )  
+end
