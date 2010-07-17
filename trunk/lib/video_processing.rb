@@ -1,8 +1,6 @@
 module VideoProcessing
   FLASH_VIDEO_RESOLUTION = '640x360'
   # setup the path for ffmpeg
-  FFMPEG_PATH = CONFIG['ffmpeg_path']
-  MP3_CODEC = CONFIG['mp3_codec']
   def convert_video(file_path)
     converted_file_path = flash_video_file_name(file_path)
     if(File.exist?(converted_file_path))

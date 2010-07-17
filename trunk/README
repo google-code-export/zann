@@ -13,6 +13,8 @@ Prerequisites:
 	jruby -S gem install rubycas-client
 2.6) jruby-openssl (optional)
 	jruby -S gem install jruby-openssl
+2.7) mongrel web server (optional, for development use)
+	jruby -S gem install mongrel
 3) Install MySQL
 4) Install ffmpeg (for video conversion)
 4.1) On Windows, download ffmpeg Win32 build from here, http://tripp.arrozcru.org/
@@ -44,6 +46,8 @@ default-character-set=utf8
 	".../glassfish-0.9.5-universal-java/lib/config.rb:199:in `check_domain_dir?': uninitialized constant GlassFish::Config::FileUtils"
 	add one the line of code below to line 41 of config.rb: 
 	require 'fileutils'
+9.3) Alternatively, you can start mongrel web server rather than glassfish
+	jruby script/server -p 80
 10) That's it. Just head to http://localhost:80
 
 Upgrade:
