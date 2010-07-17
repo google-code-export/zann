@@ -70,23 +70,25 @@ class VideosControllerTest < Test::Unit::TestCase
   end
 
   def test_create_with_tag
-    @request.session[:user] = users(:samuel)
-    num_videos = Video.count
-
-    post :create,
-         :video => {:name => 'show desktop', 
-                    :description => 'my mac desktop',
-                    :movie=> upload("#{RAILS_ROOT}/test/unit/data/show_desktop.avi")
-                    },
-         :tag_list => 'mac desktop'
-
-    assert_response :redirect
-    assert_redirected_to :action => 'list'
-
-    assert_equal num_videos + 1, Video.count
-		tagged_video = Video.find_by_name('show desktop')
-    assert tagged_video.tag_list.include?('mac')
-    assert tagged_video.tag_list.include?('desktop')
+    if VIDEO_ENABLED
+      @request.session[:user] = users(:samuel)
+      num_videos = Video.count
+  
+      post :create,
+           :video => {:name => 'show desktop', 
+                      :description => 'my mac desktop',
+                      :movie=> upload("#{RAILS_ROOT}/test/unit/data/show_desktop.avi")
+                      },
+           :tag_list => 'mac desktop'
+  
+      assert_response :redirect
+      assert_redirected_to :action => 'list'
+  
+      assert_equal num_videos + 1, Video.count
+  		tagged_video = Video.find_by_name('show desktop')
+      assert tagged_video.tag_list.include?('mac')
+      assert tagged_video.tag_list.include?('desktop')
+    end
   end
 
   def test_destroy
