@@ -77,5 +77,6 @@ DEFAULT_REDIRECTION_HASH = { :controller => 'account', :action => 'login' }
 # add tag suppport to ActiveRecord::Base via RAILS_ROOT/lib/tag_extenstions.rb
 require 'tag_extensions'
 # setup the path for ffmpeg
+VIDEO_ENABLED = false
 FFMPEG_PATH = 'C:/tools/ffmpeg/ffmpeg.exe'
 MP3_CODEC = 'libmp3lame' # or 'mp3'
