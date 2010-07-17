@@ -1,6 +1,10 @@
 <p><b>Username:</b> <%= @user.login %></p>
 <p><b>Email:</b> <%= @user.email %></p>
+<% unless @user.first_name.nil? %>
 <p><b>First Name:</b> <%= @user.first_name %></p>
+<% end %>
+<% unless @user.last_name.nil? %>
 <p><b>Last Name:</b> <%= @user.last_name %></p>
+<% end %>
 <hr/>
 <%= link_to 'Edit my profile', :action => 'edit', :id => @user %>

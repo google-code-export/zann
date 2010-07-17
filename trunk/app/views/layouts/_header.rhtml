@@ -6,8 +6,10 @@
 			<%= link_to "my account", :controller => "account", :action => "show", :id => current_user %>
 			<span class="green">|</span>
 			<%= link_to "my photos", :controller => "photos", :action => "my"%>
-			<span class="green">|</span>
-			<%= link_to "logout", :controller => "account", :action => "logout"%>
+			<% if not CONFIG['cas_enabled'] %>
+				<span class="green">|</span>
+				<%= link_to "logout", :controller => "account", :action => "logout"%>
+			<% end %>
 		<% else %>
 			<span class="green">|</span>
 			<%= link_to "login", :controller => "account", :action => "login"%>

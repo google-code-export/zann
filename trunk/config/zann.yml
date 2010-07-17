@@ -1,0 +1,16 @@
+########################
+# video configurations
+########################
+video_enabled: false
+ffmpeg_path: 'C:/tools/ffmpeg/ffmpeg.exe'
+#'libmp3lame' or 'mp3'
+mp3_codec: 'libmp3lame'
+
+########################
+# CAS configurations
+########################
+cas_enabled: false
+cas_base_url: http://cas.example.org:8080/cas
+# this email domain is used when a CAS user is created
+# the user's default email address will be nt_alias@email_domain
+email_domain: example.com

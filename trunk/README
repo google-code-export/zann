@@ -9,7 +9,9 @@ Prerequisites:
 	jruby -S gem install glassfish -v 0.9.5
 2.4) flvtool2 gem (for video conversion)
 	jruby -S gem install flvtool2
-2.5) jruby-openssl (optional)
+2.5) rubycas-client (for CAS integration)
+	jruby -S gem install rubycas-client
+2.6) jruby-openssl (optional)
 	jruby -S gem install jruby-openssl
 3) Install MySQL
 4) Install ffmpeg (for video conversion)
@@ -29,7 +31,9 @@ default-character-set=utf8
 4) Modify username/password in ZANN_HOME/config/database.yml accordingly
 5) Setup database schema 
 	jruby -S rake db:migrate
-6) Configure ffmpeg path and mp3 codec name in ZANN_HOME/config/environment.rb
+6) Configure ZANN_HOME/config/zann.yml
+6.1) ffmpeg path and mp3codec
+6.2) CAS base URL and email domain
 7) Run test suite, every test case should pass
 	jruby -S rake test
 8) If every case passes, setup production environment with:
@@ -53,7 +57,7 @@ Before upgrade, please back up two kinds of data up front.
 Some useful rake tasks:
 1) jruby -S rake db:fixtures:load
 This will load all fixture data into database
-2) jruby -S rake db:zann:load_fixture_files
+2) jruby -S rake zann:load_fixture_files
 This task will copy all test photos/videos into public directory for testing purpose
-3) jruby -S rake db:zann:remove_uploaded_files
+3) jruby -S rake zann:remove_uploaded_files
 This task will remove all photos/videos in public directory after testing is complete
