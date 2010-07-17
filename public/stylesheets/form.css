@@ -42,7 +42,7 @@ label u {
 }
 
 input, select, textarea {
-  font-family: Tahoma, Arial, sans-serif;
+  font-family: georgia, helvetica,  times, serif;
   font-size: 100%;
   color: #000000;
 }

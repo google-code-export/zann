@@ -1,4 +1,8 @@
-<h1>Listing photos</h1>
+<h1>Photos    
+<% if(logged_in?)%>
+	<%= link_to 'Upload new photo', {:action => 'new'}, {:class => 'upload-link'}%>
+<% end %>
+</h1>
 
 <%= render(:partial => 'photo', :collection => @photos ) %>
 
@@ -10,3 +14,4 @@
 <% if(logged_in?)%>
 	<%= link_to 'Upload new photo', :action => 'new' %>
 <% end %>
+

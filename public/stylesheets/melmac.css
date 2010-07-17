@@ -13,7 +13,7 @@ html,body {
 	margin:0;
 	padding:0;
 	height:100%;
-	font:12px "trebuchet ms", helvetica, georgia, times, serif;
+	font:12px georgia, times, serif;
 	color:#333;
 }
 
@@ -30,7 +30,7 @@ color:			    #669966;
 text-decoration:	    none;
 }
 a:visited {
-color:			    #336633;
+color:			    #669966;
 text-decoration:	    none;
 }
 a:hover {
@@ -60,7 +60,7 @@ blockquote {
 	margin:0 15px 0 20px;
 	padding:0;
 	display:inline;
-	font:2.5em "trebuchet ms", trebuchet, sans-serif;
+	font:2.5em georgia, helvetica,  times, serif;
 	font-weight:bold;
 	float:left;
 }	
@@ -105,7 +105,7 @@ blockquote {
 	margin:0;
 	padding:0;
 	font-size: 1.25em;
-	font-family: "trebuchet ms", trebuchet, sans-serif;
+	font-family: georgia, helvetica,  times, serif;
 	font-weight:bold;
 }
 
@@ -149,7 +149,7 @@ blockquote {
 	color:#333;
 	margin:0;
 	padding-bottom:0.35em;
-	font:1.4em "trebuchet ms", trebuchet, sans-serif;
+	font:1.4em georgia, helvetica,  times, serif;
 	display:block;
 	background:url(/images/melmac/dotted.png) repeat-x 0 1.4em;
 }
@@ -161,7 +161,7 @@ blockquote {
 	text-align:right;
 	display:block;
 	font-weight:normal;
-	font:0.9em "trebuchet ms", trebuchet, sans-serif;
+	font:0.9em georgia, helvetica,  times, serif;
 }
 
 .hr {
@@ -188,7 +188,7 @@ blockquote {
 }
 
 #right h1 {
-	font:1.1em "trebuchet ms", trebuchet, sans-serif;
+	font:1.1em georgia, helvetica,  times, serif;
 	color:#333;
 	font-weight:bold;
 	margin:0;
@@ -263,4 +263,12 @@ sup {
 	color: #669966;
 	font-size: 1.2em;
 }
-
+a.upload-link {
+	font-size: 0.7em;
+	padding: 3px;
+	float: right;
+	text-decoration:none;
+	line-height:16px;
+	text-align:center;
+	width: auto;
+}

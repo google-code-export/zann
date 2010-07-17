@@ -13,26 +13,11 @@
 					<td>Created At:</td><td><%= @photo.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
 				</tr>
 				<tr>
-					<td>Submitter:</td><td><%= link_to(@photo.creator.full_name, :controller => "photos", :action => "user", :id => @photo.creator) %> | <%= link_to 'email the author', "mailto:#{@photo.creator.email}"%></td>
+					<td>Submitter:</td><td><%= link_to(@photo.creator.full_name, :controller => "photos", :action => "user", :id => @photo.creator) %></td>
 				</tr>
 				<tr>
 					<td>Album:</td><td><%= link_to(@photo.album.name, {:controller => 'albums', :action => 'gallery', :id => @photo.album}) %></td>
 				</tr>
-				<tr>
-					<td>Popularity(User views):</td><td><div class="graph"><span class="bar" style="width: <%= @photo.view_count + 1 %>%;"><%= @photo.view_count %></span></div></td>
-				</tr>
-				<tr>
-					<td>Download:</td><td><%= link_to(@photo.name, url_for_file_column(@photo,'image'))%></td>
-				</tr>
-				<tr>
-					<td>Tags:</td>
-          <td>
-           <% for tag in @photo.tags %>
-             <%= link_to(tag.name, :action => :tag, :id => tag.name) %>&nbsp;
-           <% end %>
-          </td>
-				</tr>
-
 				<% if(logged_in? &&permit?('creator of :photo')) %>
 				<tr>
 					<td>Operation:</td>
@@ -42,25 +27,45 @@
 					</td>
 				</tr>
 				<% end %>
+				<tr>
+					<td>Popularity(User views):</td><td><div class="graph"><span class="bar" style="width: <%= @photo.view_count + 1 %>%;"><%= @photo.view_count %></span></div></td>
+				</tr>
+				<tr>
+					<td>Download:</td><td><%= link_to(@photo.name, url_for_file_column(@photo,'image'))%></td>
+				</tr>
+				<tr>
+					<td>Tags:</td>
+			        <td>
+			          <% for tag in @photo.tags %>
+			          	<%= link_to(tag.name, :action => :tag, :id => tag.name) %>&nbsp;
+			           	<% end %>
+			        </td>
+				</tr>
 			</table>
 		</td>
 	</tr>
   <% if(!@photo.exif.nil?)%>
   <tr style="border-top: 1px solid black;">
     <td></td>
-    <td>
-      Make: <%= @photo.exif.make %><br/>
-      Model: <%= @photo.exif.model %><br/>
-      Software: <%= @photo.exif.software %><br/>
-      Exposure Time: <%= @photo.exif.exposure_time %><br/>
-      Flash: <%= @photo.exif.flash %><br/>
-    </td>
-    <td>
-      Fnumber: <%= @photo.exif.fnumber %><br/>
-      Focal Length: <%= @photo.exif.focal_length %><br/>
-      White Balance: <%= @photo.exif.white_balance %><br/>
-      Datetime: <%= @photo.exif.date_time %><br/>
-      Resolution: <%= @photo.exif.pixel_x_dimension %> x <%= @photo.exif.pixel_y_dimension %>
+    <td colspan="2">
+    	<table width="100%" style="border-top:1px dotted; border-color: #CCCCCC;">
+    		<tr>
+    			<td width="50%">
+    				Make: <%= @photo.exif.make %><br/>
+				    Model: <%= @photo.exif.model %><br/>
+				    Software: <%= @photo.exif.software %><br/>
+				    Exposure Time: <%= @photo.exif.exposure_time %><br/>
+				    Flash: <%= @photo.exif.flash %><br/>
+    			</td>
+				<td>
+					Fnumber: <%= @photo.exif.fnumber %><br/>
+      				Focal Length: <%= @photo.exif.focal_length %><br/>
+      				White Balance: <%= @photo.exif.white_balance %><br/>
+      				Datetime: <%= @photo.exif.date_time %><br/>
+      				Resolution: <%= @photo.exif.pixel_x_dimension %> x <%= @photo.exif.pixel_y_dimension %>
+				</td>
+    		</tr>
+    	</table>
     </td>
   </tr>
   <% end %>

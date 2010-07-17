@@ -68,6 +68,8 @@ require 'tag_extensions'
 
 zann_yml = File.read File.join(RAILS_ROOT, 'config', 'zann.yml') rescue nil
 CONFIG = YAML.load(zann_yml)
+FFMPEG_PATH = CONFIG['ffmpeg_path']
+MP3_CODEC = CONFIG['mp3_codec']
 
 if CONFIG['cas_enabled']
   require 'casclient'
