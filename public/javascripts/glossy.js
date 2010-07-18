@@ -1,9 +1,10 @@
 /**
- * glossy.js 1.31 (19-Jul-2007)
+ * glossy.js 1.6 (16-Jun-2010)
  * (c) by Christian Effenberger 
  * All Rights Reserved
  * Source: glossy.netzgesta.de
- * Distributed under NSL
+ * Distributed under Netzgestade Software License Agreement
+ * http://www.netzgesta.de/cvi/LICENSE.txt
  * License permits free of charge
  * use on non-commercial and 
  * private web sites only 
@@ -13,11 +14,10 @@ var tmp = navigator.appName == 'Microsoft Internet Explorer' && navigator.userAg
 if(tmp) var isIE = document.namespaces ? 1 : 0;
 
 if(isIE) {
-	if(document.namespaces['v'] == null) {
-		var stl = document.createStyleSheet();
-		stl.addRule("v\\:*", "behavior: url(#default#VML);"); 
-		document.namespaces.add("v", "urn:schemas-microsoft-com:vml"); 
-	}
+	if(document.namespaces['v']==null) {
+		var e=["shape","shapetype","group","background","path","formulas","handles","fill","stroke","shadow","textbox","textpath","imagedata","line","polyline","curve","roundrect","oval","rect","arc","image"],s=document.createStyleSheet(); 
+		for(var i=0; i<e.length; i++) {s.addRule("v\\:"+e[i],"behavior: url(#default#VML);");} document.namespaces.add("v","urn:schemas-microsoft-com:vml");
+	} 
 }
 
 function getImages(className){
@@ -285,7 +285,7 @@ function addIEGlossy() {
 
 function addGlossy() {
 	var theimages = getImages('glossy');
-	var image; var object; var canvas; var context; var i;
+	var image; var object; var canvas; var context; var i, radius;
 	var iradius = null; var sradius = null; var noshadow = 0;
 	var ibgcolor = null; var igradient = null; var horizontal = 0;
 	var factor = 0.25; var classes = ''; var newClasses = ''; 
@@ -329,9 +329,19 @@ function addGlossy() {
 			context.clearRect(0,0,canvas.width,canvas.height);
 			if(noshadow<1) glossyShadow(context,0,0,canvas.width,canvas.height,iradius,0.5);
 			context.save();
-			globalCompositeOperation = "source-in";
-			roundedRect(context,inset,0,canvas.width-(inset*2),canvas.height-(inset*2),radius);
-			context.clip();
+			if(!isNaN(ibgcolor)&&window.opera) {
+				context.globalCompositeOperation = "destination-out";
+				context.save();
+				roundedRect(context,inset,0,canvas.width-(inset*2),canvas.height-(inset*2),radius);
+				context.fillStyle='rgba(0,0,0,1)'; context.fill(); context.clip(); 
+				context.clearRect(0,0,canvas.width,canvas.height);
+				context.restore();
+				roundedRect(context,inset,0,canvas.width-(inset*2),canvas.height-(inset*2),radius);
+				context.clip(); context.globalCompositeOperation = "source-over";
+			}else {
+				roundedRect(context,inset,0,canvas.width-(inset*2),canvas.height-(inset*2),radius);
+				context.clip();
+			}
 			if(isNaN(ibgcolor)) {
 				if(isNaN(igradient)) {
 					if(horizontal>0) {
@@ -362,5 +372,5 @@ function addGlossy() {
 	}
 }
 
-var glossyOnload = window.onload;
-window.onload = function () { if(glossyOnload) glossyOnload(); if(isIE){addIEGlossy(); }else {addGlossy();}}
+if(window.attachEvent&&!window.opera) window.attachEvent("onload",addIEGlossy);
+else window.addEventListener("load",addGlossy,false);
