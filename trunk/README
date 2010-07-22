@@ -5,7 +5,9 @@ Prerequisites:
 	jruby -S gem install rails -v 1.2.3
 2.2) activerecord-jdbcmysql-adapter
 	jruby -S gem install activerecord-jdbcmysql-adapter
-2.3) Glassfish gem (This may take several minutes, the latest version of this gem, aka 1.0.2, cannot work with Rails 1.2.3)
+2.3) web server gem
+2.3.1) jruby -S gem install jetty-rails
+2.3.2) Optional if you installed jetty-rails, glassfish gem (The latest version of this gem, aka 1.0.2, cannot work with Rails 1.2.3)
 	jruby -S gem install glassfish -v 0.9.5
 2.4) flvtool2 gem (for video conversion)
 	jruby -S gem install flvtool2
@@ -40,14 +42,10 @@ default-character-set=utf8
 	jruby -S rake test
 8) If every case passes, setup production environment with:
 8.1) jruby -S rake db:migrate RAILS_ENV=production
-9) Start web server
-9.1) jruby -S glassfish -p 80
-9.2) If you run into the problem reporting something like 
-	".../glassfish-0.9.5-universal-java/lib/config.rb:199:in `check_domain_dir?': uninitialized constant GlassFish::Config::FileUtils"
-	add one the line of code below to line 41 of config.rb: 
-	require 'fileutils'
-9.3) Alternatively, you can start mongrel web server rather than glassfish
-	jruby script/server -p 80
+9) Start web server (for production environment)
+9.1) jruby -S jetty_rails -p 80 -e production 
+9.2) Alternatively, you can start mongrel web server rather than glassfish
+	jruby script/server -p 80 -e production
 10) That's it. Just head to http://localhost:80
 
 Data backup:
