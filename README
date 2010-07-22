@@ -50,11 +50,11 @@ default-character-set=utf8
 	jruby script/server -p 80
 10) That's it. Just head to http://localhost:80
 
-Upgrade:
-Before upgrade, please back up two kinds of data up front.
+Data backup:
 1) data in database
 1.1) jruby -S rake db:backup:dump
 1.2) Copy the dump file to another place (You can use rake db:backup:load to load the data back to database later on)
+1.3) jruby -S rake db:backup:load BACKUP_FILE=path/to/dump.yml
 2) binary data uploaded, such as photos and videos
 2.1) Copy ZANN_HOME/public/photo and video directory to other places, or use some symbolic links to point them to other places before upgrading
 
@@ -65,3 +65,6 @@ This will load all fixture data into database
 This task will copy all test photos/videos into public directory for testing purpose
 3) jruby -S rake zann:remove_uploaded_files
 This task will remove all photos/videos in public directory after testing is complete
+4) jruby -S rake zann:admin:grant USER=user_login_name, jruby -S rake zann:admin:ungrant USER=user_login_name 
+Grant/Ungrant administrator permission to user
+
