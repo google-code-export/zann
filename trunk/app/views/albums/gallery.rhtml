@@ -1,11 +1,18 @@
-	<%= javascript_include_tag "jquery" %>
-	<%= javascript_include_tag "thickbox" %>
-	<%= stylesheet_link_tag "thickbox", :media => "screen" %>
-	<%= image_tag "loadingAnimation.gif", {:style => 'display:none;'}%>
+<% content_for :colorbox do %>
+	<%= javascript_include_tag "jquery_1_4_2" %>
+	<%= javascript_include_tag "jquery_colorbox" %>
+	<%= stylesheet_link_tag "colorbox", :media => "screen" %>
+<% end %>
+<script>
+	$J(document).ready(function(){
+			$J("a[rel='colorbox']").colorbox();
+	});
+</script>
+
 <div id="album-photos" style="float:left;width:540px;">
 <% for photo in @photos %>
 	<div style="float:left;margin:0 5px 20px 5px;border: #F0F0F0 solid;width:160px;height:320px;">
-		<%= link_to(image_tag(small_size_file_url(photo,'image'), :size => '160x160', :class => 'glossy'), url_for_file_column(photo,'image'), {:class => 'thickbox', :rel => photo.album.name, :title => "<b>#{photo.name}</b> - #{link_to('detail of this photo', {:controller => 'photos', :action => 'show', :id => photo}, {:style => "color:blue;"})}" }) %></br>
+		<%= link_to(image_tag(small_size_file_url(photo,'image'), :size => '160x160', :class => 'glossy'), url_for_file_column(photo,'image'), {:rel => 'colorbox', :title => "#{photo.name}</b> - #{link_to('detail of this photo', {:controller => 'photos', :action => 'show', :id => photo})}" }) %></br>
 		<div style="text-align:center">
 			<b><%= photo.name %></b> <br/>
 			<%= link_to(photo.creator.full_name, :controller => "photos", :action => "user", :id => photo.creator) %><br/>

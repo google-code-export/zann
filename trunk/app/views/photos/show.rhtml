@@ -1,14 +1,22 @@
-	<%= javascript_include_tag "jquery" %>
-	<%= javascript_include_tag "thickbox" %>
+<% content_for :colorbox do %>
+	<%= javascript_include_tag "jquery_1_4_2" %>
+	<%= javascript_include_tag "jquery_colorbox" %>
+	<%= stylesheet_link_tag "colorbox", :media => "screen" %>
+<% end %>
+
+<% content_for :image_view do %>
 	<%= javascript_include_tag "image_view" %>
 	<%= javascript_include_tag "minmax" %>
+<% end %>
 	
-	<%= stylesheet_link_tag "thickbox", :media => "screen" %>
-	<%= image_tag "loadingAnimation.gif", {:style => 'display:none;'}%>
-
+<script>
+	$J(document).ready(function(){
+			$J("a[rel='colorbox']").colorbox();
+	});
+</script>
 <div id="imagebg" style="text-align:center;padding-top:10px;background-color:black;">
 <div style="color:#EEE;">Click to view in full screen.</div>
-<%= link_to(image_tag(url_for_file_column(@photo,'image'), :id => "viewedimage", :title => "Click to view in full screen."), url_for_file_column(@photo,'image'), {:class => 'thickbox', :title => "#{@photo.name}" }) %>
+<%= link_to(image_tag(url_for_file_column(@photo,'image'), :id => "viewedimage", :title => "Click to view in full screen."), url_for_file_column(@photo,'image'), {:rel => 'colorbox', :title => "#{@photo.name}" }) %>
 
 </div>
 <%= render(:partial => "photo_summary") %>

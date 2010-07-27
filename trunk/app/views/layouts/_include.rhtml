@@ -5,6 +5,8 @@
 	<%= javascript_include_tag "prototype" %>
 	<%= javascript_include_tag "effects" %>
 <% end %>
+	<%= yield :colorbox %>
+	<%= yield :image_view %>
 	<%= javascript_include_tag "glossy" %>
 	<%= stylesheet_link_tag "misc", :media => "all" %>
 	<%= stylesheet_link_tag "melmac", :media => "all" %>
