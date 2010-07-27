@@ -1,16 +1,17 @@
 class ZannController < ApplicationController
   before_filter :login_required
   def new
-    zann = Zann.new({
-				:zannee_type => params[:zannee_type],
-		    :zannee_id => params[:zannee_id],
-		    :zanned_at => Time.now,
-		    :zanner_id => current_user.id
-		})
-    if zann.save!
-      flash[:info] = 'Thank you for your voting.'
-    else
-      flash[:info] = "Zann failed. You're allowed to vote for one photo only once."
+    zann_req = {
+        :zannee_type => params[:zannee_type],
+        :zannee_id => params[:zannee_id],
+        :zanner_id => current_user.id}
+    unless Zann.exists?(zann_req)
+      zann = Zann.new(zann_req.merge({:zanned_at => Time.now}))
+      if zann.save!
+        flash[:info] = 'Thank you for your voting.'
+      else
+        flash[:info] = "Zann failed."
+      end
     end
     if(params[:zannee_type] == 'photo')
 			@photo = Photo.find(params[:zannee_id]) 
