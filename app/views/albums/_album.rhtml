@@ -14,6 +14,7 @@
 				<%= album.photos_count %> images <br/>
 				Creator: <%= album.creator.full_name %><br/>
 				<% if(logged_in? && permit?('admin'))%>
+                    <%= link_to('Ranking', :action => 'ranked_photos', :id => album)%><br/>
 					<%= link_to('Edit', :action => 'edit', :id => album)%><br/>
 					<%= link_to('Delete', {:action => 'destroy', :id => album}, :confirm => 'Are you sure you want to delete this album?', :method => 'post') %><br/>
 				<% end %>

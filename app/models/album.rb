@@ -14,6 +14,10 @@ class Album < ActiveRecord::Base
     Photo.find(:first, :conditions => ["album_id = ?", id ], :order => "zanns_count DESC")
   end
 
+  def ranked_photos
+    Photo.find(:all, :conditions => ["album_id = ?", id ], :order => "zanns_count DESC")
+  end
+
   def find_tags_in_album
     Tag.find(:all,
       :select => 'tags.name, count(*) as popularity',
