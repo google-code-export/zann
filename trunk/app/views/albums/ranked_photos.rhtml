@@ -10,7 +10,7 @@
   </tr>
 <% for photo in @photos %>
     <tr style="background-color:#F0F0F0;font-size:1.2em;">
-      <td><%= link_to(image_tag(small_size_file_url(photo,'image'), :size => '64x64', :class => 'nonglossy'), {:action => 'show', :id => photo }) %></td>
+        <td><%= link_to(image_tag(small_size_file_url(photo,'image'), :size => '64x64', :class => 'nonglossy'), {:controller => 'photos', :action => 'show', :id => photo }) %></td>
       <td><%= photo.name %></td>
       <td><%= link_to(photo.creator.full_name, :controller => "photos", :action => "user", :id => photo.creator) %></td>
       <td><%= photo.zanns_count %></td>
