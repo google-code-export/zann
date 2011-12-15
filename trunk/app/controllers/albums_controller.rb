@@ -118,6 +118,11 @@ class AlbumsController < ApplicationController
     end
   end
 
+  def ranked_photos
+    @album = Album.find(params[:id])
+    @photos = @album.ranked_photos
+  end
+
   private
   def find_photos_in_album
     if(params[:tag].nil?)
