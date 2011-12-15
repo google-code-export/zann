@@ -7,7 +7,6 @@
       <th>Zanns</th>
       <th>Comments</th>
       <th>Views</th>
-      <th>Download</th>
   </tr>
 <% for photo in @photos %>
     <tr style="background-color:#F0F0F0;font-size:1.2em;">
@@ -17,7 +16,11 @@
       <td><%= photo.zanns_count %></td>
       <td><%= photo.comments_count %></td>
       <td><%= photo.view_count %></td>
-      <td><%= link_to('Download', url_for_file_column(photo,'image'))%></td>
     </tr>
 <% end %>
 </table>
+
+<h1>Download list</h1>
+  <% for photo in @photos %>
+      <%= link_to(photo.name, url_for_file_column(photo,'image'))%> | 
+  <% end %>
