@@ -4,12 +4,10 @@ require 'zann_controller'
 # Re-raise errors caught by the controller.
 class ZannController; def rescue_action(e) raise e end; end
 
-class ZannControllerTest < Test::Unit::TestCase
+class ZannControllerTest < ActionController::TestCase
   fixtures :zanns, :users, :photos, :snacks, :videos
   def setup
-    @controller = ZannController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
+	super
     @request.session[:user] = users(:samuel)
     setup_fixture_files
   end

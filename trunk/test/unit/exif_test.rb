@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class ExifTest < Test::Unit::TestCase
+class ExifTest < ActiveSupport::TestCase
   def test_create_exif
     exif = Exif.new(
       :model => 'Nikon D50',

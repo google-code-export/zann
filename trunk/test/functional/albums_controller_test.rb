@@ -4,13 +4,11 @@ require 'albums_controller'
 # Re-raise errors caught by the controller.
 class AlbumsController; def rescue_action(e) raise e end; end
 
-class AlbumsControllerTest < Test::Unit::TestCase
+class AlbumsControllerTest < ActionController::TestCase
   fixtures :albums, :users, :roles, :roles_users
 
   def setup
-    @controller = AlbumsController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
+	super
 
     @shanghai_id = albums(:shanghai).id
     @request.session[:user] = users(:joetucci)

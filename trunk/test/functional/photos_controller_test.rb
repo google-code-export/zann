@@ -4,14 +4,11 @@ require 'photos_controller'
 # Re-raise errors caught by the controller.
 class PhotosController; def rescue_action(e) raise e end; end
 
-class PhotosControllerTest < Test::Unit::TestCase
+class PhotosControllerTest < ActionController::TestCase
   fixtures :photos, :users, :roles, :roles_users, :albums
 
   def setup
-    @controller = PhotosController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
-
+	super
     @shanghai_1_id = photos(:shanghai_1).id
     @request.session[:user] = users(:samuel)
     setup_fixture_files

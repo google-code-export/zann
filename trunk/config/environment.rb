@@ -5,7 +5,7 @@
 # ENV['RAILS_ENV'] ||= 'production'
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '1.2.3' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.0.1' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -43,6 +43,11 @@ Rails::Initializer.run do |config|
   
   # See Rails::Configuration for more options
   config.active_record.observers = :user_observer
+
+  config.action_controller.session = {
+    :session_key => '_zann_session',
+    :secret      => '70376e4d0af5bfe7045354d7a7890ac867bbbcce60b2cbfd057966c86303561ac047aff310648d2f82c367e4e65efc51a6b9cbf298d08d6ae5a33862d878a342'
+  }
 end
 
 # Add new inflection rules using the following format 
@@ -79,3 +84,5 @@ if CONFIG['cas_enabled']
     :cas_base_url => CONFIG['cas_base_url']
   )  
 end
+
+#require 'will_paginate'

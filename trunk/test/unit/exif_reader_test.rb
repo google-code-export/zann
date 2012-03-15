@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class ExifReaderTest < Test::Unit::TestCase
+class ExifReaderTest < ActiveSupport::TestCase
   
   def setup
   end

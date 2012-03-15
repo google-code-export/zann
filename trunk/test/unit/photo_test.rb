@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 require 'thumbnail'
-class PhotoTest < Test::Unit::TestCase
+class PhotoTest < ActiveSupport::TestCase
   include ImageProcessing
   fixtures :photos, :zanns, :comments, :users
   

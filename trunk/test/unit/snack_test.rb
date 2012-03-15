@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class SnackTest < Test::Unit::TestCase
+class SnackTest < ActiveSupport::TestCase
   fixtures :snacks, :zanns, :users
   
   def setup
