@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class VideoTest < Test::Unit::TestCase
+class VideoTest < ActiveSupport::TestCase
   include VideoProcessing
   fixtures :videos
   

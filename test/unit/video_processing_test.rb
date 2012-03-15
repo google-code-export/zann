@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class VideoProcessingTest < Test::Unit::TestCase
+class VideoProcessingTest < ActiveSupport::TestCase
   include VideoProcessing
 
   def test_convert_video

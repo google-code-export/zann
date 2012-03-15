@@ -4,11 +4,9 @@ require 'snacks_controller'
 # Re-raise errors caught by the controller.
 class SnacksController; def rescue_action(e) raise e end; end
 
-class SnacksControllerTest < Test::Unit::TestCase
+class SnacksControllerTest < ActionController::TestCase
   def setup
-    @controller = SnacksController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
+	super
   end
 
   def test_list

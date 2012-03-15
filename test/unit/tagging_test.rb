@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class TaggingTest < Test::Unit::TestCase
+class TaggingTest < ActiveSupport::TestCase
   fixtures :taggings, :tags, :photos
 
   def setup

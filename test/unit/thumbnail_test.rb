@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../test_helper'
 
 require 'test/unit'
 require 'thumbnail'
-class ThumbnailTest < Test::Unit::TestCase
+class ThumbnailTest < ActiveSupport::TestCase
   include ImageProcessing
   def setup
   end

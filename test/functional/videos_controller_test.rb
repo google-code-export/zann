@@ -4,12 +4,10 @@ require 'videos_controller'
 # Re-raise errors caught by the controller.
 class VideosController; def rescue_action(e) raise e end; end
 
-class VideosControllerTest < Test::Unit::TestCase
+class VideosControllerTest < ActionController::TestCase
   fixtures :users, :videos, :roles, :roles_users
   def setup
-    @controller = VideosController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
+	super
     setup_fixture_files
   end
 

@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class ZannTest < Test::Unit::TestCase
+class ZannTest < ActiveSupport::TestCase
   fixtures :zanns, :photos
   
   def setup
