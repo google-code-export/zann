@@ -1,20 +1,23 @@
 development:
-  adapter: mysql
+  adapter: jdbcmysql
   encoding: utf8
-  database: zann_development
+  driver: com.mysql.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/zann_development
   username: zann
   password: n0lif3
 
 test:
-  adapter: mysql
+  adapter: jdbcmysql
   encoding: utf8
-  database: zann_test
+  driver: com.mysql.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/zann_test
   username: zann
   password: n0lif3
   
 production:
-  adapter: mysql
+  adapter: jdbcmysql
   encoding: utf8
-  database: zann_production
+  driver: com.mysql.jdbc.Driver
+  url: jdbc:mysql://localhost:3306/zann_production
   username: zann
   password: n0lif3
