@@ -2,6 +2,7 @@ namespace :zann do
   namespace :admin do
     desc "Give administration permission to a user"
     task :grant => :environment do
+      CONFIG['cas_enabled'] = true
       if modify(true)
         puts "Succeeded to grant administration permission."
       else
