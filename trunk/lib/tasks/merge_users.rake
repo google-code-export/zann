@@ -87,4 +87,27 @@ namespace :zann do
       p.save(false)
     end
   end
+
+  task :delete_unused_users => :environment do
+	  users = User.find(:all)
+	  users_deleted = 0
+	  users.each do |u|
+		  if u.login.include?('\\')
+			  login = u.login.split('\\').last.downcase
+			  user = User.find_by_login(login)
+			  if !user.nil?
+				  puts "remove user #{u.login}"
+				  photos = Photo.find_all_by_creator_id(u.id)
+				  albums = Album.find_all_by_creator_id(u.id)
+				  comments = Comment.find_all_by_author_id(u.id)
+    			  zanns = Zann.find_all_by_zanner_id(u.id)
+				  puts "(#{photos.count}, #{albums.count}, #{comments.count}, #{zanns.count})"
+				  u.accepts_no_role 'owner', user
+				  u.destroy
+				  users_deleted += 1
+			  end
+		  end
+	  end
+	  puts "#{users_deleted} users deleted"
+  end
 end
