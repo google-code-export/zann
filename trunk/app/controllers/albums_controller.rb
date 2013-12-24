@@ -11,7 +11,8 @@ class AlbumsController < ApplicationController
          :redirect_to => { :action => :list }
 
   def list
-    @album_pages, @albums = paginate :albums, :per_page => 10
+    @albums = Album.find(:all,  :order => 'created_at DESC')
+    @album_pages, @albums = paginate_collection @albums, :page => params[:page], :per_page => 10
   end
 
   def show
